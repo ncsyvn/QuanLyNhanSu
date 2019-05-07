@@ -61,6 +61,21 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="N05_Ql_NhanSu_T5DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="N05_Ql_NhanSu_T5DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="N05_Ql_NhanSu_T5DataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DanhMuc.resx">
@@ -75,6 +90,39 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="N05_Ql_NhanSu_T5DataSet.xsc">
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>N05_Ql_NhanSu_T5DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet.xss">
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet1.xsc">
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>N05_Ql_NhanSu_T5DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet1.xss">
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet2.xsc">
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>N05_Ql_NhanSu_T5DataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet2.xss">
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet2.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

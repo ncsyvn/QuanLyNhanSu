@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelNhanVien = new System.Windows.Forms.Panel();
             this.panelSuaNhanVien = new System.Windows.Forms.Panel();
             this.buttonSuaNhanVien1 = new System.Windows.Forms.Button();
@@ -36,7 +37,9 @@
             this.textBoxSuaMaNhanVien1 = new System.Windows.Forms.TextBox();
             this.comboBoxSuaGioiTinh1 = new System.Windows.Forms.ComboBox();
             this.labelSuaMaNhanVien1 = new System.Windows.Forms.Label();
-            this.comboBoxSuaMaPhongBan = new System.Windows.Forms.ComboBox();
+            this.comboBoxSuaMaPhongBan1 = new System.Windows.Forms.ComboBox();
+            this.phongBanBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.n05_Ql_NhanSu_T5DataSet2 = new QuanLyNhanSu.N05_Ql_NhanSu_T5DataSet2();
             this.labelSuaSoCMTND1 = new System.Windows.Forms.Label();
             this.textBoxSuaNoiCapCMTND1 = new System.Windows.Forms.TextBox();
             this.labelSuaNgaySinh1 = new System.Windows.Forms.Label();
@@ -80,9 +83,9 @@
             this.textBoxThemNoiSinh1 = new System.Windows.Forms.TextBox();
             this.comboBoxThemGioiTinh1 = new System.Windows.Forms.ComboBox();
             this.comboBoxThemMaPhongBan1 = new System.Windows.Forms.ComboBox();
-            this.textBoxThemNoiCapCMT1 = new System.Windows.Forms.TextBox();
+            this.textBoxThemNoiCapCMTND1 = new System.Windows.Forms.TextBox();
             this.textBoxThemChucVu1 = new System.Windows.Forms.TextBox();
-            this.textBoxThemSoCMT1 = new System.Windows.Forms.TextBox();
+            this.textBoxThemSoCMTND1 = new System.Windows.Forms.TextBox();
             this.textBoxThemSoDienThoai1 = new System.Windows.Forms.TextBox();
             this.dateTimePickerThemNgaySinh1 = new System.Windows.Forms.DateTimePicker();
             this.textBoxThemHoVaTen1 = new System.Windows.Forms.TextBox();
@@ -101,6 +104,7 @@
             this.buttonXoaNhanVien = new System.Windows.Forms.Button();
             this.buttonSuaNhanVien = new System.Windows.Forms.Button();
             this.dataGridViewNhanVien = new System.Windows.Forms.DataGridView();
+            this.STTNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonNhanVien = new System.Windows.Forms.Button();
             this.panelNoiHoc = new System.Windows.Forms.Panel();
             this.panelTimNoiHoc = new System.Windows.Forms.Panel();
@@ -247,8 +251,11 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonSuaCongTy = new System.Windows.Forms.Button();
             this.buttonCongTy = new System.Windows.Forms.Button();
+            this.phongBanTableAdapter = new QuanLyNhanSu.N05_Ql_NhanSu_T5DataSet2TableAdapters.PhongBanTableAdapter();
             this.panelNhanVien.SuspendLayout();
             this.panelSuaNhanVien.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.phongBanBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet2)).BeginInit();
             this.panelTimNhanVien.SuspendLayout();
             this.panelThemNhanVien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhanVien)).BeginInit();
@@ -303,7 +310,7 @@
             this.panelSuaNhanVien.Controls.Add(this.textBoxSuaMaNhanVien1);
             this.panelSuaNhanVien.Controls.Add(this.comboBoxSuaGioiTinh1);
             this.panelSuaNhanVien.Controls.Add(this.labelSuaMaNhanVien1);
-            this.panelSuaNhanVien.Controls.Add(this.comboBoxSuaMaPhongBan);
+            this.panelSuaNhanVien.Controls.Add(this.comboBoxSuaMaPhongBan1);
             this.panelSuaNhanVien.Controls.Add(this.labelSuaSoCMTND1);
             this.panelSuaNhanVien.Controls.Add(this.textBoxSuaNoiCapCMTND1);
             this.panelSuaNhanVien.Controls.Add(this.labelSuaNgaySinh1);
@@ -332,6 +339,7 @@
             this.buttonSuaNhanVien1.TabIndex = 42;
             this.buttonSuaNhanVien1.Text = "Lưu Lại";
             this.buttonSuaNhanVien1.UseVisualStyleBackColor = true;
+            this.buttonSuaNhanVien1.Click += new System.EventHandler(this.buttonSuaNhanVien1_Click);
             // 
             // buttonSua1
             // 
@@ -347,6 +355,7 @@
             // 
             this.textBoxSuaNoiSinh1.Location = new System.Drawing.Point(293, 90);
             this.textBoxSuaNoiSinh1.Name = "textBoxSuaNoiSinh1";
+            this.textBoxSuaNoiSinh1.ReadOnly = true;
             this.textBoxSuaNoiSinh1.Size = new System.Drawing.Size(100, 20);
             this.textBoxSuaNoiSinh1.TabIndex = 41;
             // 
@@ -354,12 +363,19 @@
             // 
             this.textBoxSuaMaNhanVien1.Location = new System.Drawing.Point(89, 42);
             this.textBoxSuaMaNhanVien1.Name = "textBoxSuaMaNhanVien1";
+            this.textBoxSuaMaNhanVien1.ReadOnly = true;
             this.textBoxSuaMaNhanVien1.Size = new System.Drawing.Size(100, 20);
             this.textBoxSuaMaNhanVien1.TabIndex = 32;
             // 
             // comboBoxSuaGioiTinh1
             // 
+            this.comboBoxSuaGioiTinh1.Enabled = false;
             this.comboBoxSuaGioiTinh1.FormattingEnabled = true;
+            this.comboBoxSuaGioiTinh1.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3"});
             this.comboBoxSuaGioiTinh1.Location = new System.Drawing.Point(293, 64);
             this.comboBoxSuaGioiTinh1.Name = "comboBoxSuaGioiTinh1";
             this.comboBoxSuaGioiTinh1.Size = new System.Drawing.Size(100, 21);
@@ -374,13 +390,27 @@
             this.labelSuaMaNhanVien1.TabIndex = 22;
             this.labelSuaMaNhanVien1.Text = "Mã Nhân Viên";
             // 
-            // comboBoxSuaMaPhongBan
+            // comboBoxSuaMaPhongBan1
             // 
-            this.comboBoxSuaMaPhongBan.FormattingEnabled = true;
-            this.comboBoxSuaMaPhongBan.Location = new System.Drawing.Point(293, 143);
-            this.comboBoxSuaMaPhongBan.Name = "comboBoxSuaMaPhongBan";
-            this.comboBoxSuaMaPhongBan.Size = new System.Drawing.Size(100, 21);
-            this.comboBoxSuaMaPhongBan.TabIndex = 39;
+            this.comboBoxSuaMaPhongBan1.DataSource = this.phongBanBindingSource;
+            this.comboBoxSuaMaPhongBan1.DisplayMember = "MaPhongBan";
+            this.comboBoxSuaMaPhongBan1.Enabled = false;
+            this.comboBoxSuaMaPhongBan1.FormattingEnabled = true;
+            this.comboBoxSuaMaPhongBan1.Location = new System.Drawing.Point(293, 143);
+            this.comboBoxSuaMaPhongBan1.Name = "comboBoxSuaMaPhongBan1";
+            this.comboBoxSuaMaPhongBan1.Size = new System.Drawing.Size(100, 21);
+            this.comboBoxSuaMaPhongBan1.TabIndex = 39;
+            this.comboBoxSuaMaPhongBan1.ValueMember = "MaPhongBan";
+            // 
+            // phongBanBindingSource
+            // 
+            this.phongBanBindingSource.DataMember = "PhongBan";
+            this.phongBanBindingSource.DataSource = this.n05_Ql_NhanSu_T5DataSet2;
+            // 
+            // n05_Ql_NhanSu_T5DataSet2
+            // 
+            this.n05_Ql_NhanSu_T5DataSet2.DataSetName = "N05_Ql_NhanSu_T5DataSet2";
+            this.n05_Ql_NhanSu_T5DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // labelSuaSoCMTND1
             // 
@@ -395,6 +425,7 @@
             // 
             this.textBoxSuaNoiCapCMTND1.Location = new System.Drawing.Point(293, 115);
             this.textBoxSuaNoiCapCMTND1.Name = "textBoxSuaNoiCapCMTND1";
+            this.textBoxSuaNoiCapCMTND1.ReadOnly = true;
             this.textBoxSuaNoiCapCMTND1.Size = new System.Drawing.Size(100, 20);
             this.textBoxSuaNoiCapCMTND1.TabIndex = 38;
             // 
@@ -411,6 +442,7 @@
             // 
             this.textBoxSuaChucVu1.Location = new System.Drawing.Point(89, 144);
             this.textBoxSuaChucVu1.Name = "textBoxSuaChucVu1";
+            this.textBoxSuaChucVu1.ReadOnly = true;
             this.textBoxSuaChucVu1.Size = new System.Drawing.Size(100, 20);
             this.textBoxSuaChucVu1.TabIndex = 37;
             // 
@@ -427,6 +459,7 @@
             // 
             this.textBoxSuaSoCMTND1.Location = new System.Drawing.Point(89, 117);
             this.textBoxSuaSoCMTND1.Name = "textBoxSuaSoCMTND1";
+            this.textBoxSuaSoCMTND1.ReadOnly = true;
             this.textBoxSuaSoCMTND1.Size = new System.Drawing.Size(100, 20);
             this.textBoxSuaSoCMTND1.TabIndex = 36;
             // 
@@ -443,6 +476,7 @@
             // 
             this.textBoxSuaSoDienThoai1.Location = new System.Drawing.Point(89, 90);
             this.textBoxSuaSoDienThoai1.Name = "textBoxSuaSoDienThoai1";
+            this.textBoxSuaSoDienThoai1.ReadOnly = true;
             this.textBoxSuaSoDienThoai1.Size = new System.Drawing.Size(100, 20);
             this.textBoxSuaSoDienThoai1.TabIndex = 35;
             // 
@@ -457,6 +491,7 @@
             // 
             // dateTimePickerSuaNgaySinh1
             // 
+            this.dateTimePickerSuaNgaySinh1.Enabled = false;
             this.dateTimePickerSuaNgaySinh1.Location = new System.Drawing.Point(89, 173);
             this.dateTimePickerSuaNgaySinh1.Name = "dateTimePickerSuaNgaySinh1";
             this.dateTimePickerSuaNgaySinh1.Size = new System.Drawing.Size(200, 20);
@@ -475,6 +510,7 @@
             // 
             this.textBoxSuaHoVaTen1.Location = new System.Drawing.Point(89, 66);
             this.textBoxSuaHoVaTen1.Name = "textBoxSuaHoVaTen1";
+            this.textBoxSuaHoVaTen1.ReadOnly = true;
             this.textBoxSuaHoVaTen1.Size = new System.Drawing.Size(100, 20);
             this.textBoxSuaHoVaTen1.TabIndex = 33;
             // 
@@ -723,9 +759,9 @@
             this.panelThemNhanVien.Controls.Add(this.textBoxThemNoiSinh1);
             this.panelThemNhanVien.Controls.Add(this.comboBoxThemGioiTinh1);
             this.panelThemNhanVien.Controls.Add(this.comboBoxThemMaPhongBan1);
-            this.panelThemNhanVien.Controls.Add(this.textBoxThemNoiCapCMT1);
+            this.panelThemNhanVien.Controls.Add(this.textBoxThemNoiCapCMTND1);
             this.panelThemNhanVien.Controls.Add(this.textBoxThemChucVu1);
-            this.panelThemNhanVien.Controls.Add(this.textBoxThemSoCMT1);
+            this.panelThemNhanVien.Controls.Add(this.textBoxThemSoCMTND1);
             this.panelThemNhanVien.Controls.Add(this.textBoxThemSoDienThoai1);
             this.panelThemNhanVien.Controls.Add(this.dateTimePickerThemNgaySinh1);
             this.panelThemNhanVien.Controls.Add(this.textBoxThemHoVaTen1);
@@ -754,6 +790,7 @@
             this.buttonThemNhanVien1.TabIndex = 21;
             this.buttonThemNhanVien1.Text = "Thêm";
             this.buttonThemNhanVien1.UseVisualStyleBackColor = true;
+            this.buttonThemNhanVien1.Click += new System.EventHandler(this.buttonThemNhanVien1_Click);
             // 
             // textBoxThemNoiSinh1
             // 
@@ -765,6 +802,11 @@
             // comboBoxThemGioiTinh1
             // 
             this.comboBoxThemGioiTinh1.FormattingEnabled = true;
+            this.comboBoxThemGioiTinh1.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3"});
             this.comboBoxThemGioiTinh1.Location = new System.Drawing.Point(298, 62);
             this.comboBoxThemGioiTinh1.Name = "comboBoxThemGioiTinh1";
             this.comboBoxThemGioiTinh1.Size = new System.Drawing.Size(100, 21);
@@ -772,18 +814,21 @@
             // 
             // comboBoxThemMaPhongBan1
             // 
+            this.comboBoxThemMaPhongBan1.DataSource = this.phongBanBindingSource;
+            this.comboBoxThemMaPhongBan1.DisplayMember = "MaPhongBan";
             this.comboBoxThemMaPhongBan1.FormattingEnabled = true;
             this.comboBoxThemMaPhongBan1.Location = new System.Drawing.Point(298, 141);
             this.comboBoxThemMaPhongBan1.Name = "comboBoxThemMaPhongBan1";
             this.comboBoxThemMaPhongBan1.Size = new System.Drawing.Size(100, 21);
             this.comboBoxThemMaPhongBan1.TabIndex = 18;
+            this.comboBoxThemMaPhongBan1.ValueMember = "MaPhongBan";
             // 
-            // textBoxThemNoiCapCMT1
+            // textBoxThemNoiCapCMTND1
             // 
-            this.textBoxThemNoiCapCMT1.Location = new System.Drawing.Point(298, 113);
-            this.textBoxThemNoiCapCMT1.Name = "textBoxThemNoiCapCMT1";
-            this.textBoxThemNoiCapCMT1.Size = new System.Drawing.Size(100, 20);
-            this.textBoxThemNoiCapCMT1.TabIndex = 17;
+            this.textBoxThemNoiCapCMTND1.Location = new System.Drawing.Point(298, 113);
+            this.textBoxThemNoiCapCMTND1.Name = "textBoxThemNoiCapCMTND1";
+            this.textBoxThemNoiCapCMTND1.Size = new System.Drawing.Size(100, 20);
+            this.textBoxThemNoiCapCMTND1.TabIndex = 17;
             // 
             // textBoxThemChucVu1
             // 
@@ -792,12 +837,12 @@
             this.textBoxThemChucVu1.Size = new System.Drawing.Size(100, 20);
             this.textBoxThemChucVu1.TabIndex = 16;
             // 
-            // textBoxThemSoCMT1
+            // textBoxThemSoCMTND1
             // 
-            this.textBoxThemSoCMT1.Location = new System.Drawing.Point(94, 115);
-            this.textBoxThemSoCMT1.Name = "textBoxThemSoCMT1";
-            this.textBoxThemSoCMT1.Size = new System.Drawing.Size(100, 20);
-            this.textBoxThemSoCMT1.TabIndex = 15;
+            this.textBoxThemSoCMTND1.Location = new System.Drawing.Point(94, 115);
+            this.textBoxThemSoCMTND1.Name = "textBoxThemSoCMTND1";
+            this.textBoxThemSoCMTND1.Size = new System.Drawing.Size(100, 20);
+            this.textBoxThemSoCMTND1.TabIndex = 15;
             // 
             // textBoxThemSoDienThoai1
             // 
@@ -948,10 +993,18 @@
             // dataGridViewNhanVien
             // 
             this.dataGridViewNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewNhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.STTNhanVien});
             this.dataGridViewNhanVien.Location = new System.Drawing.Point(3, 29);
             this.dataGridViewNhanVien.Name = "dataGridViewNhanVien";
             this.dataGridViewNhanVien.Size = new System.Drawing.Size(1340, 108);
             this.dataGridViewNhanVien.TabIndex = 1;
+            this.dataGridViewNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNhanVien_CellClick);
+            // 
+            // STTNhanVien
+            // 
+            this.STTNhanVien.HeaderText = "STT";
+            this.STTNhanVien.Name = "STTNhanVien";
             // 
             // buttonNhanVien
             // 
@@ -2299,6 +2352,10 @@
             this.buttonCongTy.Text = "Công Ty";
             this.buttonCongTy.UseVisualStyleBackColor = false;
             // 
+            // phongBanTableAdapter
+            // 
+            this.phongBanTableAdapter.ClearBeforeFill = true;
+            // 
             // DanhMuc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2319,6 +2376,8 @@
             this.panelNhanVien.ResumeLayout(false);
             this.panelSuaNhanVien.ResumeLayout(false);
             this.panelSuaNhanVien.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.phongBanBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet2)).EndInit();
             this.panelTimNhanVien.ResumeLayout(false);
             this.panelTimNhanVien.PerformLayout();
             this.panelThemNhanVien.ResumeLayout(false);
@@ -2391,22 +2450,21 @@
         private System.Windows.Forms.Label labelThemSoDienThoai1;
         private System.Windows.Forms.Label labelThemNoiCapCMTND1;
         private System.Windows.Forms.ComboBox comboBoxThemMaPhongBan1;
-        private System.Windows.Forms.TextBox textBoxThemNoiCapCMT1;
+        private System.Windows.Forms.TextBox textBoxThemNoiCapCMTND1;
         private System.Windows.Forms.TextBox textBoxThemChucVu1;
-        private System.Windows.Forms.TextBox textBoxThemSoCMT1;
+        private System.Windows.Forms.TextBox textBoxThemSoCMTND1;
         private System.Windows.Forms.TextBox textBoxThemSoDienThoai1;
         private System.Windows.Forms.DateTimePicker dateTimePickerThemNgaySinh1;
         private System.Windows.Forms.TextBox textBoxThemHoVaTen1;
         private System.Windows.Forms.TextBox textBoxThemMaNhanVien1;
         private System.Windows.Forms.Button buttonThemNhanVien1;
         private System.Windows.Forms.TextBox textBoxThemNoiSinh1;
-        private System.Windows.Forms.ComboBox comboBoxThemGioiTinh1;
         private System.Windows.Forms.Button buttonSuaNhanVien1;
         private System.Windows.Forms.TextBox textBoxSuaNoiSinh1;
         private System.Windows.Forms.TextBox textBoxSuaMaNhanVien1;
         private System.Windows.Forms.ComboBox comboBoxSuaGioiTinh1;
         private System.Windows.Forms.Label labelSuaMaNhanVien1;
-        private System.Windows.Forms.ComboBox comboBoxSuaMaPhongBan;
+        private System.Windows.Forms.ComboBox comboBoxSuaMaPhongBan1;
         private System.Windows.Forms.Label labelSuaSoCMTND1;
         private System.Windows.Forms.TextBox textBoxSuaNoiCapCMTND1;
         private System.Windows.Forms.Label labelSuaNgaySinh1;
@@ -2588,5 +2646,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.ComboBox comboBoxThemGioiTinh1;
+        private N05_Ql_NhanSu_T5DataSet2 n05_Ql_NhanSu_T5DataSet2;
+        private System.Windows.Forms.BindingSource phongBanBindingSource;
+        private N05_Ql_NhanSu_T5DataSet2TableAdapters.PhongBanTableAdapter phongBanTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STTNhanVien;
     }
 }
