@@ -117,22 +117,17 @@
             this.panelSuaNoiHoc = new System.Windows.Forms.Panel();
             this.buttonSuaNoiHoc2 = new System.Windows.Forms.Button();
             this.buttonSua2 = new System.Windows.Forms.Button();
-            this.textBoxSuaMaNoiHoc2 = new System.Windows.Forms.TextBox();
             this.labelSuaMaNoiHoc2 = new System.Windows.Forms.Label();
             this.textBoxSuaTenNoiHoc2 = new System.Windows.Forms.TextBox();
             this.labelSuaTenNoiHoc2 = new System.Windows.Forms.Label();
             this.panelThemNoiHoc = new System.Windows.Forms.Panel();
             this.buttonThemNoiHoc2 = new System.Windows.Forms.Button();
-            this.textBoxThemMaNoiHoc2 = new System.Windows.Forms.TextBox();
             this.textBoxThemTenNoiHoc2 = new System.Windows.Forms.TextBox();
             this.labelThemTenNoiHoc2 = new System.Windows.Forms.Label();
             this.labelThemMaNoiHoc2 = new System.Windows.Forms.Label();
             this.buttonThem2 = new System.Windows.Forms.Button();
             this.buttonXoaNoiHoc = new System.Windows.Forms.Button();
             this.dataGridViewNoiHoc = new System.Windows.Forms.DataGridView();
-            this.STTNoiHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaNoiHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenNoiHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonSuaNoiHoc = new System.Windows.Forms.Button();
             this.buttonNoiHoc = new System.Windows.Forms.Button();
             this.panelNgonNgu = new System.Windows.Forms.Panel();
@@ -253,6 +248,13 @@
             this.buttonCongTy = new System.Windows.Forms.Button();
             this.phongBanTableAdapter = new QuanLyNhanSu.N05_Ql_NhanSu_T5DataSet2TableAdapters.PhongBanTableAdapter();
             this.buttonQuayLaiNhanVien1 = new System.Windows.Forms.Button();
+            this.buttonQuayLaiNoiHoc2 = new System.Windows.Forms.Button();
+            this.STTNoiHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.n05_Ql_NhanSu_T5DataSet3 = new QuanLyNhanSu.N05_Ql_NhanSu_T5DataSet3();
+            this.noiHocBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.noiHocTableAdapter = new QuanLyNhanSu.N05_Ql_NhanSu_T5DataSet3TableAdapters.NoiHocTableAdapter();
+            this.textBoxThemMaNoiHoc2 = new System.Windows.Forms.TextBox();
+            this.textBoxSuaMaNoiHoc2 = new System.Windows.Forms.TextBox();
             this.panelNhanVien.SuspendLayout();
             this.panelSuaNhanVien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.phongBanBindingSource)).BeginInit();
@@ -285,6 +287,8 @@
             this.panelSuaCongTy.SuspendLayout();
             this.panelThemCongTy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCongTy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.noiHocBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelNhanVien
@@ -1039,6 +1043,7 @@
             // panelTimNoiHoc
             // 
             this.panelTimNoiHoc.BackColor = System.Drawing.Color.LightCyan;
+            this.panelTimNoiHoc.Controls.Add(this.buttonQuayLaiNoiHoc2);
             this.panelTimNoiHoc.Controls.Add(this.buttonTimNoiHoc2);
             this.panelTimNoiHoc.Controls.Add(this.buttonTim2);
             this.panelTimNoiHoc.Controls.Add(this.labelTimTenNoiHoc2);
@@ -1052,12 +1057,13 @@
             // 
             // buttonTimNoiHoc2
             // 
-            this.buttonTimNoiHoc2.Location = new System.Drawing.Point(210, 18);
+            this.buttonTimNoiHoc2.Location = new System.Drawing.Point(210, 8);
             this.buttonTimNoiHoc2.Name = "buttonTimNoiHoc2";
             this.buttonTimNoiHoc2.Size = new System.Drawing.Size(45, 24);
             this.buttonTimNoiHoc2.TabIndex = 17;
             this.buttonTimNoiHoc2.Text = "Tìm";
             this.buttonTimNoiHoc2.UseVisualStyleBackColor = true;
+            this.buttonTimNoiHoc2.Click += new System.EventHandler(this.buttonTimNoiHoc2_Click);
             // 
             // buttonTim2
             // 
@@ -1103,9 +1109,9 @@
             // panelSuaNoiHoc
             // 
             this.panelSuaNoiHoc.BackColor = System.Drawing.Color.LightCyan;
+            this.panelSuaNoiHoc.Controls.Add(this.textBoxSuaMaNoiHoc2);
             this.panelSuaNoiHoc.Controls.Add(this.buttonSuaNoiHoc2);
             this.panelSuaNoiHoc.Controls.Add(this.buttonSua2);
-            this.panelSuaNoiHoc.Controls.Add(this.textBoxSuaMaNoiHoc2);
             this.panelSuaNoiHoc.Controls.Add(this.labelSuaMaNoiHoc2);
             this.panelSuaNoiHoc.Controls.Add(this.textBoxSuaTenNoiHoc2);
             this.panelSuaNoiHoc.Controls.Add(this.labelSuaTenNoiHoc2);
@@ -1122,6 +1128,7 @@
             this.buttonSuaNoiHoc2.TabIndex = 11;
             this.buttonSuaNoiHoc2.Text = "Lưu";
             this.buttonSuaNoiHoc2.UseVisualStyleBackColor = true;
+            this.buttonSuaNoiHoc2.Click += new System.EventHandler(this.buttonSuaNoiHoc2_Click);
             // 
             // buttonSua2
             // 
@@ -1131,13 +1138,6 @@
             this.buttonSua2.TabIndex = 6;
             this.buttonSua2.Text = "Sửa TT";
             this.buttonSua2.UseVisualStyleBackColor = true;
-            // 
-            // textBoxSuaMaNoiHoc2
-            // 
-            this.textBoxSuaMaNoiHoc2.Location = new System.Drawing.Point(108, 6);
-            this.textBoxSuaMaNoiHoc2.Name = "textBoxSuaMaNoiHoc2";
-            this.textBoxSuaMaNoiHoc2.Size = new System.Drawing.Size(93, 20);
-            this.textBoxSuaMaNoiHoc2.TabIndex = 10;
             // 
             // labelSuaMaNoiHoc2
             // 
@@ -1167,8 +1167,8 @@
             // panelThemNoiHoc
             // 
             this.panelThemNoiHoc.BackColor = System.Drawing.Color.LightCyan;
-            this.panelThemNoiHoc.Controls.Add(this.buttonThemNoiHoc2);
             this.panelThemNoiHoc.Controls.Add(this.textBoxThemMaNoiHoc2);
+            this.panelThemNoiHoc.Controls.Add(this.buttonThemNoiHoc2);
             this.panelThemNoiHoc.Controls.Add(this.textBoxThemTenNoiHoc2);
             this.panelThemNoiHoc.Controls.Add(this.labelThemTenNoiHoc2);
             this.panelThemNoiHoc.Controls.Add(this.labelThemMaNoiHoc2);
@@ -1186,13 +1186,7 @@
             this.buttonThemNoiHoc2.TabIndex = 5;
             this.buttonThemNoiHoc2.Text = "Thêm";
             this.buttonThemNoiHoc2.UseVisualStyleBackColor = true;
-            // 
-            // textBoxThemMaNoiHoc2
-            // 
-            this.textBoxThemMaNoiHoc2.Location = new System.Drawing.Point(108, 6);
-            this.textBoxThemMaNoiHoc2.Name = "textBoxThemMaNoiHoc2";
-            this.textBoxThemMaNoiHoc2.Size = new System.Drawing.Size(96, 20);
-            this.textBoxThemMaNoiHoc2.TabIndex = 4;
+            this.buttonThemNoiHoc2.Click += new System.EventHandler(this.buttonThemNoiHoc2_Click);
             // 
             // textBoxThemTenNoiHoc2
             // 
@@ -1241,31 +1235,12 @@
             // 
             this.dataGridViewNoiHoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewNoiHoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.STTNoiHoc,
-            this.MaNoiHoc,
-            this.TenNoiHoc});
+            this.STTNoiHoc});
             this.dataGridViewNoiHoc.Location = new System.Drawing.Point(7, 35);
             this.dataGridViewNoiHoc.Name = "dataGridViewNoiHoc";
             this.dataGridViewNoiHoc.Size = new System.Drawing.Size(254, 80);
             this.dataGridViewNoiHoc.TabIndex = 8;
-            // 
-            // STTNoiHoc
-            // 
-            this.STTNoiHoc.HeaderText = "STT";
-            this.STTNoiHoc.Name = "STTNoiHoc";
-            this.STTNoiHoc.Width = 30;
-            // 
-            // MaNoiHoc
-            // 
-            this.MaNoiHoc.HeaderText = "Mã Nơi Học";
-            this.MaNoiHoc.Name = "MaNoiHoc";
-            this.MaNoiHoc.Width = 75;
-            // 
-            // TenNoiHoc
-            // 
-            this.TenNoiHoc.HeaderText = "Tên Nơi Học";
-            this.TenNoiHoc.Name = "TenNoiHoc";
-            this.TenNoiHoc.Width = 105;
+            this.dataGridViewNoiHoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNoiHoc_CellClick);
             // 
             // buttonSuaNoiHoc
             // 
@@ -1586,7 +1561,7 @@
             // 
             // buttonTimKNVT
             // 
-            this.buttonTimKNVT.Location = new System.Drawing.Point(197, 18);
+            this.buttonTimKNVT.Location = new System.Drawing.Point(199, 8);
             this.buttonTimKNVT.Name = "buttonTimKNVT";
             this.buttonTimKNVT.Size = new System.Drawing.Size(45, 24);
             this.buttonTimKNVT.TabIndex = 17;
@@ -2369,6 +2344,50 @@
             this.buttonQuayLaiNhanVien1.UseVisualStyleBackColor = true;
             this.buttonQuayLaiNhanVien1.Click += new System.EventHandler(this.buttonQuayLaiNhanVien1_Click);
             // 
+            // buttonQuayLaiNoiHoc2
+            // 
+            this.buttonQuayLaiNoiHoc2.Location = new System.Drawing.Point(210, 31);
+            this.buttonQuayLaiNoiHoc2.Name = "buttonQuayLaiNoiHoc2";
+            this.buttonQuayLaiNoiHoc2.Size = new System.Drawing.Size(44, 23);
+            this.buttonQuayLaiNoiHoc2.TabIndex = 18;
+            this.buttonQuayLaiNoiHoc2.Text = "Quay Lại";
+            this.buttonQuayLaiNoiHoc2.UseVisualStyleBackColor = true;
+            this.buttonQuayLaiNoiHoc2.Click += new System.EventHandler(this.buttonQuayLaiNoiHoc2_Click);
+            // 
+            // STTNoiHoc
+            // 
+            this.STTNoiHoc.HeaderText = "STT";
+            this.STTNoiHoc.Name = "STTNoiHoc";
+            this.STTNoiHoc.Width = 30;
+            // 
+            // n05_Ql_NhanSu_T5DataSet3
+            // 
+            this.n05_Ql_NhanSu_T5DataSet3.DataSetName = "N05_Ql_NhanSu_T5DataSet3";
+            this.n05_Ql_NhanSu_T5DataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // noiHocBindingSource
+            // 
+            this.noiHocBindingSource.DataMember = "NoiHoc";
+            this.noiHocBindingSource.DataSource = this.n05_Ql_NhanSu_T5DataSet3;
+            // 
+            // noiHocTableAdapter
+            // 
+            this.noiHocTableAdapter.ClearBeforeFill = true;
+            // 
+            // textBoxThemMaNoiHoc2
+            // 
+            this.textBoxThemMaNoiHoc2.Location = new System.Drawing.Point(108, 6);
+            this.textBoxThemMaNoiHoc2.Name = "textBoxThemMaNoiHoc2";
+            this.textBoxThemMaNoiHoc2.Size = new System.Drawing.Size(96, 20);
+            this.textBoxThemMaNoiHoc2.TabIndex = 6;
+            // 
+            // textBoxSuaMaNoiHoc2
+            // 
+            this.textBoxSuaMaNoiHoc2.Location = new System.Drawing.Point(108, 8);
+            this.textBoxSuaMaNoiHoc2.Name = "textBoxSuaMaNoiHoc2";
+            this.textBoxSuaMaNoiHoc2.Size = new System.Drawing.Size(93, 20);
+            this.textBoxSuaMaNoiHoc2.TabIndex = 12;
+            // 
             // DanhMuc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2436,6 +2455,8 @@
             this.panelThemCongTy.ResumeLayout(false);
             this.panelThemCongTy.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCongTy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.noiHocBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2530,12 +2551,10 @@
         private System.Windows.Forms.Label labelTimMaNoiHoc2;
         private System.Windows.Forms.Button buttonSuaNoiHoc2;
         private System.Windows.Forms.Button buttonSua2;
-        private System.Windows.Forms.TextBox textBoxSuaMaNoiHoc2;
         private System.Windows.Forms.Label labelSuaMaNoiHoc2;
         private System.Windows.Forms.TextBox textBoxSuaTenNoiHoc2;
         private System.Windows.Forms.Label labelSuaTenNoiHoc2;
         private System.Windows.Forms.Button buttonThemNoiHoc2;
-        private System.Windows.Forms.TextBox textBoxThemMaNoiHoc2;
         private System.Windows.Forms.TextBox textBoxThemTenNoiHoc2;
         private System.Windows.Forms.Label labelThemTenNoiHoc2;
         private System.Windows.Forms.Label labelThemMaNoiHoc2;
@@ -2644,9 +2663,6 @@
         private System.Windows.Forms.DataGridView dataGridViewCongTy;
         private System.Windows.Forms.Button buttonSuaCongTy;
         private System.Windows.Forms.Button buttonCongTy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STTNoiHoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaNoiHoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenNoiHoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -2665,5 +2681,12 @@
         private N05_Ql_NhanSu_T5DataSet2TableAdapters.PhongBanTableAdapter phongBanTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn STTNhanVien;
         private System.Windows.Forms.Button buttonQuayLaiNhanVien1;
+        private System.Windows.Forms.Button buttonQuayLaiNoiHoc2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STTNoiHoc;
+        private N05_Ql_NhanSu_T5DataSet3 n05_Ql_NhanSu_T5DataSet3;
+        private System.Windows.Forms.BindingSource noiHocBindingSource;
+        private N05_Ql_NhanSu_T5DataSet3TableAdapters.NoiHocTableAdapter noiHocTableAdapter;
+        private System.Windows.Forms.TextBox textBoxThemMaNoiHoc2;
+        private System.Windows.Forms.TextBox textBoxSuaMaNoiHoc2;
     }
 }
