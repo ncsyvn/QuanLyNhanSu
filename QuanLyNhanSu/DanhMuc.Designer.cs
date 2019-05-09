@@ -252,6 +252,7 @@
             this.buttonSuaCongTy = new System.Windows.Forms.Button();
             this.buttonCongTy = new System.Windows.Forms.Button();
             this.phongBanTableAdapter = new QuanLyNhanSu.N05_Ql_NhanSu_T5DataSet2TableAdapters.PhongBanTableAdapter();
+            this.buttonQuayLaiNhanVien1 = new System.Windows.Forms.Button();
             this.panelNhanVien.SuspendLayout();
             this.panelSuaNhanVien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.phongBanBindingSource)).BeginInit();
@@ -544,6 +545,7 @@
             // panelTimNhanVien
             // 
             this.panelTimNhanVien.BackColor = System.Drawing.Color.LightCyan;
+            this.panelTimNhanVien.Controls.Add(this.buttonQuayLaiNhanVien1);
             this.panelTimNhanVien.Controls.Add(this.buttonTimNhanVien1);
             this.panelTimNhanVien.Controls.Add(this.buttonTim1);
             this.panelTimNhanVien.Controls.Add(this.textBoxTimNoiSinh1);
@@ -573,12 +575,13 @@
             // 
             // buttonTimNhanVien1
             // 
-            this.buttonTimNhanVien1.Location = new System.Drawing.Point(322, 170);
+            this.buttonTimNhanVien1.Location = new System.Drawing.Point(290, 170);
             this.buttonTimNhanVien1.Name = "buttonTimNhanVien1";
-            this.buttonTimNhanVien1.Size = new System.Drawing.Size(75, 23);
+            this.buttonTimNhanVien1.Size = new System.Drawing.Size(58, 23);
             this.buttonTimNhanVien1.TabIndex = 63;
             this.buttonTimNhanVien1.Text = "Tìm Kiếm";
             this.buttonTimNhanVien1.UseVisualStyleBackColor = true;
+            this.buttonTimNhanVien1.Click += new System.EventHandler(this.buttonTimNhanVien1_Click);
             // 
             // buttonTim1
             // 
@@ -592,7 +595,7 @@
             // 
             // textBoxTimNoiSinh1
             // 
-            this.textBoxTimNoiSinh1.Location = new System.Drawing.Point(298, 90);
+            this.textBoxTimNoiSinh1.Location = new System.Drawing.Point(291, 90);
             this.textBoxTimNoiSinh1.Name = "textBoxTimNoiSinh1";
             this.textBoxTimNoiSinh1.Size = new System.Drawing.Size(100, 20);
             this.textBoxTimNoiSinh1.TabIndex = 62;
@@ -608,7 +611,7 @@
             // 
             // textBoxTimMaNhanVien1
             // 
-            this.textBoxTimMaNhanVien1.Location = new System.Drawing.Point(94, 42);
+            this.textBoxTimMaNhanVien1.Location = new System.Drawing.Point(90, 42);
             this.textBoxTimMaNhanVien1.Name = "textBoxTimMaNhanVien1";
             this.textBoxTimMaNhanVien1.Size = new System.Drawing.Size(100, 20);
             this.textBoxTimMaNhanVien1.TabIndex = 53;
@@ -616,7 +619,7 @@
             // labelTimMaPhongBan1
             // 
             this.labelTimMaPhongBan1.AutoSize = true;
-            this.labelTimMaPhongBan1.Location = new System.Drawing.Point(217, 147);
+            this.labelTimMaPhongBan1.Location = new System.Drawing.Point(210, 147);
             this.labelTimMaPhongBan1.Name = "labelTimMaPhongBan1";
             this.labelTimMaPhongBan1.Size = new System.Drawing.Size(78, 13);
             this.labelTimMaPhongBan1.TabIndex = 52;
@@ -625,7 +628,7 @@
             // comboBoxTimGioiTinh1
             // 
             this.comboBoxTimGioiTinh1.FormattingEnabled = true;
-            this.comboBoxTimGioiTinh1.Location = new System.Drawing.Point(298, 64);
+            this.comboBoxTimGioiTinh1.Location = new System.Drawing.Point(292, 64);
             this.comboBoxTimGioiTinh1.Name = "comboBoxTimGioiTinh1";
             this.comboBoxTimGioiTinh1.Size = new System.Drawing.Size(100, 21);
             this.comboBoxTimGioiTinh1.TabIndex = 61;
@@ -651,14 +654,14 @@
             // comboBoxTimMaPhongBan1
             // 
             this.comboBoxTimMaPhongBan1.FormattingEnabled = true;
-            this.comboBoxTimMaPhongBan1.Location = new System.Drawing.Point(298, 143);
+            this.comboBoxTimMaPhongBan1.Location = new System.Drawing.Point(290, 143);
             this.comboBoxTimMaPhongBan1.Name = "comboBoxTimMaPhongBan1";
             this.comboBoxTimMaPhongBan1.Size = new System.Drawing.Size(100, 21);
             this.comboBoxTimMaPhongBan1.TabIndex = 60;
             // 
             // textBoxTimHoVaTen1
             // 
-            this.textBoxTimHoVaTen1.Location = new System.Drawing.Point(94, 66);
+            this.textBoxTimHoVaTen1.Location = new System.Drawing.Point(89, 66);
             this.textBoxTimHoVaTen1.Name = "textBoxTimHoVaTen1";
             this.textBoxTimHoVaTen1.Size = new System.Drawing.Size(100, 20);
             this.textBoxTimHoVaTen1.TabIndex = 54;
@@ -675,7 +678,7 @@
             // labelTimNoiCapCMTND1
             // 
             this.labelTimNoiCapCMTND1.AutoSize = true;
-            this.labelTimNoiCapCMTND1.Location = new System.Drawing.Point(217, 121);
+            this.labelTimNoiCapCMTND1.Location = new System.Drawing.Point(209, 121);
             this.labelTimNoiCapCMTND1.Name = "labelTimNoiCapCMTND1";
             this.labelTimNoiCapCMTND1.Size = new System.Drawing.Size(71, 13);
             this.labelTimNoiCapCMTND1.TabIndex = 49;
@@ -683,14 +686,14 @@
             // 
             // textBoxTimNoiCapCMTND1
             // 
-            this.textBoxTimNoiCapCMTND1.Location = new System.Drawing.Point(298, 115);
+            this.textBoxTimNoiCapCMTND1.Location = new System.Drawing.Point(291, 115);
             this.textBoxTimNoiCapCMTND1.Name = "textBoxTimNoiCapCMTND1";
             this.textBoxTimNoiCapCMTND1.Size = new System.Drawing.Size(100, 20);
             this.textBoxTimNoiCapCMTND1.TabIndex = 59;
             // 
             // dateTimePickerTimNgaySinh1
             // 
-            this.dateTimePickerTimNgaySinh1.Location = new System.Drawing.Point(94, 173);
+            this.dateTimePickerTimNgaySinh1.Location = new System.Drawing.Point(87, 173);
             this.dateTimePickerTimNgaySinh1.Name = "dateTimePickerTimNgaySinh1";
             this.dateTimePickerTimNgaySinh1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerTimNgaySinh1.TabIndex = 55;
@@ -707,7 +710,7 @@
             // labelTimNoiSinh1
             // 
             this.labelTimNoiSinh1.AutoSize = true;
-            this.labelTimNoiSinh1.Location = new System.Drawing.Point(217, 93);
+            this.labelTimNoiSinh1.Location = new System.Drawing.Point(210, 93);
             this.labelTimNoiSinh1.Name = "labelTimNoiSinh1";
             this.labelTimNoiSinh1.Size = new System.Drawing.Size(47, 13);
             this.labelTimNoiSinh1.TabIndex = 48;
@@ -715,14 +718,14 @@
             // 
             // textBoxTimChucVu1
             // 
-            this.textBoxTimChucVu1.Location = new System.Drawing.Point(94, 144);
+            this.textBoxTimChucVu1.Location = new System.Drawing.Point(88, 144);
             this.textBoxTimChucVu1.Name = "textBoxTimChucVu1";
             this.textBoxTimChucVu1.Size = new System.Drawing.Size(100, 20);
             this.textBoxTimChucVu1.TabIndex = 58;
             // 
             // textBoxTimSoDienThoai1
             // 
-            this.textBoxTimSoDienThoai1.Location = new System.Drawing.Point(94, 90);
+            this.textBoxTimSoDienThoai1.Location = new System.Drawing.Point(89, 90);
             this.textBoxTimSoDienThoai1.Name = "textBoxTimSoDienThoai1";
             this.textBoxTimSoDienThoai1.Size = new System.Drawing.Size(100, 20);
             this.textBoxTimSoDienThoai1.TabIndex = 56;
@@ -739,7 +742,7 @@
             // labelTimGioiTinh1
             // 
             this.labelTimGioiTinh1.AutoSize = true;
-            this.labelTimGioiTinh1.Location = new System.Drawing.Point(217, 66);
+            this.labelTimGioiTinh1.Location = new System.Drawing.Point(211, 66);
             this.labelTimGioiTinh1.Name = "labelTimGioiTinh1";
             this.labelTimGioiTinh1.Size = new System.Drawing.Size(51, 13);
             this.labelTimGioiTinh1.TabIndex = 47;
@@ -747,7 +750,7 @@
             // 
             // textBoxTimSoCMTND1
             // 
-            this.textBoxTimSoCMTND1.Location = new System.Drawing.Point(94, 117);
+            this.textBoxTimSoCMTND1.Location = new System.Drawing.Point(88, 117);
             this.textBoxTimSoCMTND1.Name = "textBoxTimSoCMTND1";
             this.textBoxTimSoCMTND1.Size = new System.Drawing.Size(100, 20);
             this.textBoxTimSoCMTND1.TabIndex = 57;
@@ -2356,6 +2359,16 @@
             // 
             this.phongBanTableAdapter.ClearBeforeFill = true;
             // 
+            // buttonQuayLaiNhanVien1
+            // 
+            this.buttonQuayLaiNhanVien1.Location = new System.Drawing.Point(350, 170);
+            this.buttonQuayLaiNhanVien1.Name = "buttonQuayLaiNhanVien1";
+            this.buttonQuayLaiNhanVien1.Size = new System.Drawing.Size(58, 23);
+            this.buttonQuayLaiNhanVien1.TabIndex = 64;
+            this.buttonQuayLaiNhanVien1.Text = "Quay Lại";
+            this.buttonQuayLaiNhanVien1.UseVisualStyleBackColor = true;
+            this.buttonQuayLaiNhanVien1.Click += new System.EventHandler(this.buttonQuayLaiNhanVien1_Click);
+            // 
             // DanhMuc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2651,5 +2664,6 @@
         private System.Windows.Forms.BindingSource phongBanBindingSource;
         private N05_Ql_NhanSu_T5DataSet2TableAdapters.PhongBanTableAdapter phongBanTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn STTNhanVien;
+        private System.Windows.Forms.Button buttonQuayLaiNhanVien1;
     }
 }

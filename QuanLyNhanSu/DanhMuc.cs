@@ -18,6 +18,7 @@ namespace QuanLyNhanSu
         {
             InitializeComponent();
         }
+        private int MaNhanVien;
 
         #region Xử Lý Danh Mục Nhân Viên
 
@@ -125,6 +126,57 @@ namespace QuanLyNhanSu
             cmd.Parameters.AddWithValue("MaPhongBan", comboBoxSuaMaPhongBan1.Text);
             cmd.ExecuteNonQuery();
         }
+
+        // Phương thức Xóa Nhân Viên
+        public void XoaNhanVien()
+        {
+            string sqlDelete = "Delete From NhanVien Where MaNhanVien=@MaNhanVien";
+            SqlCommand cmd = new SqlCommand(sqlDelete, con);
+            cmd.Parameters.AddWithValue("MaNhanVien", MaNhanVien);
+            cmd.ExecuteNonQuery();
+        }
+
+        // Phương thức Tìm nhân viên (Mới chỉ tìm theo mã hoặc tên)
+        public void TimNhanVien()
+        {
+            string sqlFindId = "Select * from NhanVien Where (CharIndex( Convert(Varchar(100), @MaNhanVien) , Convert(Varchar(100), MaNhanVien), 0 ) >=1) and" +
+                "                                            ((CharIndex(@HoVaTen, HoVaTen, 0))>=1 or (@HoVaTen=''))";
+                                                        // "(HoVaTen = @HoVaTen or HoVaTen='0'))";// and" +
+                                                         //"(NgaySinh=@NgaySinh or NgaySinh=GetDate()) and" +
+                                                         //"(GioiTinh=@GioiTinh or GioiTinh=NULL) and" +
+                                                         //"(NoiSinh=@NoiSinh or NoiSinh=NULL) and" +
+                                                         //"(SoCMTND=@SoCMTND or SoCMTND=NULL) and" +
+                                                         //"(NoiCapCMTND=@NoiCapCMTND or NoiCapCMTND=NULL) and" +
+                                                         //"(SoDienThoai=@SoDienThoai or SoDienThoai=NULL) and" +
+                                                        // "(ChucVu=@ChucVu or ChucVu=NULL))";
+                                                        // "(MaPhongBan=@MaPhongBan or MaPhongBan=NULL))";
+
+            SqlCommand cmd = new SqlCommand(sqlFindId, con);
+
+            if (textBoxTimMaNhanVien1.Text == "") cmd.Parameters.AddWithValue("MaNhanVien", 0);
+            else cmd.Parameters.AddWithValue("MaNhanVien", Convert.ToInt32(textBoxTimMaNhanVien1.Text));
+            cmd.Parameters.AddWithValue("HoVaTen", textBoxTimHoVaTen1.Text);
+
+
+            /*cmd.Parameters.AddWithValue("NgaySinh", dateTimePickerTimNgaySinh1.Value.Date.Year.ToString() + '/' +
+                                                     dateTimePickerTimNgaySinh1.Value.Date.Month.ToString() + '/' +
+                                                     dateTimePickerTimNgaySinh1.Value.Date.Day.ToString());
+            //cmd.Parameters.AddWithValue("GioiTinh", Convert.ToInt32(comboBoxTimGioiTinh1.Text));
+            cmd.Parameters.AddWithValue("NoiSinh", textBoxTimNoiSinh1.Text);
+            cmd.Parameters.AddWithValue("SoCMTND", textBoxTimSoCMTND1.Text);
+            cmd.Parameters.AddWithValue("NoiCapCMTND", textBoxTimNoiCapCMTND1.Text);
+            cmd.Parameters.AddWithValue("SoDienThoai", textBoxTimSoDienThoai1.Text);
+            cmd.Parameters.AddWithValue("ChucVu", textBoxTimChucVu1.Text);
+            //cmd.Parameters.AddWithValue("MaPhongBan", comboBoxTimMaPhongBan1.Text);*/
+            cmd.ExecuteNonQuery();
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);
+            dataGridViewNhanVien.DataSource = dt;
+            dataGridViewNhanVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            for (int i = 0; i < dataGridViewNhanVien.RowCount; i++) dataGridViewNhanVien.Rows[i].Cells[0].Value = i + 1;
+        }
         
         // Xử lý sự kiện click nút Thêm
         private void buttonThemNhanVien1_Click(object sender, EventArgs e)
@@ -159,8 +211,9 @@ namespace QuanLyNhanSu
             textBoxSuaSoDienThoai1.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[8].Value.ToString();
             textBoxSuaChucVu1.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[9].Value.ToString();
             comboBoxSuaMaPhongBan1.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[10].Value.ToString();
+            MaNhanVien = Convert.ToInt32(dataGridViewNhanVien.Rows[e.RowIndex].Cells[1].Value);
 
-            buttonSuaNhanVien.Click += buttonSua_Click;
+            buttonSuaNhanVien.Click += buttonSuaNhanVien_Click;
 
             // Khóa việc sửa giá trị trước khi click vào nút sửa.
             textBoxSuaMaNhanVien1.ReadOnly = true;
@@ -174,16 +227,18 @@ namespace QuanLyNhanSu
             textBoxSuaChucVu1.ReadOnly = true;
             comboBoxSuaMaPhongBan1.Enabled = false;
 
+            buttonXoaNhanVien.Click += buttonXoaNhanVien_Click;
+
 
         }
 
         // Xử lý sự kiện click nút sửa, cho phép sửa dữ liệu
-        void buttonSua_Click(object sender, EventArgs e)
+        void buttonSuaNhanVien_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
 
-            // Mở khóa cho phép sửa dữ liệu sau khi click vào nút sửa
-            textBoxSuaMaNhanVien1.ReadOnly = false;
+            // Mở khóa cho phép sửa dữ liệu sau khi click vào nút sửa, không cho phép sửa mã nhân viên.
+            textBoxSuaMaNhanVien1.ReadOnly = true;
             textBoxSuaHoVaTen1.ReadOnly = false;
             comboBoxSuaGioiTinh1.Enabled = true;
             dateTimePickerSuaNgaySinh1.Enabled = true;
@@ -224,11 +279,37 @@ namespace QuanLyNhanSu
             }
         }
 
+        // Xử lý sự kiện click nút xóa, cho phép xóa dữ liệu
+        void buttonXoaNhanVien_Click(object sender, EventArgs e1)
+        {
+            Button button = sender as Button;
+            DataGridView dataGridView = sender as DataGridView;
+            DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn xóa nhân viên", "Xóa Nhân Viên", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlr == DialogResult.Yes)
+            {
+                XoaNhanVien();
+                HienThiNhanVien();
+            }
+            else
+            {
+
+            }
+        }
+
+
+        // Xử Lý sự kiện click nút tìm kiếm
+        private void buttonTimNhanVien1_Click(object sender, EventArgs e)
+        {
+            TimNhanVien();
+        }
+
+        private void buttonQuayLaiNhanVien1_Click(object sender, EventArgs e)
+        {
+            HienThiNhanVien();
+        }
 
         #endregion
-
-
-
+        
 
     }
 }
