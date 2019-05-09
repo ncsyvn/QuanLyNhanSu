@@ -94,6 +94,15 @@ namespace QuanLyNhanSu
             con.Close();
         }
 
+
+
+        #endregion
+
+        #endregion
+
+        //--------------------------------------------------------------------------------------------------
+
+        #region Xử Lý danh mục Nhân Viên
         // Phương thức hiển thị danh sách nhân viên lên dataGridView
         public void HienThiNhanVien()
         {
@@ -108,13 +117,6 @@ namespace QuanLyNhanSu
             for (i = 0; i < dataGridViewNhanVien.RowCount; i++) dataGridViewNhanVien.Rows[i].Cells[0].Value = i + 1;
         }
 
-        #endregion
-
-        #endregion
-
-        //--------------------------------------------------------------------------------------------------
-
-        #region Xử Lý danh mục Nhân Viên
         // Phương thức thêm Nhân Viên
         public void ThemNhanVien()
         {
