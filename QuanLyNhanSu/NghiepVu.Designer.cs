@@ -69,6 +69,12 @@
             this.labelSuaNghe3 = new System.Windows.Forms.Label();
             this.buttonSuaNhanVien_NgonNgu = new System.Windows.Forms.Button();
             this.panelThemNhanVien_NgonNgu = new System.Windows.Forms.Panel();
+            this.comboBoxThemMaNgonNgu3 = new System.Windows.Forms.ComboBox();
+            this.ngonNguBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.n05_Ql_NhanSu_T5DataSet10 = new QuanLyNhanSu.N05_Ql_NhanSu_T5DataSet10();
+            this.comboBoxThemMaNhanVien3 = new System.Windows.Forms.ComboBox();
+            this.nhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.n05_Ql_NhanSu_T5DataSet5 = new QuanLyNhanSu.N05_Ql_NhanSu_T5DataSet5();
             this.textBoxThemViet3 = new System.Windows.Forms.TextBox();
             this.labelThemViet3 = new System.Windows.Forms.Label();
             this.textBoxThemDoc3 = new System.Windows.Forms.TextBox();
@@ -127,6 +133,10 @@
             this.dateTimePickerSuaThoiGianBatDau4 = new System.Windows.Forms.DateTimePicker();
             this.labelSuaThoiGianBatDau4 = new System.Windows.Forms.Label();
             this.panelThemNhanVien_CongTy = new System.Windows.Forms.Panel();
+            this.comboBoxThemMaCongTy4 = new System.Windows.Forms.ComboBox();
+            this.congTyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.n05_Ql_NhanSu_T5DataSet6 = new QuanLyNhanSu.N05_Ql_NhanSu_T5DataSet6();
+            this.comboBoxThemMaNhanVien4 = new System.Windows.Forms.ComboBox();
             this.textBoxThemLuong4 = new System.Windows.Forms.TextBox();
             this.labelThemLuong4 = new System.Windows.Forms.Label();
             this.textBoxThemNhiemVu4 = new System.Windows.Forms.TextBox();
@@ -181,6 +191,10 @@
             this.labelSuaThoiGianBatDau5 = new System.Windows.Forms.Label();
             this.buttonSuaNhanVien_KHL = new System.Windows.Forms.Button();
             this.panelThemNhanVien_KHL = new System.Windows.Forms.Panel();
+            this.comboBoxThemMaKHL5 = new System.Windows.Forms.ComboBox();
+            this.khoaHuanLuyenBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.n05_Ql_NhanSu_T5DataSet7 = new QuanLyNhanSu.N05_Ql_NhanSu_T5DataSet7();
+            this.comboBoxThemMaNhanVien5 = new System.Windows.Forms.ComboBox();
             this.textBoxThemVanBang5 = new System.Windows.Forms.TextBox();
             this.textBoxThemDonViToChuc5 = new System.Windows.Forms.TextBox();
             this.labelThemVanBang5 = new System.Windows.Forms.Label();
@@ -203,7 +217,7 @@
             this.buttonQuayLaiNhannVien_KNVT2 = new System.Windows.Forms.Button();
             this.labelTimPhanMemSuDung2 = new System.Windows.Forms.Label();
             this.buttonTimNhanVien_KNVT2 = new System.Windows.Forms.Button();
-            this.textBoxTimMaKhaNangViTinh2 = new System.Windows.Forms.TextBox();
+            this.textBoxTimMaKNVT2 = new System.Windows.Forms.TextBox();
             this.buttonTim2 = new System.Windows.Forms.Button();
             this.labelTimMaKhaNangViTinh2 = new System.Windows.Forms.Label();
             this.textBoxTimMaNhanVien2 = new System.Windows.Forms.TextBox();
@@ -214,11 +228,15 @@
             this.buttonSuaNhanVien_KNVT2 = new System.Windows.Forms.Button();
             this.labelSuaPhanMemSuDung2 = new System.Windows.Forms.Label();
             this.buttonSua2 = new System.Windows.Forms.Button();
-            this.textBoxSuaMaKhaNangViTinh2 = new System.Windows.Forms.TextBox();
+            this.textBoxSuaMaKNVT2 = new System.Windows.Forms.TextBox();
             this.textBoxSuaMaNhanVien2 = new System.Windows.Forms.TextBox();
             this.labelSuaMaKhaNangViTinh2 = new System.Windows.Forms.Label();
             this.labelSuaMaNhanVien2 = new System.Windows.Forms.Label();
             this.panelThemNhanVien_KNVT = new System.Windows.Forms.Panel();
+            this.comboBoxThemMaKNVT2 = new System.Windows.Forms.ComboBox();
+            this.khaNangViTinhBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.n05_Ql_NhanSu_T5DataSet9 = new QuanLyNhanSu.N05_Ql_NhanSu_T5DataSet9();
+            this.comboBoxThemMaNhanVien2 = new System.Windows.Forms.ComboBox();
             this.textBoxThemPhanMemSuDung2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.labelThemMaKhaNangViTinh2 = new System.Windows.Forms.Label();
@@ -257,6 +275,10 @@
             this.textBoxSuaMaNoiHoc1 = new System.Windows.Forms.TextBox();
             this.labelSuaLoaiTotNghiep1 = new System.Windows.Forms.Label();
             this.panelThemNhanVien_NoiHoc = new System.Windows.Forms.Panel();
+            this.comboBoxThemMaNoiHoc1 = new System.Windows.Forms.ComboBox();
+            this.noiHocBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.n05_Ql_NhanSu_T5DataSet8 = new QuanLyNhanSu.N05_Ql_NhanSu_T5DataSet8();
+            this.comboBoxThemMaNhanVien1 = new System.Windows.Forms.ComboBox();
             this.buttonThemNhanVien_NoiHoc1 = new System.Windows.Forms.Button();
             this.dateTimePickerThemThoiGianKetThuc1 = new System.Windows.Forms.DateTimePicker();
             this.labelThemThoiGianKetThuc1 = new System.Windows.Forms.Label();
@@ -269,33 +291,11 @@
             this.buttonThem1 = new System.Windows.Forms.Button();
             this.dataGridViewNhanVien_NoiHoc = new System.Windows.Forms.DataGridView();
             this.STTNoiHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBoxThemMaNhanVien4 = new System.Windows.Forms.ComboBox();
-            this.comboBoxThemMaNhanVien5 = new System.Windows.Forms.ComboBox();
-            this.comboBoxThemMaNhanVien1 = new System.Windows.Forms.ComboBox();
-            this.comboBoxThemMaNhanVien2 = new System.Windows.Forms.ComboBox();
-            this.comboBoxThemMaNhanVien3 = new System.Windows.Forms.ComboBox();
-            this.n05_Ql_NhanSu_T5DataSet5 = new QuanLyNhanSu.N05_Ql_NhanSu_T5DataSet5();
-            this.nhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nhanVienTableAdapter = new QuanLyNhanSu.N05_Ql_NhanSu_T5DataSet5TableAdapters.NhanVienTableAdapter();
-            this.comboBoxThemMaCongTy4 = new System.Windows.Forms.ComboBox();
-            this.n05_Ql_NhanSu_T5DataSet6 = new QuanLyNhanSu.N05_Ql_NhanSu_T5DataSet6();
-            this.congTyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.congTyTableAdapter = new QuanLyNhanSu.N05_Ql_NhanSu_T5DataSet6TableAdapters.CongTyTableAdapter();
-            this.comboBoxThemMaKHL5 = new System.Windows.Forms.ComboBox();
-            this.n05_Ql_NhanSu_T5DataSet7 = new QuanLyNhanSu.N05_Ql_NhanSu_T5DataSet7();
-            this.khoaHuanLuyenBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.khoaHuanLuyenTableAdapter = new QuanLyNhanSu.N05_Ql_NhanSu_T5DataSet7TableAdapters.KhoaHuanLuyenTableAdapter();
-            this.comboBoxThemMaNoiHoc1 = new System.Windows.Forms.ComboBox();
-            this.n05_Ql_NhanSu_T5DataSet8 = new QuanLyNhanSu.N05_Ql_NhanSu_T5DataSet8();
-            this.noiHocBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.noiHocTableAdapter = new QuanLyNhanSu.N05_Ql_NhanSu_T5DataSet8TableAdapters.NoiHocTableAdapter();
-            this.comboBoxThemMaKNVT2 = new System.Windows.Forms.ComboBox();
-            this.n05_Ql_NhanSu_T5DataSet9 = new QuanLyNhanSu.N05_Ql_NhanSu_T5DataSet9();
-            this.khaNangViTinhBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.khaNangViTinhTableAdapter = new QuanLyNhanSu.N05_Ql_NhanSu_T5DataSet9TableAdapters.KhaNangViTinhTableAdapter();
-            this.comboBoxThemMaNgonNgu3 = new System.Windows.Forms.ComboBox();
-            this.n05_Ql_NhanSu_T5DataSet10 = new QuanLyNhanSu.N05_Ql_NhanSu_T5DataSet10();
-            this.ngonNguBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ngonNguTableAdapter = new QuanLyNhanSu.N05_Ql_NhanSu_T5DataSet10TableAdapters.NgonNguTableAdapter();
             this.panelNghiepVu.SuspendLayout();
             this.panelNhanVien_NgonNgu.SuspendLayout();
@@ -303,38 +303,38 @@
             this.panelTimNhanVien_NgonNgu.SuspendLayout();
             this.panelSuaNhanVien_NgonNgu.SuspendLayout();
             this.panelThemNhanVien_NgonNgu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ngonNguBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet5)).BeginInit();
             this.panelNhanVien_CongTy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhanVien_CongTy)).BeginInit();
             this.panelTimNhanVien_CongTy.SuspendLayout();
             this.panelSuaNhanVien_CongTy.SuspendLayout();
             this.panelThemNhanVien_CongTy.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.congTyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet6)).BeginInit();
             this.panelNhanVien_KHL.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhanVien_KHL)).BeginInit();
             this.panelTimNhanVien_KHL.SuspendLayout();
             this.panelSuaNhanVien_KHL.SuspendLayout();
             this.panelThemNhanVien_KHL.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.khoaHuanLuyenBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet7)).BeginInit();
             this.panelNhanVien_KNVT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhanVien_KNVT)).BeginInit();
             this.panelTimNhanVien_KNVT.SuspendLayout();
             this.panelSuaNhanVien_KNVT.SuspendLayout();
             this.panelThemNhanVien_KNVT.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.khaNangViTinhBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet9)).BeginInit();
             this.panelNoiHoc.SuspendLayout();
             this.panelTimNhanVien_NoiHoc.SuspendLayout();
             this.panelSuaNhanVien_NoiHoc.SuspendLayout();
             this.panelThemNhanVien_NoiHoc.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhanVien_NoiHoc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.congTyBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.khoaHuanLuyenBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.noiHocBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.khaNangViTinhBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ngonNguBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhanVien_NoiHoc)).BeginInit();
             this.SuspendLayout();
             // 
             // panelNghiepVu
@@ -395,6 +395,7 @@
             this.dataGridViewNhanVien_NgonNgu.Name = "dataGridViewNhanVien_NgonNgu";
             this.dataGridViewNhanVien_NgonNgu.Size = new System.Drawing.Size(363, 87);
             this.dataGridViewNhanVien_NgonNgu.TabIndex = 13;
+            this.dataGridViewNhanVien_NgonNgu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNhanVien_NgonNgu_CellClick);
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -439,6 +440,7 @@
             this.buttonQuayLaiNhanVien_NgonNgu3.TabIndex = 23;
             this.buttonQuayLaiNhanVien_NgonNgu3.Text = "Quay Lại";
             this.buttonQuayLaiNhanVien_NgonNgu3.UseVisualStyleBackColor = true;
+            this.buttonQuayLaiNhanVien_NgonNgu3.Click += new System.EventHandler(this.buttonQuayLaiNhanVien_NgonNgu3_Click);
             // 
             // labelTimViet3
             // 
@@ -457,6 +459,7 @@
             this.buttonTimNhanVien_NgonNgu3.TabIndex = 24;
             this.buttonTimNhanVien_NgonNgu3.Text = "Tìm";
             this.buttonTimNhanVien_NgonNgu3.UseVisualStyleBackColor = true;
+            this.buttonTimNhanVien_NgonNgu3.Click += new System.EventHandler(this.buttonTimNhanVien_NgonNgu3_Click);
             // 
             // textBoxTimDoc3
             // 
@@ -593,6 +596,7 @@
             this.buttonSuaNhanVien_NgonNgu3.TabIndex = 12;
             this.buttonSuaNhanVien_NgonNgu3.Text = "Lưu ";
             this.buttonSuaNhanVien_NgonNgu3.UseVisualStyleBackColor = true;
+            this.buttonSuaNhanVien_NgonNgu3.Click += new System.EventHandler(this.buttonSuaNhanVien_NgonNgu3_Click);
             // 
             // labelSuaViet3
             // 
@@ -723,6 +727,48 @@
             this.panelThemNhanVien_NgonNgu.Size = new System.Drawing.Size(408, 73);
             this.panelThemNhanVien_NgonNgu.TabIndex = 14;
             // 
+            // comboBoxThemMaNgonNgu3
+            // 
+            this.comboBoxThemMaNgonNgu3.DataSource = this.ngonNguBindingSource;
+            this.comboBoxThemMaNgonNgu3.DisplayMember = "MaNgonNgu";
+            this.comboBoxThemMaNgonNgu3.FormattingEnabled = true;
+            this.comboBoxThemMaNgonNgu3.Location = new System.Drawing.Point(133, 25);
+            this.comboBoxThemMaNgonNgu3.Name = "comboBoxThemMaNgonNgu3";
+            this.comboBoxThemMaNgonNgu3.Size = new System.Drawing.Size(184, 21);
+            this.comboBoxThemMaNgonNgu3.TabIndex = 24;
+            this.comboBoxThemMaNgonNgu3.ValueMember = "MaNgonNgu";
+            // 
+            // ngonNguBindingSource
+            // 
+            this.ngonNguBindingSource.DataMember = "NgonNgu";
+            this.ngonNguBindingSource.DataSource = this.n05_Ql_NhanSu_T5DataSet10;
+            // 
+            // n05_Ql_NhanSu_T5DataSet10
+            // 
+            this.n05_Ql_NhanSu_T5DataSet10.DataSetName = "N05_Ql_NhanSu_T5DataSet10";
+            this.n05_Ql_NhanSu_T5DataSet10.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // comboBoxThemMaNhanVien3
+            // 
+            this.comboBoxThemMaNhanVien3.DataSource = this.nhanVienBindingSource;
+            this.comboBoxThemMaNhanVien3.DisplayMember = "MaNhanVien";
+            this.comboBoxThemMaNhanVien3.FormattingEnabled = true;
+            this.comboBoxThemMaNhanVien3.Location = new System.Drawing.Point(133, 3);
+            this.comboBoxThemMaNhanVien3.Name = "comboBoxThemMaNhanVien3";
+            this.comboBoxThemMaNhanVien3.Size = new System.Drawing.Size(184, 21);
+            this.comboBoxThemMaNhanVien3.TabIndex = 19;
+            this.comboBoxThemMaNhanVien3.ValueMember = "MaNhanVien";
+            // 
+            // nhanVienBindingSource
+            // 
+            this.nhanVienBindingSource.DataMember = "NhanVien";
+            this.nhanVienBindingSource.DataSource = this.n05_Ql_NhanSu_T5DataSet5;
+            // 
+            // n05_Ql_NhanSu_T5DataSet5
+            // 
+            this.n05_Ql_NhanSu_T5DataSet5.DataSetName = "N05_Ql_NhanSu_T5DataSet5";
+            this.n05_Ql_NhanSu_T5DataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // textBoxThemViet3
             // 
             this.textBoxThemViet3.Location = new System.Drawing.Point(354, 50);
@@ -813,6 +859,7 @@
             this.buttonThemNhanVien_NgonNgu3.TabIndex = 11;
             this.buttonThemNhanVien_NgonNgu3.Text = "Thêm";
             this.buttonThemNhanVien_NgonNgu3.UseVisualStyleBackColor = true;
+            this.buttonThemNhanVien_NgonNgu3.Click += new System.EventHandler(this.buttonThemNhanVien_NgonNgu3_Click);
             // 
             // buttonThem3
             // 
@@ -857,6 +904,7 @@
             this.dataGridViewNhanVien_CongTy.Name = "dataGridViewNhanVien_CongTy";
             this.dataGridViewNhanVien_CongTy.Size = new System.Drawing.Size(561, 83);
             this.dataGridViewNhanVien_CongTy.TabIndex = 6;
+            this.dataGridViewNhanVien_CongTy.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNhanVien_CongTy_CellClick);
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -907,6 +955,7 @@
             this.buttonQuayLaiNhanVien_CongTy4.TabIndex = 23;
             this.buttonQuayLaiNhanVien_CongTy4.Text = "Quay Lại";
             this.buttonQuayLaiNhanVien_CongTy4.UseVisualStyleBackColor = true;
+            this.buttonQuayLaiNhanVien_CongTy4.Click += new System.EventHandler(this.buttonQuayLaiNhanVien_CongTy4_Click);
             // 
             // buttonTimNhanVien_CongTy4
             // 
@@ -916,6 +965,7 @@
             this.buttonTimNhanVien_CongTy4.TabIndex = 24;
             this.buttonTimNhanVien_CongTy4.Text = "Tìm";
             this.buttonTimNhanVien_CongTy4.UseVisualStyleBackColor = true;
+            this.buttonTimNhanVien_CongTy4.Click += new System.EventHandler(this.buttonTimNhanVien_CongTy4_Click);
             // 
             // textBoxTimLuong4
             // 
@@ -1104,6 +1154,7 @@
             this.buttonSuaNhanVien_CongTy4.TabIndex = 12;
             this.buttonSuaNhanVien_CongTy4.Text = "Lưu ";
             this.buttonSuaNhanVien_CongTy4.UseVisualStyleBackColor = true;
+            this.buttonSuaNhanVien_CongTy4.Click += new System.EventHandler(this.buttonSuaNhanVien_CongTy4_Click);
             // 
             // labelSuaLuong4
             // 
@@ -1261,6 +1312,38 @@
             this.panelThemNhanVien_CongTy.Size = new System.Drawing.Size(606, 73);
             this.panelThemNhanVien_CongTy.TabIndex = 7;
             // 
+            // comboBoxThemMaCongTy4
+            // 
+            this.comboBoxThemMaCongTy4.DataSource = this.congTyBindingSource;
+            this.comboBoxThemMaCongTy4.DisplayMember = "MaCongTy";
+            this.comboBoxThemMaCongTy4.FormattingEnabled = true;
+            this.comboBoxThemMaCongTy4.Location = new System.Drawing.Point(301, 4);
+            this.comboBoxThemMaCongTy4.Name = "comboBoxThemMaCongTy4";
+            this.comboBoxThemMaCongTy4.Size = new System.Drawing.Size(100, 21);
+            this.comboBoxThemMaCongTy4.TabIndex = 29;
+            this.comboBoxThemMaCongTy4.ValueMember = "MaCongTy";
+            // 
+            // congTyBindingSource
+            // 
+            this.congTyBindingSource.DataMember = "CongTy";
+            this.congTyBindingSource.DataSource = this.n05_Ql_NhanSu_T5DataSet6;
+            // 
+            // n05_Ql_NhanSu_T5DataSet6
+            // 
+            this.n05_Ql_NhanSu_T5DataSet6.DataSetName = "N05_Ql_NhanSu_T5DataSet6";
+            this.n05_Ql_NhanSu_T5DataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // comboBoxThemMaNhanVien4
+            // 
+            this.comboBoxThemMaNhanVien4.DataSource = this.nhanVienBindingSource;
+            this.comboBoxThemMaNhanVien4.DisplayMember = "MaNhanVien";
+            this.comboBoxThemMaNhanVien4.FormattingEnabled = true;
+            this.comboBoxThemMaNhanVien4.Location = new System.Drawing.Point(121, 4);
+            this.comboBoxThemMaNhanVien4.Name = "comboBoxThemMaNhanVien4";
+            this.comboBoxThemMaNhanVien4.Size = new System.Drawing.Size(102, 21);
+            this.comboBoxThemMaNhanVien4.TabIndex = 28;
+            this.comboBoxThemMaNhanVien4.ValueMember = "MaNhanVien";
+            // 
             // textBoxThemLuong4
             // 
             this.textBoxThemLuong4.Location = new System.Drawing.Point(447, 50);
@@ -1383,6 +1466,7 @@
             this.buttonThemNhanVien_CongTy4.TabIndex = 11;
             this.buttonThemNhanVien_CongTy4.Text = "Thêm";
             this.buttonThemNhanVien_CongTy4.UseVisualStyleBackColor = true;
+            this.buttonThemNhanVien_CongTy4.Click += new System.EventHandler(this.buttonThemNhanVien_CongTy4_Click);
             // 
             // buttonThem4
             // 
@@ -1755,6 +1839,38 @@
             this.panelThemNhanVien_KHL.Size = new System.Drawing.Size(606, 73);
             this.panelThemNhanVien_KHL.TabIndex = 14;
             // 
+            // comboBoxThemMaKHL5
+            // 
+            this.comboBoxThemMaKHL5.DataSource = this.khoaHuanLuyenBindingSource;
+            this.comboBoxThemMaKHL5.DisplayMember = "MaKhoaHuanLuyen";
+            this.comboBoxThemMaKHL5.FormattingEnabled = true;
+            this.comboBoxThemMaKHL5.Location = new System.Drawing.Point(403, 3);
+            this.comboBoxThemMaKHL5.Name = "comboBoxThemMaKHL5";
+            this.comboBoxThemMaKHL5.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxThemMaKHL5.TabIndex = 25;
+            this.comboBoxThemMaKHL5.ValueMember = "MaKhoaHuanLuyen";
+            // 
+            // khoaHuanLuyenBindingSource
+            // 
+            this.khoaHuanLuyenBindingSource.DataMember = "KhoaHuanLuyen";
+            this.khoaHuanLuyenBindingSource.DataSource = this.n05_Ql_NhanSu_T5DataSet7;
+            // 
+            // n05_Ql_NhanSu_T5DataSet7
+            // 
+            this.n05_Ql_NhanSu_T5DataSet7.DataSetName = "N05_Ql_NhanSu_T5DataSet7";
+            this.n05_Ql_NhanSu_T5DataSet7.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // comboBoxThemMaNhanVien5
+            // 
+            this.comboBoxThemMaNhanVien5.DataSource = this.nhanVienBindingSource;
+            this.comboBoxThemMaNhanVien5.DisplayMember = "MaNhanVien";
+            this.comboBoxThemMaNhanVien5.FormattingEnabled = true;
+            this.comboBoxThemMaNhanVien5.Location = new System.Drawing.Point(126, 2);
+            this.comboBoxThemMaNhanVien5.Name = "comboBoxThemMaNhanVien5";
+            this.comboBoxThemMaNhanVien5.Size = new System.Drawing.Size(125, 21);
+            this.comboBoxThemMaNhanVien5.TabIndex = 24;
+            this.comboBoxThemMaNhanVien5.ValueMember = "MaNhanVien";
+            // 
             // textBoxThemVanBang5
             // 
             this.textBoxThemVanBang5.Location = new System.Drawing.Point(404, 49);
@@ -1889,6 +2005,7 @@
             this.dataGridViewNhanVien_KNVT.Name = "dataGridViewNhanVien_KNVT";
             this.dataGridViewNhanVien_KNVT.Size = new System.Drawing.Size(332, 87);
             this.dataGridViewNhanVien_KNVT.TabIndex = 6;
+            this.dataGridViewNhanVien_KNVT.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNhanVien_KNVT_CellClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1911,7 +2028,7 @@
             this.panelTimNhanVien_KNVT.Controls.Add(this.buttonQuayLaiNhannVien_KNVT2);
             this.panelTimNhanVien_KNVT.Controls.Add(this.labelTimPhanMemSuDung2);
             this.panelTimNhanVien_KNVT.Controls.Add(this.buttonTimNhanVien_KNVT2);
-            this.panelTimNhanVien_KNVT.Controls.Add(this.textBoxTimMaKhaNangViTinh2);
+            this.panelTimNhanVien_KNVT.Controls.Add(this.textBoxTimMaKNVT2);
             this.panelTimNhanVien_KNVT.Controls.Add(this.buttonTim2);
             this.panelTimNhanVien_KNVT.Controls.Add(this.labelTimMaKhaNangViTinh2);
             this.panelTimNhanVien_KNVT.Controls.Add(this.textBoxTimMaNhanVien2);
@@ -1936,6 +2053,7 @@
             this.buttonQuayLaiNhannVien_KNVT2.TabIndex = 23;
             this.buttonQuayLaiNhannVien_KNVT2.Text = "Quay Lại";
             this.buttonQuayLaiNhannVien_KNVT2.UseVisualStyleBackColor = true;
+            this.buttonQuayLaiNhannVien_KNVT2.Click += new System.EventHandler(this.buttonQuayLaiNhannVien_KNVT2_Click);
             // 
             // labelTimPhanMemSuDung2
             // 
@@ -1954,13 +2072,14 @@
             this.buttonTimNhanVien_KNVT2.TabIndex = 24;
             this.buttonTimNhanVien_KNVT2.Text = "Tìm";
             this.buttonTimNhanVien_KNVT2.UseVisualStyleBackColor = true;
+            this.buttonTimNhanVien_KNVT2.Click += new System.EventHandler(this.buttonTimNhanVien_KNVT2_Click);
             // 
-            // textBoxTimMaKhaNangViTinh2
+            // textBoxTimMaKNVT2
             // 
-            this.textBoxTimMaKhaNangViTinh2.Location = new System.Drawing.Point(170, 26);
-            this.textBoxTimMaKhaNangViTinh2.Name = "textBoxTimMaKhaNangViTinh2";
-            this.textBoxTimMaKhaNangViTinh2.Size = new System.Drawing.Size(153, 20);
-            this.textBoxTimMaKhaNangViTinh2.TabIndex = 27;
+            this.textBoxTimMaKNVT2.Location = new System.Drawing.Point(170, 26);
+            this.textBoxTimMaKNVT2.Name = "textBoxTimMaKNVT2";
+            this.textBoxTimMaKNVT2.Size = new System.Drawing.Size(153, 20);
+            this.textBoxTimMaKNVT2.TabIndex = 27;
             // 
             // buttonTim2
             // 
@@ -2012,7 +2131,7 @@
             this.panelSuaNhanVien_KNVT.Controls.Add(this.buttonSuaNhanVien_KNVT2);
             this.panelSuaNhanVien_KNVT.Controls.Add(this.labelSuaPhanMemSuDung2);
             this.panelSuaNhanVien_KNVT.Controls.Add(this.buttonSua2);
-            this.panelSuaNhanVien_KNVT.Controls.Add(this.textBoxSuaMaKhaNangViTinh2);
+            this.panelSuaNhanVien_KNVT.Controls.Add(this.textBoxSuaMaKNVT2);
             this.panelSuaNhanVien_KNVT.Controls.Add(this.textBoxSuaMaNhanVien2);
             this.panelSuaNhanVien_KNVT.Controls.Add(this.labelSuaMaKhaNangViTinh2);
             this.panelSuaNhanVien_KNVT.Controls.Add(this.labelSuaMaNhanVien2);
@@ -2036,6 +2155,7 @@
             this.buttonSuaNhanVien_KNVT2.TabIndex = 12;
             this.buttonSuaNhanVien_KNVT2.Text = "Lưu ";
             this.buttonSuaNhanVien_KNVT2.UseVisualStyleBackColor = true;
+            this.buttonSuaNhanVien_KNVT2.Click += new System.EventHandler(this.buttonSuaNhanVien_KNVT2_Click);
             // 
             // labelSuaPhanMemSuDung2
             // 
@@ -2055,12 +2175,12 @@
             this.buttonSua2.Text = "Sửa";
             this.buttonSua2.UseVisualStyleBackColor = true;
             // 
-            // textBoxSuaMaKhaNangViTinh2
+            // textBoxSuaMaKNVT2
             // 
-            this.textBoxSuaMaKhaNangViTinh2.Location = new System.Drawing.Point(169, 27);
-            this.textBoxSuaMaKhaNangViTinh2.Name = "textBoxSuaMaKhaNangViTinh2";
-            this.textBoxSuaMaKhaNangViTinh2.Size = new System.Drawing.Size(153, 20);
-            this.textBoxSuaMaKhaNangViTinh2.TabIndex = 21;
+            this.textBoxSuaMaKNVT2.Location = new System.Drawing.Point(169, 27);
+            this.textBoxSuaMaKNVT2.Name = "textBoxSuaMaKNVT2";
+            this.textBoxSuaMaKNVT2.Size = new System.Drawing.Size(153, 20);
+            this.textBoxSuaMaKNVT2.TabIndex = 21;
             // 
             // textBoxSuaMaNhanVien2
             // 
@@ -2102,6 +2222,38 @@
             this.panelThemNhanVien_KNVT.Name = "panelThemNhanVien_KNVT";
             this.panelThemNhanVien_KNVT.Size = new System.Drawing.Size(377, 73);
             this.panelThemNhanVien_KNVT.TabIndex = 7;
+            // 
+            // comboBoxThemMaKNVT2
+            // 
+            this.comboBoxThemMaKNVT2.DataSource = this.khaNangViTinhBindingSource;
+            this.comboBoxThemMaKNVT2.DisplayMember = "MaKhaNangViTinh";
+            this.comboBoxThemMaKNVT2.FormattingEnabled = true;
+            this.comboBoxThemMaKNVT2.Location = new System.Drawing.Point(169, 24);
+            this.comboBoxThemMaKNVT2.Name = "comboBoxThemMaKNVT2";
+            this.comboBoxThemMaKNVT2.Size = new System.Drawing.Size(153, 21);
+            this.comboBoxThemMaKNVT2.TabIndex = 19;
+            this.comboBoxThemMaKNVT2.ValueMember = "MaKhaNangViTinh";
+            // 
+            // khaNangViTinhBindingSource
+            // 
+            this.khaNangViTinhBindingSource.DataMember = "KhaNangViTinh";
+            this.khaNangViTinhBindingSource.DataSource = this.n05_Ql_NhanSu_T5DataSet9;
+            // 
+            // n05_Ql_NhanSu_T5DataSet9
+            // 
+            this.n05_Ql_NhanSu_T5DataSet9.DataSetName = "N05_Ql_NhanSu_T5DataSet9";
+            this.n05_Ql_NhanSu_T5DataSet9.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // comboBoxThemMaNhanVien2
+            // 
+            this.comboBoxThemMaNhanVien2.DataSource = this.nhanVienBindingSource;
+            this.comboBoxThemMaNhanVien2.DisplayMember = "MaNhanVien";
+            this.comboBoxThemMaNhanVien2.FormattingEnabled = true;
+            this.comboBoxThemMaNhanVien2.Location = new System.Drawing.Point(169, 2);
+            this.comboBoxThemMaNhanVien2.Name = "comboBoxThemMaNhanVien2";
+            this.comboBoxThemMaNhanVien2.Size = new System.Drawing.Size(153, 21);
+            this.comboBoxThemMaNhanVien2.TabIndex = 18;
+            this.comboBoxThemMaNhanVien2.ValueMember = "MaNhanVien";
             // 
             // textBoxThemPhanMemSuDung2
             // 
@@ -2145,6 +2297,7 @@
             this.buttonThemNhanVien_KNVT2.TabIndex = 11;
             this.buttonThemNhanVien_KNVT2.Text = "Thêm";
             this.buttonThemNhanVien_KNVT2.UseVisualStyleBackColor = true;
+            this.buttonThemNhanVien_KNVT2.Click += new System.EventHandler(this.buttonThemNhanVien_KNVT2_Click);
             // 
             // buttonThem2
             // 
@@ -2467,6 +2620,38 @@
             this.panelThemNhanVien_NoiHoc.Size = new System.Drawing.Size(509, 73);
             this.panelThemNhanVien_NoiHoc.TabIndex = 1;
             // 
+            // comboBoxThemMaNoiHoc1
+            // 
+            this.comboBoxThemMaNoiHoc1.DataSource = this.noiHocBindingSource;
+            this.comboBoxThemMaNoiHoc1.DisplayMember = "MaNoiHoc";
+            this.comboBoxThemMaNoiHoc1.FormattingEnabled = true;
+            this.comboBoxThemMaNoiHoc1.Location = new System.Drawing.Point(266, 4);
+            this.comboBoxThemMaNoiHoc1.Name = "comboBoxThemMaNoiHoc1";
+            this.comboBoxThemMaNoiHoc1.Size = new System.Drawing.Size(103, 21);
+            this.comboBoxThemMaNoiHoc1.TabIndex = 13;
+            this.comboBoxThemMaNoiHoc1.ValueMember = "MaNoiHoc";
+            // 
+            // noiHocBindingSource
+            // 
+            this.noiHocBindingSource.DataMember = "NoiHoc";
+            this.noiHocBindingSource.DataSource = this.n05_Ql_NhanSu_T5DataSet8;
+            // 
+            // n05_Ql_NhanSu_T5DataSet8
+            // 
+            this.n05_Ql_NhanSu_T5DataSet8.DataSetName = "N05_Ql_NhanSu_T5DataSet8";
+            this.n05_Ql_NhanSu_T5DataSet8.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // comboBoxThemMaNhanVien1
+            // 
+            this.comboBoxThemMaNhanVien1.DataSource = this.nhanVienBindingSource;
+            this.comboBoxThemMaNhanVien1.DisplayMember = "MaNhanVien";
+            this.comboBoxThemMaNhanVien1.FormattingEnabled = true;
+            this.comboBoxThemMaNhanVien1.Location = new System.Drawing.Point(124, 3);
+            this.comboBoxThemMaNhanVien1.Name = "comboBoxThemMaNhanVien1";
+            this.comboBoxThemMaNhanVien1.Size = new System.Drawing.Size(77, 21);
+            this.comboBoxThemMaNhanVien1.TabIndex = 12;
+            this.comboBoxThemMaNhanVien1.ValueMember = "MaNhanVien";
+            // 
             // buttonThemNhanVien_NoiHoc1
             // 
             this.buttonThemNhanVien_NoiHoc1.Location = new System.Drawing.Point(461, 48);
@@ -2568,195 +2753,25 @@
             this.STTNoiHoc.HeaderText = "STT";
             this.STTNoiHoc.Name = "STTNoiHoc";
             // 
-            // comboBoxThemMaNhanVien4
-            // 
-            this.comboBoxThemMaNhanVien4.DataSource = this.nhanVienBindingSource;
-            this.comboBoxThemMaNhanVien4.DisplayMember = "MaNhanVien";
-            this.comboBoxThemMaNhanVien4.FormattingEnabled = true;
-            this.comboBoxThemMaNhanVien4.Location = new System.Drawing.Point(121, 4);
-            this.comboBoxThemMaNhanVien4.Name = "comboBoxThemMaNhanVien4";
-            this.comboBoxThemMaNhanVien4.Size = new System.Drawing.Size(102, 21);
-            this.comboBoxThemMaNhanVien4.TabIndex = 28;
-            this.comboBoxThemMaNhanVien4.ValueMember = "MaNhanVien";
-            // 
-            // comboBoxThemMaNhanVien5
-            // 
-            this.comboBoxThemMaNhanVien5.DataSource = this.nhanVienBindingSource;
-            this.comboBoxThemMaNhanVien5.DisplayMember = "MaNhanVien";
-            this.comboBoxThemMaNhanVien5.FormattingEnabled = true;
-            this.comboBoxThemMaNhanVien5.Location = new System.Drawing.Point(126, 2);
-            this.comboBoxThemMaNhanVien5.Name = "comboBoxThemMaNhanVien5";
-            this.comboBoxThemMaNhanVien5.Size = new System.Drawing.Size(125, 21);
-            this.comboBoxThemMaNhanVien5.TabIndex = 24;
-            this.comboBoxThemMaNhanVien5.ValueMember = "MaNhanVien";
-            // 
-            // comboBoxThemMaNhanVien1
-            // 
-            this.comboBoxThemMaNhanVien1.DataSource = this.nhanVienBindingSource;
-            this.comboBoxThemMaNhanVien1.DisplayMember = "MaNhanVien";
-            this.comboBoxThemMaNhanVien1.FormattingEnabled = true;
-            this.comboBoxThemMaNhanVien1.Location = new System.Drawing.Point(124, 3);
-            this.comboBoxThemMaNhanVien1.Name = "comboBoxThemMaNhanVien1";
-            this.comboBoxThemMaNhanVien1.Size = new System.Drawing.Size(77, 21);
-            this.comboBoxThemMaNhanVien1.TabIndex = 12;
-            this.comboBoxThemMaNhanVien1.ValueMember = "MaNhanVien";
-            // 
-            // comboBoxThemMaNhanVien2
-            // 
-            this.comboBoxThemMaNhanVien2.DataSource = this.nhanVienBindingSource;
-            this.comboBoxThemMaNhanVien2.DisplayMember = "MaNhanVien";
-            this.comboBoxThemMaNhanVien2.FormattingEnabled = true;
-            this.comboBoxThemMaNhanVien2.Location = new System.Drawing.Point(169, 2);
-            this.comboBoxThemMaNhanVien2.Name = "comboBoxThemMaNhanVien2";
-            this.comboBoxThemMaNhanVien2.Size = new System.Drawing.Size(153, 21);
-            this.comboBoxThemMaNhanVien2.TabIndex = 18;
-            this.comboBoxThemMaNhanVien2.ValueMember = "MaNhanVien";
-            // 
-            // comboBoxThemMaNhanVien3
-            // 
-            this.comboBoxThemMaNhanVien3.DataSource = this.nhanVienBindingSource;
-            this.comboBoxThemMaNhanVien3.DisplayMember = "MaNhanVien";
-            this.comboBoxThemMaNhanVien3.FormattingEnabled = true;
-            this.comboBoxThemMaNhanVien3.Location = new System.Drawing.Point(133, 3);
-            this.comboBoxThemMaNhanVien3.Name = "comboBoxThemMaNhanVien3";
-            this.comboBoxThemMaNhanVien3.Size = new System.Drawing.Size(184, 21);
-            this.comboBoxThemMaNhanVien3.TabIndex = 19;
-            this.comboBoxThemMaNhanVien3.ValueMember = "MaNhanVien";
-            // 
-            // n05_Ql_NhanSu_T5DataSet5
-            // 
-            this.n05_Ql_NhanSu_T5DataSet5.DataSetName = "N05_Ql_NhanSu_T5DataSet5";
-            this.n05_Ql_NhanSu_T5DataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // nhanVienBindingSource
-            // 
-            this.nhanVienBindingSource.DataMember = "NhanVien";
-            this.nhanVienBindingSource.DataSource = this.n05_Ql_NhanSu_T5DataSet5;
-            // 
             // nhanVienTableAdapter
             // 
             this.nhanVienTableAdapter.ClearBeforeFill = true;
-            // 
-            // comboBoxThemMaCongTy4
-            // 
-            this.comboBoxThemMaCongTy4.DataSource = this.congTyBindingSource;
-            this.comboBoxThemMaCongTy4.DisplayMember = "MaCongTy";
-            this.comboBoxThemMaCongTy4.FormattingEnabled = true;
-            this.comboBoxThemMaCongTy4.Location = new System.Drawing.Point(301, 4);
-            this.comboBoxThemMaCongTy4.Name = "comboBoxThemMaCongTy4";
-            this.comboBoxThemMaCongTy4.Size = new System.Drawing.Size(100, 21);
-            this.comboBoxThemMaCongTy4.TabIndex = 29;
-            this.comboBoxThemMaCongTy4.ValueMember = "MaCongTy";
-            // 
-            // n05_Ql_NhanSu_T5DataSet6
-            // 
-            this.n05_Ql_NhanSu_T5DataSet6.DataSetName = "N05_Ql_NhanSu_T5DataSet6";
-            this.n05_Ql_NhanSu_T5DataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // congTyBindingSource
-            // 
-            this.congTyBindingSource.DataMember = "CongTy";
-            this.congTyBindingSource.DataSource = this.n05_Ql_NhanSu_T5DataSet6;
             // 
             // congTyTableAdapter
             // 
             this.congTyTableAdapter.ClearBeforeFill = true;
             // 
-            // comboBoxThemMaKHL5
-            // 
-            this.comboBoxThemMaKHL5.DataSource = this.khoaHuanLuyenBindingSource;
-            this.comboBoxThemMaKHL5.DisplayMember = "MaKhoaHuanLuyen";
-            this.comboBoxThemMaKHL5.FormattingEnabled = true;
-            this.comboBoxThemMaKHL5.Location = new System.Drawing.Point(403, 3);
-            this.comboBoxThemMaKHL5.Name = "comboBoxThemMaKHL5";
-            this.comboBoxThemMaKHL5.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxThemMaKHL5.TabIndex = 25;
-            this.comboBoxThemMaKHL5.ValueMember = "MaKhoaHuanLuyen";
-            // 
-            // n05_Ql_NhanSu_T5DataSet7
-            // 
-            this.n05_Ql_NhanSu_T5DataSet7.DataSetName = "N05_Ql_NhanSu_T5DataSet7";
-            this.n05_Ql_NhanSu_T5DataSet7.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // khoaHuanLuyenBindingSource
-            // 
-            this.khoaHuanLuyenBindingSource.DataMember = "KhoaHuanLuyen";
-            this.khoaHuanLuyenBindingSource.DataSource = this.n05_Ql_NhanSu_T5DataSet7;
-            // 
             // khoaHuanLuyenTableAdapter
             // 
             this.khoaHuanLuyenTableAdapter.ClearBeforeFill = true;
-            // 
-            // comboBoxThemMaNoiHoc1
-            // 
-            this.comboBoxThemMaNoiHoc1.DataSource = this.noiHocBindingSource;
-            this.comboBoxThemMaNoiHoc1.DisplayMember = "MaNoiHoc";
-            this.comboBoxThemMaNoiHoc1.FormattingEnabled = true;
-            this.comboBoxThemMaNoiHoc1.Location = new System.Drawing.Point(266, 4);
-            this.comboBoxThemMaNoiHoc1.Name = "comboBoxThemMaNoiHoc1";
-            this.comboBoxThemMaNoiHoc1.Size = new System.Drawing.Size(103, 21);
-            this.comboBoxThemMaNoiHoc1.TabIndex = 13;
-            this.comboBoxThemMaNoiHoc1.ValueMember = "MaNoiHoc";
-            // 
-            // n05_Ql_NhanSu_T5DataSet8
-            // 
-            this.n05_Ql_NhanSu_T5DataSet8.DataSetName = "N05_Ql_NhanSu_T5DataSet8";
-            this.n05_Ql_NhanSu_T5DataSet8.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // noiHocBindingSource
-            // 
-            this.noiHocBindingSource.DataMember = "NoiHoc";
-            this.noiHocBindingSource.DataSource = this.n05_Ql_NhanSu_T5DataSet8;
             // 
             // noiHocTableAdapter
             // 
             this.noiHocTableAdapter.ClearBeforeFill = true;
             // 
-            // comboBoxThemMaKNVT2
-            // 
-            this.comboBoxThemMaKNVT2.DataSource = this.khaNangViTinhBindingSource;
-            this.comboBoxThemMaKNVT2.DisplayMember = "MaKhaNangViTinh";
-            this.comboBoxThemMaKNVT2.FormattingEnabled = true;
-            this.comboBoxThemMaKNVT2.Location = new System.Drawing.Point(169, 24);
-            this.comboBoxThemMaKNVT2.Name = "comboBoxThemMaKNVT2";
-            this.comboBoxThemMaKNVT2.Size = new System.Drawing.Size(153, 21);
-            this.comboBoxThemMaKNVT2.TabIndex = 19;
-            this.comboBoxThemMaKNVT2.ValueMember = "MaKhaNangViTinh";
-            // 
-            // n05_Ql_NhanSu_T5DataSet9
-            // 
-            this.n05_Ql_NhanSu_T5DataSet9.DataSetName = "N05_Ql_NhanSu_T5DataSet9";
-            this.n05_Ql_NhanSu_T5DataSet9.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // khaNangViTinhBindingSource
-            // 
-            this.khaNangViTinhBindingSource.DataMember = "KhaNangViTinh";
-            this.khaNangViTinhBindingSource.DataSource = this.n05_Ql_NhanSu_T5DataSet9;
-            // 
             // khaNangViTinhTableAdapter
             // 
             this.khaNangViTinhTableAdapter.ClearBeforeFill = true;
-            // 
-            // comboBoxThemMaNgonNgu3
-            // 
-            this.comboBoxThemMaNgonNgu3.DataSource = this.ngonNguBindingSource;
-            this.comboBoxThemMaNgonNgu3.DisplayMember = "MaNgonNgu";
-            this.comboBoxThemMaNgonNgu3.FormattingEnabled = true;
-            this.comboBoxThemMaNgonNgu3.Location = new System.Drawing.Point(133, 25);
-            this.comboBoxThemMaNgonNgu3.Name = "comboBoxThemMaNgonNgu3";
-            this.comboBoxThemMaNgonNgu3.Size = new System.Drawing.Size(184, 21);
-            this.comboBoxThemMaNgonNgu3.TabIndex = 24;
-            this.comboBoxThemMaNgonNgu3.ValueMember = "MaNgonNgu";
-            // 
-            // n05_Ql_NhanSu_T5DataSet10
-            // 
-            this.n05_Ql_NhanSu_T5DataSet10.DataSetName = "N05_Ql_NhanSu_T5DataSet10";
-            this.n05_Ql_NhanSu_T5DataSet10.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // ngonNguBindingSource
-            // 
-            this.ngonNguBindingSource.DataMember = "NgonNgu";
-            this.ngonNguBindingSource.DataSource = this.n05_Ql_NhanSu_T5DataSet10;
             // 
             // ngonNguTableAdapter
             // 
@@ -2782,6 +2797,10 @@
             this.panelSuaNhanVien_NgonNgu.PerformLayout();
             this.panelThemNhanVien_NgonNgu.ResumeLayout(false);
             this.panelThemNhanVien_NgonNgu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ngonNguBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet5)).EndInit();
             this.panelNhanVien_CongTy.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhanVien_CongTy)).EndInit();
             this.panelTimNhanVien_CongTy.ResumeLayout(false);
@@ -2790,6 +2809,8 @@
             this.panelSuaNhanVien_CongTy.PerformLayout();
             this.panelThemNhanVien_CongTy.ResumeLayout(false);
             this.panelThemNhanVien_CongTy.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.congTyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet6)).EndInit();
             this.panelNhanVien_KHL.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhanVien_KHL)).EndInit();
             this.panelTimNhanVien_KHL.ResumeLayout(false);
@@ -2798,6 +2819,8 @@
             this.panelSuaNhanVien_KHL.PerformLayout();
             this.panelThemNhanVien_KHL.ResumeLayout(false);
             this.panelThemNhanVien_KHL.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.khoaHuanLuyenBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet7)).EndInit();
             this.panelNhanVien_KNVT.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhanVien_KNVT)).EndInit();
             this.panelTimNhanVien_KNVT.ResumeLayout(false);
@@ -2806,6 +2829,8 @@
             this.panelSuaNhanVien_KNVT.PerformLayout();
             this.panelThemNhanVien_KNVT.ResumeLayout(false);
             this.panelThemNhanVien_KNVT.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.khaNangViTinhBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet9)).EndInit();
             this.panelNoiHoc.ResumeLayout(false);
             this.panelTimNhanVien_NoiHoc.ResumeLayout(false);
             this.panelTimNhanVien_NoiHoc.PerformLayout();
@@ -2813,19 +2838,9 @@
             this.panelSuaNhanVien_NoiHoc.PerformLayout();
             this.panelThemNhanVien_NoiHoc.ResumeLayout(false);
             this.panelThemNhanVien_NoiHoc.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhanVien_NoiHoc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.congTyBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.khoaHuanLuyenBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.noiHocBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.khaNangViTinhBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ngonNguBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n05_Ql_NhanSu_T5DataSet8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhanVien_NoiHoc)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2914,13 +2929,13 @@
         private System.Windows.Forms.Button buttonThem3;
         private System.Windows.Forms.TextBox textBoxTimPhanMemSuDung2;
         private System.Windows.Forms.Label labelTimPhanMemSuDung2;
-        private System.Windows.Forms.TextBox textBoxTimMaKhaNangViTinh2;
+        private System.Windows.Forms.TextBox textBoxTimMaKNVT2;
         private System.Windows.Forms.Label labelTimMaKhaNangViTinh2;
         private System.Windows.Forms.TextBox textBoxTimMaNhanVien2;
         private System.Windows.Forms.Label labelTimMaNhanVien2;
         private System.Windows.Forms.TextBox textBoxSuaPhanMemSuDung2;
         private System.Windows.Forms.Label labelSuaPhanMemSuDung2;
-        private System.Windows.Forms.TextBox textBoxSuaMaKhaNangViTinh2;
+        private System.Windows.Forms.TextBox textBoxSuaMaKNVT2;
         private System.Windows.Forms.TextBox textBoxSuaMaNhanVien2;
         private System.Windows.Forms.Label labelSuaMaKhaNangViTinh2;
         private System.Windows.Forms.Label labelSuaMaNhanVien2;
