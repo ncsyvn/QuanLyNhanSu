@@ -159,9 +159,9 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTimNhanVien_KHL = new System.Windows.Forms.Panel();
             this.textBoxTimVangBang5 = new System.Windows.Forms.TextBox();
-            this.button9 = new System.Windows.Forms.Button();
+            this.buttonQuayLaiNhanVien_KHL5 = new System.Windows.Forms.Button();
             this.textBoxTimDonViToChuc5 = new System.Windows.Forms.TextBox();
-            this.button10 = new System.Windows.Forms.Button();
+            this.buttonTimNhanVien_KHL5 = new System.Windows.Forms.Button();
             this.labelTimVanBang5 = new System.Windows.Forms.Label();
             this.buttonTim5 = new System.Windows.Forms.Button();
             this.labelTimDonViToChuc5 = new System.Windows.Forms.Label();
@@ -176,7 +176,7 @@
             this.buttonXoaNhanVien_KHL = new System.Windows.Forms.Button();
             this.panelSuaNhanVien_KHL = new System.Windows.Forms.Panel();
             this.textBoxSuaVanBang5 = new System.Windows.Forms.TextBox();
-            this.button7 = new System.Windows.Forms.Button();
+            this.buttonSuaNhanVien_KHL5 = new System.Windows.Forms.Button();
             this.textBoxSuaDonViToChuc5 = new System.Windows.Forms.TextBox();
             this.buttonSua5 = new System.Windows.Forms.Button();
             this.labelSuaVanBang5 = new System.Windows.Forms.Label();
@@ -205,7 +205,7 @@
             this.labelThemThoiGianBatDau5 = new System.Windows.Forms.Label();
             this.labelThemMaKHL5 = new System.Windows.Forms.Label();
             this.labelThemMaNhanVien5 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.buttonThemNhanVien_KHL5 = new System.Windows.Forms.Button();
             this.buttonThem5 = new System.Windows.Forms.Button();
             this.panelNhanVien_KNVT = new System.Windows.Forms.Panel();
             this.buttonNhanVien_KNVT = new System.Windows.Forms.Button();
@@ -1511,6 +1511,7 @@
             this.dataGridViewNhanVien_KHL.Name = "dataGridViewNhanVien_KHL";
             this.dataGridViewNhanVien_KHL.Size = new System.Drawing.Size(561, 83);
             this.dataGridViewNhanVien_KHL.TabIndex = 13;
+            this.dataGridViewNhanVien_KHL.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNhanVien_KHL_CellClick);
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -1521,9 +1522,9 @@
             // 
             this.panelTimNhanVien_KHL.BackColor = System.Drawing.Color.LightCyan;
             this.panelTimNhanVien_KHL.Controls.Add(this.textBoxTimVangBang5);
-            this.panelTimNhanVien_KHL.Controls.Add(this.button9);
+            this.panelTimNhanVien_KHL.Controls.Add(this.buttonQuayLaiNhanVien_KHL5);
             this.panelTimNhanVien_KHL.Controls.Add(this.textBoxTimDonViToChuc5);
-            this.panelTimNhanVien_KHL.Controls.Add(this.button10);
+            this.panelTimNhanVien_KHL.Controls.Add(this.buttonTimNhanVien_KHL5);
             this.panelTimNhanVien_KHL.Controls.Add(this.labelTimVanBang5);
             this.panelTimNhanVien_KHL.Controls.Add(this.buttonTim5);
             this.panelTimNhanVien_KHL.Controls.Add(this.labelTimDonViToChuc5);
@@ -1547,14 +1548,15 @@
             this.textBoxTimVangBang5.Size = new System.Drawing.Size(123, 20);
             this.textBoxTimVangBang5.TabIndex = 47;
             // 
-            // button9
+            // buttonQuayLaiNhanVien_KHL5
             // 
-            this.button9.Location = new System.Drawing.Point(542, 50);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(64, 23);
-            this.button9.TabIndex = 23;
-            this.button9.Text = "Quay Lại";
-            this.button9.UseVisualStyleBackColor = true;
+            this.buttonQuayLaiNhanVien_KHL5.Location = new System.Drawing.Point(542, 50);
+            this.buttonQuayLaiNhanVien_KHL5.Name = "buttonQuayLaiNhanVien_KHL5";
+            this.buttonQuayLaiNhanVien_KHL5.Size = new System.Drawing.Size(64, 23);
+            this.buttonQuayLaiNhanVien_KHL5.TabIndex = 23;
+            this.buttonQuayLaiNhanVien_KHL5.Text = "Quay Lại";
+            this.buttonQuayLaiNhanVien_KHL5.UseVisualStyleBackColor = true;
+            this.buttonQuayLaiNhanVien_KHL5.Click += new System.EventHandler(this.buttonQuayLaiNhanVien_KHL5_Click);
             // 
             // textBoxTimDonViToChuc5
             // 
@@ -1563,14 +1565,15 @@
             this.textBoxTimDonViToChuc5.Size = new System.Drawing.Size(200, 20);
             this.textBoxTimDonViToChuc5.TabIndex = 46;
             // 
-            // button10
+            // buttonTimNhanVien_KHL5
             // 
-            this.button10.Location = new System.Drawing.Point(559, 2);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(45, 23);
-            this.button10.TabIndex = 24;
-            this.button10.Text = "Tìm";
-            this.button10.UseVisualStyleBackColor = true;
+            this.buttonTimNhanVien_KHL5.Location = new System.Drawing.Point(559, 2);
+            this.buttonTimNhanVien_KHL5.Name = "buttonTimNhanVien_KHL5";
+            this.buttonTimNhanVien_KHL5.Size = new System.Drawing.Size(45, 23);
+            this.buttonTimNhanVien_KHL5.TabIndex = 24;
+            this.buttonTimNhanVien_KHL5.Text = "Tìm";
+            this.buttonTimNhanVien_KHL5.UseVisualStyleBackColor = true;
+            this.buttonTimNhanVien_KHL5.Click += new System.EventHandler(this.buttonTimNhanVien_KHL5_Click);
             // 
             // labelTimVanBang5
             // 
@@ -1676,7 +1679,7 @@
             // 
             this.panelSuaNhanVien_KHL.BackColor = System.Drawing.Color.LightCyan;
             this.panelSuaNhanVien_KHL.Controls.Add(this.textBoxSuaVanBang5);
-            this.panelSuaNhanVien_KHL.Controls.Add(this.button7);
+            this.panelSuaNhanVien_KHL.Controls.Add(this.buttonSuaNhanVien_KHL5);
             this.panelSuaNhanVien_KHL.Controls.Add(this.textBoxSuaDonViToChuc5);
             this.panelSuaNhanVien_KHL.Controls.Add(this.buttonSua5);
             this.panelSuaNhanVien_KHL.Controls.Add(this.labelSuaVanBang5);
@@ -1701,14 +1704,15 @@
             this.textBoxSuaVanBang5.Size = new System.Drawing.Size(123, 20);
             this.textBoxSuaVanBang5.TabIndex = 35;
             // 
-            // button7
+            // buttonSuaNhanVien_KHL5
             // 
-            this.button7.Location = new System.Drawing.Point(558, 47);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(45, 23);
-            this.button7.TabIndex = 12;
-            this.button7.Text = "Lưu ";
-            this.button7.UseVisualStyleBackColor = true;
+            this.buttonSuaNhanVien_KHL5.Location = new System.Drawing.Point(558, 47);
+            this.buttonSuaNhanVien_KHL5.Name = "buttonSuaNhanVien_KHL5";
+            this.buttonSuaNhanVien_KHL5.Size = new System.Drawing.Size(45, 23);
+            this.buttonSuaNhanVien_KHL5.TabIndex = 12;
+            this.buttonSuaNhanVien_KHL5.Text = "Lưu ";
+            this.buttonSuaNhanVien_KHL5.UseVisualStyleBackColor = true;
+            this.buttonSuaNhanVien_KHL5.Click += new System.EventHandler(this.buttonSuaNhanVien_KHL5_Click);
             // 
             // textBoxSuaDonViToChuc5
             // 
@@ -1832,7 +1836,7 @@
             this.panelThemNhanVien_KHL.Controls.Add(this.labelThemThoiGianBatDau5);
             this.panelThemNhanVien_KHL.Controls.Add(this.labelThemMaKHL5);
             this.panelThemNhanVien_KHL.Controls.Add(this.labelThemMaNhanVien5);
-            this.panelThemNhanVien_KHL.Controls.Add(this.button5);
+            this.panelThemNhanVien_KHL.Controls.Add(this.buttonThemNhanVien_KHL5);
             this.panelThemNhanVien_KHL.Controls.Add(this.buttonThem5);
             this.panelThemNhanVien_KHL.Location = new System.Drawing.Point(9, 115);
             this.panelThemNhanVien_KHL.Name = "panelThemNhanVien_KHL";
@@ -1953,14 +1957,15 @@
             this.labelThemMaNhanVien5.TabIndex = 12;
             this.labelThemMaNhanVien5.Text = "Mã Nhân Viên";
             // 
-            // button5
+            // buttonThemNhanVien_KHL5
             // 
-            this.button5.Location = new System.Drawing.Point(557, 47);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(46, 23);
-            this.button5.TabIndex = 11;
-            this.button5.Text = "Thêm";
-            this.button5.UseVisualStyleBackColor = true;
+            this.buttonThemNhanVien_KHL5.Location = new System.Drawing.Point(557, 47);
+            this.buttonThemNhanVien_KHL5.Name = "buttonThemNhanVien_KHL5";
+            this.buttonThemNhanVien_KHL5.Size = new System.Drawing.Size(46, 23);
+            this.buttonThemNhanVien_KHL5.TabIndex = 11;
+            this.buttonThemNhanVien_KHL5.Text = "Thêm";
+            this.buttonThemNhanVien_KHL5.UseVisualStyleBackColor = true;
+            this.buttonThemNhanVien_KHL5.Click += new System.EventHandler(this.buttonThemNhanVien_KHL5_Click);
             // 
             // buttonThem5
             // 
@@ -3043,9 +3048,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.Panel panelTimNhanVien_KHL;
         private System.Windows.Forms.TextBox textBoxTimVangBang5;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button buttonQuayLaiNhanVien_KHL5;
         private System.Windows.Forms.TextBox textBoxTimDonViToChuc5;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button buttonTimNhanVien_KHL5;
         private System.Windows.Forms.Label labelTimVanBang5;
         private System.Windows.Forms.Button buttonTim5;
         private System.Windows.Forms.Label labelTimDonViToChuc5;
@@ -3060,7 +3065,7 @@
         private System.Windows.Forms.Button buttonXoaNhanVien_KHL;
         private System.Windows.Forms.Panel panelSuaNhanVien_KHL;
         private System.Windows.Forms.TextBox textBoxSuaVanBang5;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button buttonSuaNhanVien_KHL5;
         private System.Windows.Forms.TextBox textBoxSuaDonViToChuc5;
         private System.Windows.Forms.Button buttonSua5;
         private System.Windows.Forms.Label labelSuaVanBang5;
@@ -3085,7 +3090,7 @@
         private System.Windows.Forms.Label labelThemThoiGianBatDau5;
         private System.Windows.Forms.Label labelThemMaKHL5;
         private System.Windows.Forms.Label labelThemMaNhanVien5;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button buttonThemNhanVien_KHL5;
         private System.Windows.Forms.Button buttonThem5;
         private System.Windows.Forms.ComboBox comboBoxThemMaNhanVien3;
         private System.Windows.Forms.ComboBox comboBoxThemMaNhanVien4;

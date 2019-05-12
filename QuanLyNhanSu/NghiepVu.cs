@@ -61,6 +61,7 @@ namespace QuanLyNhanSu
             HienThiNhanVien_KhaNangViTinh();
             HienThiNhanVien_NgonNgu();
             HienThiNhanVien_CongTy();
+            HienThiNhanVien_KhoaHuanLuyen();
 
         }
 
@@ -194,16 +195,32 @@ namespace QuanLyNhanSu
         // Xử lý sự kiện click nút thêm, cho phép thêm dữ liệu
         private void buttonThemNhanVien_NoiHoc1_Click(object sender, EventArgs e)
         {
-            DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn thêm quá trình?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dlr == DialogResult.Yes)
+            int i;
+            int count = 0;
+            for (i = 0; i < dataGridViewNhanVien_NoiHoc.RowCount - 1; i++)
+                if (comboBoxThemMaNhanVien1.Text == dataGridViewNhanVien_NoiHoc.Rows[i].Cells[1].Value.ToString() &&
+                    comboBoxThemMaNoiHoc1.Text == dataGridViewNhanVien_NoiHoc.Rows[i].Cells[2].Value.ToString())
+                {
+                    count++;
+                }
+            if (count == 1)
             {
-                ThemNhanVien_NoiHoc();
-                HienThiNhanVien_NoiHoc();
+                MessageBox.Show("Dữ liệu đã tồn tại", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                Dispose();
+                DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn thêm nơi học cho nhân viên?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlr == DialogResult.Yes)
+                {
+                    ThemNhanVien_NoiHoc();
+                    HienThiNhanVien_NoiHoc();
+                }
+                else
+                {
+                    Dispose();
+                }
             }
+                
         }
 
         // Xử lý sự kiện click vào mỗi dòng, dữ liệu tự động update vào form sửa
@@ -379,16 +396,32 @@ namespace QuanLyNhanSu
         // Xử lý sự kiện click nút thêm, cho phép thêm dữ liệu
         private void buttonThemNhanVien_KNVT2_Click(object sender, EventArgs e)
         {
-            DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn thêm kỹ năng?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dlr == DialogResult.Yes)
+            int i;
+            int count = 0;
+            for (i = 0; i < dataGridViewNhanVien_KNVT.RowCount - 1; i++)
+                if (comboBoxThemMaNhanVien2.Text == dataGridViewNhanVien_KNVT.Rows[i].Cells[1].Value.ToString() &&
+                    comboBoxThemMaKNVT2.Text == dataGridViewNhanVien_KNVT.Rows[i].Cells[2].Value.ToString())
+                {
+                    count++;
+                }
+            if (count == 1)
             {
-                ThemNhanVien_KhaNangViTinh();
-                HienThiNhanVien_KhaNangViTinh();
+                MessageBox.Show("Dữ liệu đã tồn tại", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                Dispose();
+                DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn thêm kỹ năng khả năng vi tính?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlr == DialogResult.Yes)
+                {
+                    ThemNhanVien_KhaNangViTinh();
+                    HienThiNhanVien_KhaNangViTinh();
+                }
+                else
+                {
+                    Dispose();
+                }
             }
+                
         }
 
         // Xử lý sự kiện click vào mỗi dòng, dữ liệu tự động update vào form sửa
@@ -564,16 +597,32 @@ namespace QuanLyNhanSu
         // Xử lý sự kiện click nút thêm, cho phép thêm dữ liệu
         private void buttonThemNhanVien_NgonNgu3_Click(object sender, EventArgs e)
         {
-            DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn thêm kỹ năng?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dlr == DialogResult.Yes)
+            int i;
+            int count = 0;
+            for (i = 0; i < dataGridViewNhanVien_NgonNgu.RowCount - 1; i++)
+                if (comboBoxThemMaNhanVien3.Text == dataGridViewNhanVien_NgonNgu.Rows[i].Cells[1].Value.ToString() &&
+                    comboBoxThemMaNgonNgu3.Text == dataGridViewNhanVien_NgonNgu.Rows[i].Cells[2].Value.ToString())
+                {
+                    count++;
+                }
+            if (count == 1)
             {
-                ThemNhanVien_NgonNgu();
-                HienThiNhanVien_NgonNgu();
+                MessageBox.Show("Dữ liệu đã tồn tại", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                Dispose();
+                DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn thêm trình độ ngoại ngữ?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlr == DialogResult.Yes)
+                {
+                    ThemNhanVien_NgonNgu();
+                    HienThiNhanVien_NgonNgu();
+                }
+                else
+                {
+                    Dispose();
+                }
             }
+                
         }
 
         // Xử lý sự kiện click vào mỗi dòng, dữ liệu tự động update vào form sửa
@@ -778,53 +827,78 @@ namespace QuanLyNhanSu
         // Xử lý sự kiện click nút thêm
         private void buttonThemNhanVien_CongTy4_Click(object sender, EventArgs e)
         {
-            DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn thêm công ty?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dlr == DialogResult.Yes)
+            int i;
+            int count = 0;
+            for (i = 0; i < dataGridViewNhanVien_CongTy.RowCount - 1; i++)
+                if (comboBoxThemMaNhanVien4.Text == dataGridViewNhanVien_CongTy.Rows[i].Cells[1].Value.ToString() &&
+                    comboBoxThemMaCongTy4.Text == dataGridViewNhanVien_CongTy.Rows[i].Cells[2].Value.ToString())
+                {
+                    count++;
+                }
+            if (count == 1)
             {
-                ThemNhanVien_CongTy();
-                HienThiNhanVien_CongTy();
+                MessageBox.Show("Dữ liệu đã tồn tại", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                Dispose();
+                DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn thêm quá trình làm việc?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlr == DialogResult.Yes)
+                {
+                    ThemNhanVien_CongTy();
+                    HienThiNhanVien_CongTy();
+                }
+                else
+                {
+                    Dispose();
+                }
             }
+                
         }
         // Xử lý sự kiện click vào từng dòng trong dataGridView
         private void dataGridViewNhanVien_CongTy_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Set giá trị cho các thành phần 
-            DateTime dateTimeBd = new DateTime();
-            dateTimeBd = Convert.ToDateTime(dataGridViewNhanVien_CongTy.Rows[e.RowIndex].Cells[3].Value.ToString());
-            DateTime dateTimeKt = new DateTime();
-            dateTimeKt = Convert.ToDateTime(dataGridViewNhanVien_CongTy.Rows[e.RowIndex].Cells[4].Value.ToString());
+            if (e.RowIndex < dataGridViewNhanVien_CongTy.RowCount - 1)
+            {
+                // Set giá trị cho các thành phần 
+                DateTime dateTimeBd = new DateTime();
+                dateTimeBd = Convert.ToDateTime(dataGridViewNhanVien_CongTy.Rows[e.RowIndex].Cells[3].Value.ToString());
+                DateTime dateTimeKt = new DateTime();
+                dateTimeKt = Convert.ToDateTime(dataGridViewNhanVien_CongTy.Rows[e.RowIndex].Cells[4].Value.ToString());
 
-            textBoxSuaMaNhanVien4.Text = dataGridViewNhanVien_CongTy.Rows[e.RowIndex].Cells[1].Value.ToString();
-            textBoxSuaMaCongTy4.Text = dataGridViewNhanVien_CongTy.Rows[e.RowIndex].Cells[2].Value.ToString();
-            dateTimePickerSuaThoiGianBatDau1.Value = dateTimeBd;
-            dateTimePickerSuaThoiGianKetThuc1.Value = dateTimeKt;
-            textBoxSuaChucVuDaLam4.Text = dataGridViewNhanVien_CongTy.Rows[e.RowIndex].Cells[5].Value.ToString();
-            textBoxSuaLinhVuc4.Text = dataGridViewNhanVien_CongTy.Rows[e.RowIndex].Cells[6].Value.ToString();
-            textBoxSuaNhiemVu4.Text = dataGridViewNhanVien_CongTy.Rows[e.RowIndex].Cells[7].Value.ToString();
-            textBoxSuaLuong4.Text = dataGridViewNhanVien_CongTy.Rows[e.RowIndex].Cells[8].Value.ToString();
+                textBoxSuaMaNhanVien4.Text = dataGridViewNhanVien_CongTy.Rows[e.RowIndex].Cells[1].Value.ToString();
+                textBoxSuaMaCongTy4.Text = dataGridViewNhanVien_CongTy.Rows[e.RowIndex].Cells[2].Value.ToString();
+                dateTimePickerSuaThoiGianBatDau4.Value = dateTimeBd;
+                dateTimePickerSuaThoiGianKetThuc4.Value = dateTimeKt;
+                textBoxSuaChucVuDaLam4.Text = dataGridViewNhanVien_CongTy.Rows[e.RowIndex].Cells[5].Value.ToString();
+                textBoxSuaLinhVuc4.Text = dataGridViewNhanVien_CongTy.Rows[e.RowIndex].Cells[6].Value.ToString();
+                textBoxSuaNhiemVu4.Text = dataGridViewNhanVien_CongTy.Rows[e.RowIndex].Cells[7].Value.ToString();
+                textBoxSuaLuong4.Text = dataGridViewNhanVien_CongTy.Rows[e.RowIndex].Cells[8].Value.ToString();
 
 
 
-            MaNhanVien = Convert.ToInt32(dataGridViewNhanVien_CongTy.Rows[e.RowIndex].Cells[1].Value);
-            MaCongTy = dataGridViewNhanVien_CongTy.Rows[e.RowIndex].Cells[2].Value.ToString();
+                MaNhanVien = Convert.ToInt32(dataGridViewNhanVien_CongTy.Rows[e.RowIndex].Cells[1].Value);
+                MaCongTy = dataGridViewNhanVien_CongTy.Rows[e.RowIndex].Cells[2].Value.ToString();
 
-            // Khóa việc sửa giá trị trước khi click vào nút sửa.
-            textBoxSuaMaNhanVien4.ReadOnly = true;
-            textBoxSuaMaCongTy4.ReadOnly = true;
-            dateTimePickerSuaThoiGianBatDau4.Enabled = false ;
-            dateTimePickerSuaThoiGianKetThuc4.Enabled = false;
-            textBoxSuaChucVuDaLam4.ReadOnly = true;
-            textBoxSuaLinhVuc4.ReadOnly = true;
-            textBoxSuaNhiemVu4.ReadOnly = true;
-            textBoxSuaLuong4.ReadOnly = true;
+                // Khóa việc sửa giá trị trước khi click vào nút sửa.
+                textBoxSuaMaNhanVien4.ReadOnly = true;
+                textBoxSuaMaCongTy4.ReadOnly = true;
+                dateTimePickerSuaThoiGianBatDau4.Enabled = false;
+                dateTimePickerSuaThoiGianKetThuc4.Enabled = false;
+                textBoxSuaChucVuDaLam4.ReadOnly = true;
+                textBoxSuaLinhVuc4.ReadOnly = true;
+                textBoxSuaNhiemVu4.ReadOnly = true;
+                textBoxSuaLuong4.ReadOnly = true;
 
-            buttonSuaNhanVien_CongTy.Click += buttonSuaNhanVien_CongTy_Click;
+                buttonSuaNhanVien_CongTy.Click += buttonSuaNhanVien_CongTy_Click;
 
-            buttonXoaNhanVien_CongTy.Click += buttonXoaNhanVien_CongTy_Click;
+                buttonXoaNhanVien_CongTy.Click += buttonXoaNhanVien_CongTy_Click;
+            }
+            else
+            {
+
+            }
+
+                
         }
 
         // Xử lý sự kiện click nút Lưu (buttonSuaNhanVien_CongTy4)
@@ -868,6 +942,228 @@ namespace QuanLyNhanSu
         #endregion
 
         //------------------------------------------------------------------------------------------------
+
+
+        #region Xử Lý Nhập Nhân Viên_khóa huấn luyên
+        // Phương thức hiển thị danh sách nhân viên_khóa huấn luyện lên dataGridView
+        public void HienThiNhanVien_KhoaHuanLuyen()
+        {
+            int i;
+            string sqlSelect = "select * from NhanVien_KhoaHuanLuyen";
+            SqlCommand cmd = new SqlCommand(sqlSelect, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);
+            dataGridViewNhanVien_KHL.DataSource = dt;
+            dataGridViewNhanVien_KHL.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            for (i = 0; i < dataGridViewNhanVien_KHL.RowCount; i++) dataGridViewNhanVien_KHL.Rows[i].Cells[0].Value = i + 1;
+        }
+
+        // Phương thức thêm Nhân Viên_Khóa huấn luyện
+        public void ThemNhanVien_KhoaHuanLuyen()
+        {
+            string sqlInsert = "Insert into NhanVien_KhoaHuanLuyen values(@MaNhanvien, @MaKhoaHuanLuyen, @DonViToChuc," +
+                               "@ThoiGianHuanLuyen_BatDau, @ThoiGianHuanLuyen_KetThuc, @VanBang)";
+            SqlCommand cmd = new SqlCommand(sqlInsert, con);
+            cmd.Parameters.AddWithValue("MaNhanVien", Convert.ToInt32(comboBoxThemMaNhanVien5.Text));
+            cmd.Parameters.AddWithValue("MaKhoaHuanLuyen", comboBoxThemMaKHL5.Text);
+            cmd.Parameters.AddWithValue("ThoiGianHuanLuyen_BatDau", dateTimePickerThemThoiGianBatDau5.Value.Date.Year.ToString() + '/' +
+                                                     dateTimePickerThemThoiGianBatDau5.Value.Date.Month.ToString() + '/' +
+                                                     dateTimePickerThemThoiGianBatDau5.Value.Date.Day.ToString());
+            cmd.Parameters.AddWithValue("ThoiGianHuanLuyen_KetThuc", dateTimePickerThemThoiGianKetThuc5.Value.Date.Year.ToString() + '/' +
+                                                     dateTimePickerThemThoiGianKetThuc5.Value.Date.Month.ToString() + '/' +
+                                                     dateTimePickerThemThoiGianKetThuc5.Value.Date.Day.ToString());
+            cmd.Parameters.AddWithValue("DonViToChuc", textBoxThemDonViToChuc5.Text);
+            cmd.Parameters.AddWithValue("VanBang", textBoxThemVanBang5.Text);         
+            cmd.ExecuteNonQuery();
+        }
+
+        // Phương thức sửa nhân viên_KhoaHuanLuyen
+        public void SuaNhanVien_KhoaHuanLuyen()
+        {
+            string sqlUpdate = "Update NhanVien_KhoaHuanLuyen Set ThoiGianHuanLuyen_BatDau=@ThoiGianHuanLuyen_BatDau, " +
+                "ThoiGianHuanLuyen_KetThuc=@ThoiGianHuanLuyen_KetThuc, DonViToChuc=@DonViToChuc, VanBang=@VanBang " +
+                "where MaNhanVien=@MaNhanVien and MaKhoaHuanLuyen=@MaKhoaHuanLuyen";
+            SqlCommand cmd = new SqlCommand(sqlUpdate, con);
+            cmd.Parameters.AddWithValue("MaNhanVien", Convert.ToInt32(textBoxSuaMaNhanVien5.Text));
+            cmd.Parameters.AddWithValue("MaKhoaHuanLuyen", textBoxSuaMaKHL5.Text);
+            cmd.Parameters.AddWithValue("ThoiGianHuanLuyen_BatDau", dateTimePickerSuaThoiGianBatDau5.Value.Date.Year.ToString() + '/' +
+                                                     dateTimePickerSuaThoiGianBatDau5.Value.Date.Month.ToString() + '/' +
+                                                     dateTimePickerSuaThoiGianBatDau5.Value.Date.Day.ToString());
+            cmd.Parameters.AddWithValue("ThoiGianHuanLuyen_KetThuc", dateTimePickerSuaThoiGianKetThuc5.Value.Date.Year.ToString() + '/' +
+                                         dateTimePickerSuaThoiGianKetThuc5.Value.Date.Month.ToString() + '/' +
+                                         dateTimePickerSuaThoiGianKetThuc5.Value.Date.Day.ToString());
+            cmd.Parameters.AddWithValue("DonViToChuc", textBoxSuaDonViToChuc5.Text);
+            cmd.Parameters.AddWithValue("VanBang", textBoxSuaVanBang5.Text);
+
+            cmd.ExecuteNonQuery();
+        }
+
+        // Phương thức Xóa Nhân Viên_CongTy
+        public void XoaNhanVien_KhoaHuanLuyen()
+        {
+            string sqlDelete = "Delete From NhanVien_KhoaHuanLuyen Where MaNhanVien=@MaNhanVien and MaKhoaHuanLuyen=@MaKhoaHuanLuyen";
+            SqlCommand cmd = new SqlCommand(sqlDelete, con);
+            cmd.Parameters.AddWithValue("MaNhanVien", MaNhanVien);
+            cmd.Parameters.AddWithValue("MaKhoaHuanLuyen", MaKHL);
+            cmd.ExecuteNonQuery();
+        }
+
+        // Phương thức Tìm nhân viên_CongTy (Mới chỉ tìm theo mã)
+        public void TimNhanVien_KhoaHuanLuyen()
+        {
+            string sqlFindId = "Select * from NhanVien_KhoaHuanLuyen Where (CharIndex( Convert(Varchar(100), @MaNhanVien) , Convert(Varchar(100), MaNhanVien), 0 ) >=1) and" +
+                "                                            ((CharIndex(@MaKhoaHuanLuyen, MaKhoaHuanLuyen, 0))>=1 or (@MaKhoaHuanLuyen=''))";
+
+            SqlCommand cmd = new SqlCommand(sqlFindId, con);
+
+            if (textBoxTimMaNhanVien5.Text == "") cmd.Parameters.AddWithValue("MaNhanVien", 0);
+            else cmd.Parameters.AddWithValue("MaNhanVien", Convert.ToInt32(textBoxTimMaNhanVien5.Text));
+            cmd.Parameters.AddWithValue("MaKhoaHuanLuyen", textBoxTimMaKHL5.Text);
+            cmd.ExecuteNonQuery();
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);
+            dataGridViewNhanVien_KHL.DataSource = dt;
+            dataGridViewNhanVien_KHL.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            for (int i = 0; i < dataGridViewNhanVien_KHL.RowCount; i++) dataGridViewNhanVien_KHL.Rows[i].Cells[0].Value = i + 1;
+        }
+
+        // Xử lý sự kiện click nút sửa, cho phép sửa dữ liệu   - Sự kiện tự tạo thêm bằng tay
+        void buttonSuaNhanVien_KhoaHuanLuyen_Click(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+
+            // Mở khóa cho phép sửa dữ liệu sau khi click vào nút sửa, không cho phép sửa mã nhân viên và mã nơi học.
+            textBoxSuaMaNhanVien5.ReadOnly = true;
+            textBoxSuaMaKHL5.ReadOnly = true;
+            dateTimePickerSuaThoiGianBatDau5.Enabled = true;
+            dateTimePickerSuaThoiGianKetThuc5.Enabled = true;
+            textBoxSuaDonViToChuc5.ReadOnly = false;
+            textBoxSuaVanBang5.ReadOnly = false;
+        }
+
+        // Xử lý sự kiện click nút xóa, cho phép xóa dữ liệu    - Sự kiện tự tạo thêm bằng tay
+        void buttonXoaNhanVien_KhoaHuanLuyen_Click(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn xóa khóa huấn luyện này", "Xóa Khóa Huấn Luyện", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlr == DialogResult.Yes)
+            {
+                XoaNhanVien_KhoaHuanLuyen();
+                HienThiNhanVien_KhoaHuanLuyen();
+            }
+            else
+            {
+
+            }
+        }
+
+
+        private void buttonThemNhanVien_KHL5_Click(object sender, EventArgs e)
+        {
+            int i;
+            int count = 0;
+            for (i = 0; i < dataGridViewNhanVien_KHL.RowCount - 1; i++)
+                if (comboBoxThemMaNhanVien5.Text == dataGridViewNhanVien_KHL.Rows[i].Cells[1].Value.ToString() &&
+                    comboBoxThemMaKHL5.Text == dataGridViewNhanVien_KHL.Rows[i].Cells[2].Value.ToString())
+                {
+                    count++;
+                }
+            if (count == 1)
+            {
+                MessageBox.Show("Dữ liệu đã tồn tại", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn thêm khóa huấn luyện?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlr == DialogResult.Yes)
+                {
+                    ThemNhanVien_KhoaHuanLuyen();
+                    HienThiNhanVien_KhoaHuanLuyen();
+                }
+                else
+                {
+                    Dispose();
+                }
+            }
+                
+        }
+
+        private void dataGridViewNhanVien_KHL_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < dataGridViewNhanVien_KHL.RowCount - 1)
+            {
+                // Set giá trị cho các thành phần 
+                DateTime dateTimeBd = new DateTime();
+                dateTimeBd = Convert.ToDateTime(dataGridViewNhanVien_KHL.Rows[e.RowIndex].Cells[4].Value.ToString());
+                DateTime dateTimeKt = new DateTime();
+                dateTimeKt = Convert.ToDateTime(dataGridViewNhanVien_KHL.Rows[e.RowIndex].Cells[5].Value.ToString());
+
+                textBoxSuaMaNhanVien5.Text = dataGridViewNhanVien_KHL.Rows[e.RowIndex].Cells[1].Value.ToString();
+                textBoxSuaMaKHL5.Text = dataGridViewNhanVien_KHL.Rows[e.RowIndex].Cells[2].Value.ToString();
+                dateTimePickerSuaThoiGianBatDau5.Value = dateTimeBd;
+                dateTimePickerSuaThoiGianKetThuc5.Value = dateTimeKt;
+                textBoxSuaDonViToChuc5.Text = dataGridViewNhanVien_KHL.Rows[e.RowIndex].Cells[3].Value.ToString();
+                textBoxSuaVanBang5.Text = dataGridViewNhanVien_KHL.Rows[e.RowIndex].Cells[6].Value.ToString();
+
+                MaNhanVien = Convert.ToInt32(dataGridViewNhanVien_KHL.Rows[e.RowIndex].Cells[1].Value);
+                MaKHL = dataGridViewNhanVien_KHL.Rows[e.RowIndex].Cells[2].Value.ToString();
+
+                // Khóa việc sửa giá trị trước khi click vào nút sửa.
+                textBoxSuaMaNhanVien5.ReadOnly = true;
+                textBoxSuaMaKHL5.ReadOnly = true;
+                dateTimePickerSuaThoiGianBatDau5.Enabled = false;
+                dateTimePickerSuaThoiGianKetThuc5.Enabled = false;
+                textBoxSuaDonViToChuc5.ReadOnly = true;
+                textBoxSuaVanBang5.ReadOnly = true;
+
+                buttonSuaNhanVien_KHL.Click += buttonSuaNhanVien_KhoaHuanLuyen_Click;
+
+                buttonXoaNhanVien_KHL.Click += buttonXoaNhanVien_KhoaHuanLuyen_Click;
+            }
+            else
+            {
+
+            }
+                
+        }
+
+        private void buttonSuaNhanVien_KHL5_Click(object sender, EventArgs e)
+        {
+            DialogResult dlr = MessageBox.Show("Chắc chắn sửa thông tin?", "Sửa Thông Tin", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlr == DialogResult.Yes)
+            {
+                SuaNhanVien_KhoaHuanLuyen();
+
+                // Khóa lại chức năng sửa
+                textBoxSuaMaNhanVien5.ReadOnly = true;
+                textBoxSuaMaKHL5.ReadOnly = true;
+                dateTimePickerSuaThoiGianBatDau5.Enabled = false;
+                dateTimePickerSuaThoiGianKetThuc5.Enabled = false;
+                textBoxSuaDonViToChuc5.ReadOnly = true;
+                textBoxSuaVanBang5.ReadOnly = true;
+
+                //Hiển thị lại danh sách
+                HienThiNhanVien_KhoaHuanLuyen();
+            }
+            else
+            {
+
+            }
+        }
+
+        private void buttonTimNhanVien_KHL5_Click(object sender, EventArgs e)
+        {
+            TimNhanVien_KhoaHuanLuyen();
+        }
+
+        private void buttonQuayLaiNhanVien_KHL5_Click(object sender, EventArgs e)
+        {
+            HienThiNhanVien_KhoaHuanLuyen();
+        }
+        #endregion
 
     }
 }
