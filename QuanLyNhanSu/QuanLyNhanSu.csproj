@@ -144,10 +144,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>N05_Ql_NhanSu_T5DataSet9.xsd</DependentUpon>
     </Compile>
+    <Compile Include="N05_Ql_NhanSu_T5DataSetNhanVien_NgonNgu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>N05_Ql_NhanSu_T5DataSetNhanVien_NgonNgu.xsd</DependentUpon>
+    </Compile>
     <Compile Include="N05_Ql_NhanSu_T5DataSetTest.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>N05_Ql_NhanSu_T5DataSetTest.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="N05_Ql_NhanSu_T5DataSet_NhanVien.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet_NhanVien.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="N05_Ql_NhanSu_T5DataSet_NhanVien_CongTy.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet_NhanVien_CongTy.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="N05_Ql_NhanSu_T5DataSet_NhanVien_KhaNangViTinh.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet_NhanVien_KhaNangViTinh.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="N05_Ql_NhanSu_T5DataSet_NhanVien_KhoaHuanLuyen.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet_NhanVien_KhoaHuanLuyen.xsd</DependentUpon>
     </Compile>
     <Compile Include="N05_Ql_NhanSu_T5DataSet_NhanVien_NoiHoc.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -333,6 +358,17 @@
     <None Include="N05_Ql_NhanSu_T5DataSet9.xss">
       <DependentUpon>N05_Ql_NhanSu_T5DataSet9.xsd</DependentUpon>
     </None>
+    <None Include="N05_Ql_NhanSu_T5DataSetNhanVien_NgonNgu.xsc">
+      <DependentUpon>N05_Ql_NhanSu_T5DataSetNhanVien_NgonNgu.xsd</DependentUpon>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSetNhanVien_NgonNgu.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>N05_Ql_NhanSu_T5DataSetNhanVien_NgonNgu.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSetNhanVien_NgonNgu.xss">
+      <DependentUpon>N05_Ql_NhanSu_T5DataSetNhanVien_NgonNgu.xsd</DependentUpon>
+    </None>
     <None Include="N05_Ql_NhanSu_T5DataSetTest.xsc">
       <DependentUpon>N05_Ql_NhanSu_T5DataSetTest.xsd</DependentUpon>
     </None>
@@ -343,6 +379,50 @@
     </None>
     <None Include="N05_Ql_NhanSu_T5DataSetTest.xss">
       <DependentUpon>N05_Ql_NhanSu_T5DataSetTest.xsd</DependentUpon>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet_NhanVien.xsc">
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet_NhanVien.xsd</DependentUpon>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet_NhanVien.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>N05_Ql_NhanSu_T5DataSet_NhanVien.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet_NhanVien.xss">
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet_NhanVien.xsd</DependentUpon>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet_NhanVien_CongTy.xsc">
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet_NhanVien_CongTy.xsd</DependentUpon>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet_NhanVien_CongTy.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>N05_Ql_NhanSu_T5DataSet_NhanVien_CongTy.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet_NhanVien_CongTy.xss">
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet_NhanVien_CongTy.xsd</DependentUpon>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet_NhanVien_KhaNangViTinh.xsc">
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet_NhanVien_KhaNangViTinh.xsd</DependentUpon>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet_NhanVien_KhaNangViTinh.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>N05_Ql_NhanSu_T5DataSet_NhanVien_KhaNangViTinh.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet_NhanVien_KhaNangViTinh.xss">
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet_NhanVien_KhaNangViTinh.xsd</DependentUpon>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet_NhanVien_KhoaHuanLuyen.xsc">
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet_NhanVien_KhoaHuanLuyen.xsd</DependentUpon>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet_NhanVien_KhoaHuanLuyen.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>N05_Ql_NhanSu_T5DataSet_NhanVien_KhoaHuanLuyen.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet_NhanVien_KhoaHuanLuyen.xss">
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet_NhanVien_KhoaHuanLuyen.xsd</DependentUpon>
     </None>
     <None Include="N05_Ql_NhanSu_T5DataSet_NhanVien_NoiHoc.xsc">
       <DependentUpon>N05_Ql_NhanSu_T5DataSet_NhanVien_NoiHoc.xsd</DependentUpon>
