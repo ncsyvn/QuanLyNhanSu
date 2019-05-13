@@ -76,6 +76,8 @@ namespace QuanLyNhanSu
             con.Open();
 
             HienThiNhanVien();
+            textBoxThemMaNhanVien1.Text = (Convert.ToInt32(dataGridViewNhanVien.Rows[dataGridViewNhanVien.RowCount-2].Cells[1].Value) + 1).ToString();
+            textBoxThemMaNhanVien1.ReadOnly = true;
 
             HienThiNoiHoc();
 
@@ -94,6 +96,15 @@ namespace QuanLyNhanSu
             con.Close();
         }
 
+
+
+        #endregion
+
+        #endregion
+
+        //--------------------------------------------------------------------------------------------------
+
+        #region Xử Lý danh mục Nhân Viên
         // Phương thức hiển thị danh sách nhân viên lên dataGridView
         public void HienThiNhanVien()
         {
@@ -108,13 +119,6 @@ namespace QuanLyNhanSu
             for (i = 0; i < dataGridViewNhanVien.RowCount; i++) dataGridViewNhanVien.Rows[i].Cells[0].Value = i + 1;
         }
 
-        #endregion
-
-        #endregion
-
-        //--------------------------------------------------------------------------------------------------
-
-        #region Xử Lý danh mục Nhân Viên
         // Phương thức thêm Nhân Viên
         public void ThemNhanVien()
         {
@@ -122,7 +126,7 @@ namespace QuanLyNhanSu
                                " @NgaySinh, @GioiTinh, @NoiSinh, @SoCMTND, @NoiCapCMTND, " +
                                "@SoDienThoai, @ChucVu, @MaPhongBan)";
             SqlCommand cmd = new SqlCommand(sqlInsert, con);
-            cmd.Parameters.AddWithValue("MaNhanVien", Convert.ToInt32(textBoxThemMaNhanVien1.Text));
+            cmd.Parameters.AddWithValue("MaNhanVien", textBoxThemMaNhanVien1.Text); 
             cmd.Parameters.AddWithValue("HoVaTen", textBoxThemHoVaTen1.Text);
             cmd.Parameters.AddWithValue("NgaySinh", dateTimePickerThemNgaySinh1.Value.Date.Year.ToString() + '/' +
                                                      dateTimePickerThemNgaySinh1.Value.Date.Month.ToString() + '/' +
@@ -220,6 +224,7 @@ namespace QuanLyNhanSu
             {
                 ThemNhanVien();
                 HienThiNhanVien();
+                textBoxThemMaNhanVien1.Text = (Convert.ToInt32(dataGridViewNhanVien.Rows[dataGridViewNhanVien.RowCount - 2].Cells[1].Value) + 1).ToString();
                 //Dispose();
             }
             else
@@ -444,36 +449,53 @@ namespace QuanLyNhanSu
         // Xử lý sự kiện click nút thêm, cho phép thêm dữ liệu
         private void buttonThemNoiHoc2_Click(object sender, EventArgs e)
         {
-            DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn thêm nơi học?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dlr == DialogResult.Yes)
+            int i;
+            int count = 0;
+            for (i = 0; i < dataGridViewNoiHoc.RowCount - 1; i++)
+                if (textBoxThemMaNoiHoc2.Text==dataGridViewNoiHoc.Rows[i].Cells[1].Value.ToString())
+                {
+                    count++;
+                }
+            if (count==1)
             {
-                ThemNoiHoc();
-                HienThiNoiHoc();
+                MessageBox.Show("Mã nơi học đã tồn tại", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
-            {
-                Dispose();
-            }
+                {
+                    DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn thêm nơi học?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dlr == DialogResult.Yes)
+                    {
+                        ThemNoiHoc();
+                        HienThiNoiHoc();
+                    }
+                    else
+                    {
+                        Dispose();
+                    }
+                }
+            
         }
 
         // Xử lý sự kiện click vào mỗi dòng, dữ liệu tự động update vào form sửa
         private void dataGridViewNoiHoc_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Set giá trị cho các thành phần 
+            if (e.RowIndex < dataGridViewNoiHoc.RowCount - 1)
+            {
+                // Set giá trị cho các thành phần 
 
-            textBoxSuaMaNoiHoc2.Text = dataGridViewNoiHoc.Rows[e.RowIndex].Cells[1].Value.ToString();
-            textBoxSuaTenNoiHoc2.Text = dataGridViewNoiHoc.Rows[e.RowIndex].Cells[2].Value.ToString();
+                textBoxSuaMaNoiHoc2.Text = dataGridViewNoiHoc.Rows[e.RowIndex].Cells[1].Value.ToString();
+                textBoxSuaTenNoiHoc2.Text = dataGridViewNoiHoc.Rows[e.RowIndex].Cells[2].Value.ToString();
 
-            MaNoiHoc = dataGridViewNoiHoc.Rows[e.RowIndex].Cells[1].Value.ToString();
+                MaNoiHoc = dataGridViewNoiHoc.Rows[e.RowIndex].Cells[1].Value.ToString();
 
-            buttonSuaNoiHoc.Click += buttonSuaNoiHoc_Click;
+                buttonSuaNoiHoc.Click += buttonSuaNoiHoc_Click;
 
-            // Khóa việc sửa giá trị trước khi click vào nút sửa.
-            textBoxSuaMaNoiHoc2.ReadOnly = true;
-            textBoxSuaMaNoiHoc2.ReadOnly = true;
+                // Khóa việc sửa giá trị trước khi click vào nút sửa.
+                textBoxSuaMaNoiHoc2.ReadOnly = true;
+                textBoxSuaMaNoiHoc2.ReadOnly = true;
 
-            buttonXoaNoiHoc.Click += buttonXoaNoiHoc_Click;
-
+                buttonXoaNoiHoc.Click += buttonXoaNoiHoc_Click;
+            }               
         }
 
         // Xử lý sự kiện click vào nút Lưu lại (buttonSuaNoiHoc2)
@@ -609,35 +631,53 @@ namespace QuanLyNhanSu
         // Xử lý sự kiện click nút thêm, cho phép thêm dữ liệu
         private void buttonThemNgonNgu3_Click(object sender, EventArgs e)
         {
-            DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn thêm ngôn ngữ?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dlr == DialogResult.Yes)
+            int i;
+            int count = 0;
+            for (i = 0; i < dataGridViewNgonNgu.RowCount - 1; i++)
+                if (textBoxThemMaNgonNgu3.Text == dataGridViewNgonNgu.Rows[i].Cells[1].Value.ToString())
+                {
+                    count++;
+                }
+            if (count == 1)
             {
-                ThemNgonNgu();
-                HienThiNgonNgu();
+                MessageBox.Show("Mã ngôn ngữ đã tồn tại", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                Dispose();
-            }
+                DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn thêm ngôn ngữ?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlr == DialogResult.Yes)
+                {
+                    ThemNgonNgu();
+                    HienThiNgonNgu();
+                }
+                else
+                {
+                    Dispose();
+                }
+            }               
         }
 
         // Xử lý sự kiện click vào mỗi dòng, dữ liệu tự động update vào form sửa
         private void dataGridViewNgonNgu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Set giá trị cho các thành phần 
+            if (e.RowIndex < dataGridViewNgonNgu.RowCount - 1)
+            {
+                // Set giá trị cho các thành phần 
 
-            textBoxSuaMaNgonNgu3.Text = dataGridViewNgonNgu.Rows[e.RowIndex].Cells[1].Value.ToString();
-            textBoxSuaTenNgonNgu3.Text = dataGridViewNgonNgu.Rows[e.RowIndex].Cells[2].Value.ToString();
+                textBoxSuaMaNgonNgu3.Text = dataGridViewNgonNgu.Rows[e.RowIndex].Cells[1].Value.ToString();
+                textBoxSuaTenNgonNgu3.Text = dataGridViewNgonNgu.Rows[e.RowIndex].Cells[2].Value.ToString();
 
-            MaNgonNgu = dataGridViewNgonNgu.Rows[e.RowIndex].Cells[1].Value.ToString();
+                MaNgonNgu = dataGridViewNgonNgu.Rows[e.RowIndex].Cells[1].Value.ToString();
 
-            buttonSuaNgonNgu.Click += buttonSuaNgonNgu_Click;
+                buttonSuaNgonNgu.Click += buttonSuaNgonNgu_Click;
 
-            // Khóa việc sửa giá trị trước khi click vào nút sửa.
-            textBoxSuaMaNgonNgu3.ReadOnly = true;
-            textBoxSuaTenNgonNgu3.ReadOnly = true;
+                // Khóa việc sửa giá trị trước khi click vào nút sửa.
+                textBoxSuaMaNgonNgu3.ReadOnly = true;
+                textBoxSuaTenNgonNgu3.ReadOnly = true;
 
-            buttonXoaNgonNgu.Click += buttonXoaNgonNgu_Click;
+                buttonXoaNgonNgu.Click += buttonXoaNgonNgu_Click;
+            }
+                
         }
 
         // Xử lý sự kiện click vào nút Lưu lại (buttonSuaNgonNgu3)
@@ -773,35 +813,54 @@ namespace QuanLyNhanSu
         // Xử lý sự kiện click nút thêm, cho phép thêm dữ liệu
         private void buttonThemKNVT4_Click(object sender, EventArgs e)
         {
-            DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn thêm khả năng vi tính?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dlr == DialogResult.Yes)
+            int i;
+            int count = 0;
+            for (i = 0; i < dataGridViewKNVT.RowCount - 1; i++)
+                if (textBoxThemMaKNVT4.Text == dataGridViewKNVT.Rows[i].Cells[1].Value.ToString())
+                {
+                    count++;
+                }
+            if (count == 1)
             {
-                ThemKhaNangViTinh();
-                HienThiKhaNangViTinh();
+                MessageBox.Show("Mã khả năng vi tính đã tồn tại", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                Dispose();
+                DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn thêm khả năng vi tính?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlr == DialogResult.Yes)
+                {
+                    ThemKhaNangViTinh();
+                    HienThiKhaNangViTinh();
+                }
+                else
+                {
+                    Dispose();
+                }
             }
+                
         }
 
         // Xử lý sự kiện click vào mỗi dòng, dữ liệu tự động update vào form sửa
         private void dataGridViewKNVT_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Set giá trị cho các thành phần 
+            if (e.RowIndex < dataGridViewNgonNgu.RowCount - 1)
+            {
+                // Set giá trị cho các thành phần 
 
-            textBoxSuaMaKNVT4.Text = dataGridViewKNVT.Rows[e.RowIndex].Cells[1].Value.ToString();
-            textBoxSuaTenKNVT4.Text = dataGridViewKNVT.Rows[e.RowIndex].Cells[2].Value.ToString();
+                textBoxSuaMaKNVT4.Text = dataGridViewKNVT.Rows[e.RowIndex].Cells[1].Value.ToString();
+                textBoxSuaTenKNVT4.Text = dataGridViewKNVT.Rows[e.RowIndex].Cells[2].Value.ToString();
 
-            MaKhaNangViTinh = dataGridViewKNVT.Rows[e.RowIndex].Cells[1].Value.ToString();
+                MaKhaNangViTinh = dataGridViewKNVT.Rows[e.RowIndex].Cells[1].Value.ToString();
 
-            buttonSuaKNVT.Click += buttonSuaKhaNangViTinh_Click;
+                buttonSuaKNVT.Click += buttonSuaKhaNangViTinh_Click;
 
-            // Khóa việc sửa giá trị trước khi click vào nút sửa.
-            textBoxSuaMaKNVT4.ReadOnly = true;
-            textBoxSuaTenKNVT4.ReadOnly = true;
+                // Khóa việc sửa giá trị trước khi click vào nút sửa.
+                textBoxSuaMaKNVT4.ReadOnly = true;
+                textBoxSuaTenKNVT4.ReadOnly = true;
 
-            buttonXoaKNVT.Click += buttonXoaKhaNangViTinh_Click;
+                buttonXoaKNVT.Click += buttonXoaKhaNangViTinh_Click;
+            }
+                
         }
 
         // Xử lý sự kiện click vào nút Lưu lại (buttonSuaKNVT4)
@@ -937,35 +996,54 @@ namespace QuanLyNhanSu
         // Xử lý sự kiện click nút thêm, cho phép thêm dữ liệu
         private void buttonKHL5_Click(object sender, EventArgs e)
         {
-            DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn thêm khóa huấn luyện?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dlr == DialogResult.Yes)
+            int i;
+            int count = 0;
+            for (i = 0; i < dataGridViewKHL.RowCount - 1; i++)
+                if (textBoxThemMaKHL5.Text == dataGridViewKHL.Rows[i].Cells[1].Value.ToString())
+                {
+                    count++;
+                }
+            if (count == 1)
             {
-                ThemKhoaHuanLuyen();
-                HienThiKhoaHuanLuyen();
+                MessageBox.Show("Mã khả khóa huấn luyện đã tồn tại", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                Dispose();
+                DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn thêm khóa huấn luyện?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlr == DialogResult.Yes)
+                {
+                    ThemKhoaHuanLuyen();
+                    HienThiKhoaHuanLuyen();
+                }
+                else
+                {
+                    Dispose();
+                }
             }
+                
         }
 
         // Xử lý sự kiện click vào mỗi dòng, dữ liệu tự động update vào form sửa
         private void dataGridViewKHL_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Set giá trị cho các thành phần 
+            if (e.RowIndex < dataGridViewKHL.RowCount - 1)
+            {
+                // Set giá trị cho các thành phần 
 
-            textBoxSuaMaKHL5.Text = dataGridViewKHL.Rows[e.RowIndex].Cells[1].Value.ToString();
-            textBoxSuaTenKHL5.Text = dataGridViewKHL.Rows[e.RowIndex].Cells[2].Value.ToString();
+                textBoxSuaMaKHL5.Text = dataGridViewKHL.Rows[e.RowIndex].Cells[1].Value.ToString();
+                textBoxSuaTenKHL5.Text = dataGridViewKHL.Rows[e.RowIndex].Cells[2].Value.ToString();
 
-            MaKhoaHuanLuyen = dataGridViewKHL.Rows[e.RowIndex].Cells[1].Value.ToString();
+                MaKhoaHuanLuyen = dataGridViewKHL.Rows[e.RowIndex].Cells[1].Value.ToString();
 
-            buttonSuaKHL.Click += buttonSuaKhoaHuanLuyen_Click;
+                buttonSuaKHL.Click += buttonSuaKhoaHuanLuyen_Click;
 
-            // Khóa việc sửa giá trị trước khi click vào nút sửa.
-            textBoxSuaMaKHL5.ReadOnly = true;
-            textBoxSuaTenKHL5.ReadOnly = true;
+                // Khóa việc sửa giá trị trước khi click vào nút sửa.
+                textBoxSuaMaKHL5.ReadOnly = true;
+                textBoxSuaTenKHL5.ReadOnly = true;
 
-            buttonXoaKHL.Click += buttonXoaKhoaHuanLuyen_Click;
+                buttonXoaKHL.Click += buttonXoaKhoaHuanLuyen_Click;
+            }
+                
         }
 
         // Xử lý sự kiện click vào nút Lưu lại (buttonSuaKHL5)
@@ -1100,35 +1178,53 @@ namespace QuanLyNhanSu
         // Xử lý sự kiện click nút thêm, cho phép thêm dữ liệu
         private void buttonThemCongTy6_Click(object sender, EventArgs e)
         {
-            DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn thêm công ty?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dlr == DialogResult.Yes)
+            int i;
+            int count = 0;
+            for (i = 0; i < dataGridViewCongTy.RowCount - 1; i++)
+                if (textBoxThemMaCongTy6.Text == dataGridViewCongTy.Rows[i].Cells[1].Value.ToString())
+                {
+                    count++;
+                }
+            if (count == 1)
             {
-                ThemCongTy();
-                HienThiCongTy();
+                MessageBox.Show("Mã công ty đã tồn tại", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                Dispose();
+                DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn thêm công ty?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlr == DialogResult.Yes)
+                {
+                    ThemCongTy();
+                    HienThiCongTy();
+                }
+                else
+                {
+                    Dispose();
+                }
             }
+                
         }
 
         // Xử lý sự kiện click vào mỗi dòng, dữ liệu tự động update vào form sửa
         private void dataGridViewCongTy_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Set giá trị cho các thành phần 
+            if (e.RowIndex < dataGridViewCongTy.RowCount - 1)
+            {
+                // Set giá trị cho các thành phần 
 
-            textBoxSuaMaCongTy6.Text = dataGridViewCongTy.Rows[e.RowIndex].Cells[1].Value.ToString();
-            textBoxSuaTenCongTy6.Text = dataGridViewCongTy.Rows[e.RowIndex].Cells[2].Value.ToString();
+                textBoxSuaMaCongTy6.Text = dataGridViewCongTy.Rows[e.RowIndex].Cells[1].Value.ToString();
+                textBoxSuaTenCongTy6.Text = dataGridViewCongTy.Rows[e.RowIndex].Cells[2].Value.ToString();
 
-            MaCongTy = dataGridViewCongTy.Rows[e.RowIndex].Cells[1].Value.ToString();
+                MaCongTy = dataGridViewCongTy.Rows[e.RowIndex].Cells[1].Value.ToString();
 
-            buttonSuaCongTy.Click += buttonSuaCongTy_Click;
+                buttonSuaCongTy.Click += buttonSuaCongTy_Click;
 
-            // Khóa việc sửa giá trị trước khi click vào nút sửa.
-            textBoxSuaMaCongTy6.ReadOnly = true;
-            textBoxSuaTenCongTy6.ReadOnly = true;
+                // Khóa việc sửa giá trị trước khi click vào nút sửa.
+                textBoxSuaMaCongTy6.ReadOnly = true;
+                textBoxSuaTenCongTy6.ReadOnly = true;
 
-            buttonXoaCongTy.Click += buttonXoaCongTy_Click;
+                buttonXoaCongTy.Click += buttonXoaCongTy_Click;
+            }               
         }
 
         // Xử lý sự kiện click vào nút Lưu lại (buttonSuaKHL5)
