@@ -33,6 +33,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
@@ -76,6 +94,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>N05_Ql_NhanSu_T5DataSet10.xsd</DependentUpon>
     </Compile>
+    <Compile Include="N05_Ql_NhanSu_T5DataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="N05_Ql_NhanSu_T5DataSet12.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet12.xsd</DependentUpon>
+    </Compile>
     <Compile Include="N05_Ql_NhanSu_T5DataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -116,6 +144,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>N05_Ql_NhanSu_T5DataSet9.xsd</DependentUpon>
     </Compile>
+    <Compile Include="N05_Ql_NhanSu_T5DataSetTest.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>N05_Ql_NhanSu_T5DataSetTest.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="N05_Ql_NhanSu_T5DataSet_NhanVien_NoiHoc.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet_NhanVien_NoiHoc.xsd</DependentUpon>
+    </Compile>
     <Compile Include="NghiepVu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +162,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm.Designer.cs">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="DanhMuc.resx">
       <DependentUpon>DanhMuc.cs</DependentUpon>
     </EmbeddedResource>
@@ -139,6 +184,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Report.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm.resx">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="N05_Ql_NhanSu_T5DataSet.xsc">
       <DependentUpon>N05_Ql_NhanSu_T5DataSet.xsd</DependentUpon>
     </None>
@@ -171,6 +222,28 @@
     </None>
     <None Include="N05_Ql_NhanSu_T5DataSet10.xss">
       <DependentUpon>N05_Ql_NhanSu_T5DataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet11.xsc">
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>N05_Ql_NhanSu_T5DataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet11.xss">
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet12.xsc">
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet12.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>N05_Ql_NhanSu_T5DataSet12.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet12.xss">
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet12.xsd</DependentUpon>
     </None>
     <None Include="N05_Ql_NhanSu_T5DataSet2.xsc">
       <DependentUpon>N05_Ql_NhanSu_T5DataSet2.xsd</DependentUpon>
@@ -260,6 +333,29 @@
     <None Include="N05_Ql_NhanSu_T5DataSet9.xss">
       <DependentUpon>N05_Ql_NhanSu_T5DataSet9.xsd</DependentUpon>
     </None>
+    <None Include="N05_Ql_NhanSu_T5DataSetTest.xsc">
+      <DependentUpon>N05_Ql_NhanSu_T5DataSetTest.xsd</DependentUpon>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSetTest.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>N05_Ql_NhanSu_T5DataSetTest.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSetTest.xss">
+      <DependentUpon>N05_Ql_NhanSu_T5DataSetTest.xsd</DependentUpon>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet_NhanVien_NoiHoc.xsc">
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet_NhanVien_NoiHoc.xsd</DependentUpon>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet_NhanVien_NoiHoc.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>N05_Ql_NhanSu_T5DataSet_NhanVien_NoiHoc.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet_NhanVien_NoiHoc.xss">
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet_NhanVien_NoiHoc.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -274,6 +370,13 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll" />
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll" />
+    <Content Include="SqlServerTypes\x86\msvcr120.dll" />
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
