@@ -124,13 +124,16 @@
   <data name="icon-toanmath-de-kscl-giao-vien-mon-toan" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon-toanmath-de-kscl-giao-vien-mon-toan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BackGround" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BackGround.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="export-flat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\export-flat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="hr-touch" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hr-touch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BackGround" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BackGround.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="copyright-symbol" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\copyright-symbol.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
