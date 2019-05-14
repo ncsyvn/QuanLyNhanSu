@@ -129,23 +129,87 @@ namespace QuanLyNhanSu
         // Phương thức thêm Nhân Viên
         public void ThemNhanVien()
         {
-            string sqlInsert = "Insert into NhanVien values(@MaNhanvien, @HoVaTen," +
+            int count = 0;
+            if (textBoxThemHoVaTen1.Text=="")
+            {
+                textBoxThemHoVaTen1.BackColor = Color.Pink;
+                textBoxThemHoVaTen1.Text = "Thiếu thông tin";
+                count++;
+            }
+            if (textBoxThemSoDienThoai1.Text == "")
+            {
+                textBoxThemSoDienThoai1.BackColor = Color.Pink;
+                textBoxThemSoDienThoai1.Text = "Thiếu thông tin";
+                count++;
+            }
+            if (textBoxThemSoCMTND1.Text == "")
+            {
+                textBoxThemSoCMTND1.BackColor = Color.Pink;
+                textBoxThemSoCMTND1.Text = "Thiếu thông tin";
+                count++;
+            }
+            if (textBoxThemNoiCapCMTND1.Text == "")
+            {
+                textBoxThemNoiCapCMTND1.BackColor = Color.Pink;
+                textBoxThemNoiCapCMTND1.Text = "Thiếu thông tin";
+                count++;
+            }
+            if (textBoxThemChucVu1.Text == "")
+            {
+                textBoxThemChucVu1.BackColor = Color.Pink;
+                textBoxThemChucVu1.Text = "Thiếu thông tin";
+                count++;
+            }
+            if (textBoxThemNoiSinh1.Text == "")
+            {
+                textBoxThemNoiSinh1.BackColor = Color.Pink;
+                textBoxThemNoiSinh1.Text = "Thiếu thông tin";
+                count++;
+            }
+            if (comboBoxThemGioiTinh1.Text == "")
+            {
+                comboBoxThemGioiTinh1.BackColor = Color.Pink;
+                comboBoxThemGioiTinh1.Text = "Thiếu thông tin";
+                count++;
+            }
+            
+
+
+
+            if (count!=0)
+            {
+                MessageBox.Show("Mời bạn điền đủ thông tin", "Thiếu Thông Tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                string sqlInsert = "Insert into NhanVien values(@MaNhanvien, @HoVaTen," +
                                " @NgaySinh, @GioiTinh, @NoiSinh, @SoCMTND, @NoiCapCMTND, " +
                                "@SoDienThoai, @ChucVu, @MaPhongBan)";
-            SqlCommand cmd = new SqlCommand(sqlInsert, con);
-            cmd.Parameters.AddWithValue("MaNhanVien", textBoxThemMaNhanVien1.Text); 
-            cmd.Parameters.AddWithValue("HoVaTen", textBoxThemHoVaTen1.Text);
-            cmd.Parameters.AddWithValue("NgaySinh", dateTimePickerThemNgaySinh1.Value.Date.Year.ToString() + '/' +
-                                                     dateTimePickerThemNgaySinh1.Value.Date.Month.ToString() + '/' +
-                                                     dateTimePickerThemNgaySinh1.Value.Date.Day.ToString());
-            cmd.Parameters.AddWithValue("GioiTinh", Convert.ToInt32(comboBoxThemGioiTinh1.Text));
-            cmd.Parameters.AddWithValue("NoiSinh", textBoxThemNoiSinh1.Text);
-            cmd.Parameters.AddWithValue("SoCMTND", textBoxThemSoCMTND1.Text);
-            cmd.Parameters.AddWithValue("NoiCapCMTND", textBoxThemNoiCapCMTND1.Text);
-            cmd.Parameters.AddWithValue("SoDienThoai", textBoxThemSoDienThoai1.Text);
-            cmd.Parameters.AddWithValue("ChucVu", textBoxThemChucVu1.Text);
-            cmd.Parameters.AddWithValue("MaPhongBan", comboBoxThemMaPhongBan1.Text);
-            cmd.ExecuteNonQuery();
+                SqlCommand cmd = new SqlCommand(sqlInsert, con);
+                cmd.Parameters.AddWithValue("MaNhanVien", textBoxThemMaNhanVien1.Text);
+                cmd.Parameters.AddWithValue("HoVaTen", textBoxThemHoVaTen1.Text);
+                cmd.Parameters.AddWithValue("NgaySinh", dateTimePickerThemNgaySinh1.Value.Date.Year.ToString() + '/' +
+                                                         dateTimePickerThemNgaySinh1.Value.Date.Month.ToString() + '/' +
+                                                         dateTimePickerThemNgaySinh1.Value.Date.Day.ToString());
+                cmd.Parameters.AddWithValue("GioiTinh", Convert.ToInt32(comboBoxThemGioiTinh1.Text));
+                cmd.Parameters.AddWithValue("NoiSinh", textBoxThemNoiSinh1.Text);
+                cmd.Parameters.AddWithValue("SoCMTND", textBoxThemSoCMTND1.Text);
+                cmd.Parameters.AddWithValue("NoiCapCMTND", textBoxThemNoiCapCMTND1.Text);
+                cmd.Parameters.AddWithValue("SoDienThoai", textBoxThemSoDienThoai1.Text);
+                cmd.Parameters.AddWithValue("ChucVu", textBoxThemChucVu1.Text);
+                cmd.Parameters.AddWithValue("MaPhongBan", comboBoxThemMaPhongBan1.Text);
+                cmd.ExecuteNonQuery();
+
+                textBoxThemMaNhanVien1.Text = "";
+                textBoxThemHoVaTen1.Text = "";
+                textBoxThemSoCMTND1.Text = "";
+                textBoxThemNoiSinh1.Text = "";
+                textBoxThemNoiCapCMTND1.Text = "";
+                comboBoxThemGioiTinh1.Text = "";
+                textBoxThemSoDienThoai1.Text = "";
+                textBoxThemChucVu1.Text = "";
+            }
+            
         }
 
         // Phương thức sửa nhân viên
@@ -359,6 +423,48 @@ namespace QuanLyNhanSu
             HienThiNhanVien();
         }
 
+
+
+
+        // Các sự kiện xử lý khi nhập thiếu thông tin trong lúc thêm
+        private void textBoxThemHoVaTen1_DoubleClick(object sender, EventArgs e)
+        {
+            textBoxThemHoVaTen1.Text = "";
+            textBoxThemHoVaTen1.BackColor = Color.White;
+        }
+
+        private void textBoxThemSoDienThoai1_DoubleClick(object sender, EventArgs e)
+        {
+            textBoxThemSoDienThoai1.Text = "";
+            textBoxThemSoDienThoai1.BackColor = Color.White;
+        }
+
+
+
+        private void textBoxThemSoCMTND1_DoubleClick(object sender, EventArgs e)
+        {
+            textBoxThemSoCMTND1.Text = "";
+            textBoxThemSoCMTND1.BackColor = Color.White;
+        }
+
+        private void textBoxThemChucVu1_DoubleClick(object sender, EventArgs e)
+        {
+            textBoxThemChucVu1.Text = "";
+            textBoxThemChucVu1.BackColor = Color.White;
+        }
+
+        private void textBoxThemNoiSinh1_DoubleClick(object sender, EventArgs e)
+        {
+            textBoxThemNoiSinh1.Text = "";
+            textBoxThemNoiSinh1.BackColor = Color.White;
+        }
+
+        private void textBoxThemNoiCapCMTND1_DoubleClick(object sender, EventArgs e)
+        {
+            textBoxThemNoiCapCMTND1.Text = "";
+            textBoxThemNoiCapCMTND1.BackColor = Color.White;
+        }
+
         #endregion
 
         //------------------------------------------------------------------------------------------------
@@ -387,6 +493,8 @@ namespace QuanLyNhanSu
             cmd.Parameters.AddWithValue("MaNoiHoc", textBoxThemMaNoiHoc2.Text);
             cmd.Parameters.AddWithValue("TenNoiHoc", textBoxThemTenNoiHoc2.Text);
             cmd.ExecuteNonQuery();
+            textBoxThemMaNoiHoc2.Text = "";
+            textBoxThemTenNoiHoc2.Text = "";
         }
 
         // Phương thức sửa nơi học
@@ -466,7 +574,7 @@ namespace QuanLyNhanSu
                 {
                     count++;
                 }
-            if (count==1)
+            if (count>=1)
             {
                 MessageBox.Show("Mã nơi học đã tồn tại", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -568,6 +676,8 @@ namespace QuanLyNhanSu
             cmd.Parameters.AddWithValue("MaNgonNgu", textBoxThemMaNgonNgu3.Text);
             cmd.Parameters.AddWithValue("TenNgonNgu", textBoxThemTenNgonNgu3.Text);
             cmd.ExecuteNonQuery();
+            textBoxThemMaNgonNgu3.Text = "";
+            textBoxThemTenNgonNgu3.Text = "";
         }
 
         // Phương thức sửa ngôn ngữ
@@ -750,6 +860,8 @@ namespace QuanLyNhanSu
             cmd.Parameters.AddWithValue("MaKhaNangViTinh", textBoxThemMaKNVT4.Text);
             cmd.Parameters.AddWithValue("TenKhaNangViTinh", textBoxThemTenKNVT4.Text);
             cmd.ExecuteNonQuery();
+            textBoxThemMaKNVT4.Text = "";
+            textBoxThemTenKNVT4.Text = "";
         }
 
         // Phương thức sửa khả năng vi tính
@@ -933,6 +1045,8 @@ namespace QuanLyNhanSu
             cmd.Parameters.AddWithValue("MaKhoaHuanLuyen", textBoxThemMaKHL5.Text);
             cmd.Parameters.AddWithValue("TenKhoaHuanLuyen", textBoxThemTenKHL5.Text);
             cmd.ExecuteNonQuery();
+            textBoxThemMaKHL5.Text = "";
+            textBoxThemTenKHL5.Text = "";
         }
 
         // Phương thức sửa khóa huấn luyện
@@ -1115,6 +1229,8 @@ namespace QuanLyNhanSu
             cmd.Parameters.AddWithValue("MaCongTy", textBoxThemMaCongTy6.Text);
             cmd.Parameters.AddWithValue("TenCongTy", textBoxThemTenCongTy6.Text);
             cmd.ExecuteNonQuery();
+            textBoxThemMaCongTy6.Text = "";
+            textBoxThemTenCongTy6.Text = "";
         }
 
         // Phương thức sửa Công Ty
@@ -1465,6 +1581,8 @@ namespace QuanLyNhanSu
             }
             
         }
+
+        
     }
 }
 
