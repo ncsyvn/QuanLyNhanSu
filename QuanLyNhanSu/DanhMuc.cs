@@ -31,6 +31,8 @@ namespace QuanLyNhanSu
         private string MaKhoaHuanLuyen;
 
         private string MaCongTy;
+
+        private string MaPhongBan;
         #endregion
 
         //------------------------------------------------------------------------------------------------
@@ -88,6 +90,8 @@ namespace QuanLyNhanSu
             HienThiKhaNangViTinh();
 
             HienThiCongTy();
+
+            HienThiPhongBan();
         }
 
         // Đóng kết nối sau khi tắt form
@@ -1259,6 +1263,187 @@ namespace QuanLyNhanSu
         {
             HienThiCongTy();
         }
+        #endregion
+
+        //-------------------------------------------------------------------------------------------------
+
+        #region Xử Lý Danh Mục Phòng Ban
+        // Phương thức Hiển thị Công Ty
+        public void HienThiPhongBan()
+        {
+            int i;
+            string sqlSelect = "select * from PhongBan";
+            SqlCommand cmd = new SqlCommand(sqlSelect, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);
+            dataGridViewPhongBan.DataSource = dt;
+            dataGridViewPhongBan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            for (i = 0; i < dataGridViewPhongBan.RowCount; i++) dataGridViewPhongBan.Rows[i].Cells[0].Value = i + 1;
+        }
+
+        // Phương thức thêm PhongBan
+        public void ThemPhongBan()
+        {
+            string sqlInsert = "Insert into PhongBan values(@MaPhongBan, @TenPhongBan)";
+            SqlCommand cmd = new SqlCommand(sqlInsert, con);
+            cmd.Parameters.AddWithValue("MaPhongBan", textBoxThemMaPhongBan7.Text);
+            cmd.Parameters.AddWithValue("TenPhongBan", textBoxThemTenPhongBan7.Text);
+            cmd.ExecuteNonQuery();
+        }
+
+        // Phương thức sửa PhongBan
+        public void SuaPhongBan()
+        {
+            string sqlUpdate = "Update PhongBan Set TenPhongBan=@TenPhongBan where MaPhongBan=@MaPhongBan";
+            SqlCommand cmd = new SqlCommand(sqlUpdate, con);
+            cmd.Parameters.AddWithValue("MaPhongBan", textBoxSuaMaPhongBan7.Text);
+            cmd.Parameters.AddWithValue("TenPhongBan", textBoxSuaTenPhongBan7.Text);
+
+            cmd.ExecuteNonQuery();
+        }
+
+        // Phương thức Xóa PhongBan
+        public void XoaPhongBan()
+        {
+            string sqlDelete = "Delete From PhongBan Where MaPhongBan=@MaPhongBan";
+            SqlCommand cmd = new SqlCommand(sqlDelete, con);
+            cmd.Parameters.AddWithValue("MaPhongBan", MaPhongBan);
+            cmd.ExecuteNonQuery();
+        }
+
+        // Phương thức tìm PhongBan
+        public void TimPhongBan()
+        {
+            string sqlFindId = "Select * from PhongBan Where (CharIndex( @MaPhongBan , MaPhongBan, 0 ) >=1 or @MaPhongBan='') and" +
+                                                          "(CharIndex(@TenPhongBan, TenPhongBan, 0)>=1 or @TenPhongBan='')";
+
+            SqlCommand cmd = new SqlCommand(sqlFindId, con);
+
+            cmd.Parameters.AddWithValue("MaPhongBan", textBoxTimMaPhongBan7.Text);
+            cmd.Parameters.AddWithValue("TenPhongBan", textBoxTimTenPhongBan7.Text);
+
+            cmd.ExecuteNonQuery();
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);
+            dataGridViewPhongBan.DataSource = dt;
+            dataGridViewPhongBan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            for (int i = 0; i < dataGridViewPhongBan.RowCount; i++) dataGridViewPhongBan.Rows[i].Cells[0].Value = i + 1;
+        }
+
+        // Xử lý sự kiện click nút sửa, cho phép sửa dữ liệu   - Sự kiện tự tạo thêm bằng tay
+        void buttonSuaPhongBan_Click(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+
+            // Mở khóa cho phép sửa dữ liệu sau khi click vào nút sửa, không cho phép sửa mã khả năng vi tính.
+            textBoxSuaMaPhongBan7.ReadOnly = true;
+            textBoxSuaTenPhongBan7.ReadOnly = false;
+
+        }
+
+        // Xử lý sự kiện click nút xóa, cho phép xóa dữ liệu    - Sự kiện tự tạo thêm bằng tay
+        void buttonXoaPhongBan_Click(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn xóa phòng ban", "Xóa Phòng Ban", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlr == DialogResult.Yes)
+            {
+                XoaPhongBan();
+                HienThiPhongBan();
+            }
+            else
+            {
+
+            }
+        }
+
+        // Xử lý sự kiện click nút thêm, cho phép thêm dữ liệu
+        private void buttonThemPhongBan7_Click(object sender, EventArgs e)
+        {
+            int i;
+            int count = 0;
+            for (i = 0; i < dataGridViewPhongBan.RowCount - 1; i++)
+                if (textBoxThemMaPhongBan7.Text == dataGridViewPhongBan.Rows[i].Cells[1].Value.ToString())
+                {
+                    count++;
+                }
+            if (count == 1)
+            {
+                MessageBox.Show("Mã phòng ban đã tồn tại", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn thêm phòng ban?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlr == DialogResult.Yes)
+                {
+                    ThemPhongBan();
+                    HienThiPhongBan();
+                }
+                else
+                {
+                    Dispose();
+                }
+            }
+        }
+
+        // Xử lý sự kiện click vào mỗi dòng, dữ liệu tự động update vào form sửa
+        private void dataGridViewPhongBan_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < dataGridViewPhongBan.RowCount - 1)
+            {
+                // Set giá trị cho các thành phần 
+
+                textBoxSuaMaPhongBan7.Text = dataGridViewPhongBan.Rows[e.RowIndex].Cells[1].Value.ToString();
+                textBoxSuaTenPhongBan7.Text = dataGridViewPhongBan.Rows[e.RowIndex].Cells[2].Value.ToString();
+
+                MaPhongBan = dataGridViewPhongBan.Rows[e.RowIndex].Cells[1].Value.ToString();
+
+                buttonSuaPhongBan.Click += buttonSuaPhongBan_Click;
+
+                // Khóa việc sửa giá trị trước khi click vào nút sửa.
+                textBoxSuaMaPhongBan7.ReadOnly = true;
+                textBoxSuaTenPhongBan7.ReadOnly = true;
+
+                buttonXoaPhongBan.Click += buttonXoaPhongBan_Click;
+            }
+        }
+
+        // Xử lý sự kiện click vào nút Lưu lại (buttonSuaPhongBan7)
+        private void buttonSuaPhongBan7_Click(object sender, EventArgs e)
+        {
+            DialogResult dlr = MessageBox.Show("Chắc chắn sửa thông tin?", "Sửa Thông Tin", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlr == DialogResult.Yes)
+            {
+                SuaPhongBan();
+
+                // Khóa lại chức năng sửa
+                textBoxSuaMaPhongBan7.ReadOnly = true;
+                textBoxSuaTenPhongBan7.ReadOnly = true;
+
+                //Hiển thị lại danh sách
+                HienThiPhongBan();
+            }
+            else
+            {
+
+            }
+        }
+
+        // Xử lý sự kiện click nút tìm kiếm
+        private void buttonTimPhongBan7_Click(object sender, EventArgs e)
+        {
+            TimPhongBan();
+        }
+
+        // Click nút quay lại, hiển thị toàn bộ dữ liệu khóa huấn luyện
+        private void buttonQuayLaiPhongBan7_Click(object sender, EventArgs e)
+        {
+            HienThiPhongBan();
+        }
+
         #endregion
     }
 }
