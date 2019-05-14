@@ -199,6 +199,12 @@
       <DependentUpon>ReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="StartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StartForm.Designer.cs">
+      <DependentUpon>StartForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DanhMuc.resx">
       <DependentUpon>DanhMuc.cs</DependentUpon>
     </EmbeddedResource>
@@ -213,12 +219,16 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Report.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm.resx">
       <DependentUpon>ReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartForm.resx">
+      <DependentUpon>StartForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="N05_Ql_NhanSu_T5DataSet.xsc">
       <DependentUpon>N05_Ql_NhanSu_T5DataSet.xsd</DependentUpon>
@@ -468,6 +478,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\hr-touch.png" />
+    <None Include="Resources\images.jpg" />
+    <None Include="Resources\icon-toanmath-de-kscl-giao-vien-mon-toan.png" />
+    <None Include="Resources\BackGround.jpg" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll" />
     <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll" />
