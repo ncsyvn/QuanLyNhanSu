@@ -286,7 +286,7 @@
         <DataSetName>DataSet_Report_NhanVien_NoiHoc</DataSetName>
         <Top>4.78348in</Top>
         <Left>0.49875in</Left>
-        <Height>0.66667in</Height>
+        <Height>0.66668in</Height>
         <Width>6.98958in</Width>
         <Style>
           <Border>
@@ -2555,7 +2555,7 @@
         <DataSetName>DataSet_Report_NhanVien_CongTy</DataSetName>
         <Top>9.59597in</Top>
         <Left>0.50917in</Left>
-        <Height>2.53819in</Height>
+        <Height>2.5382in</Height>
         <Width>6.99308in</Width>
         <ZIndex>34</ZIndex>
         <Style>
