@@ -279,6 +279,8 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonSuaPhongBan = new System.Windows.Forms.Button();
             this.buttonPhongBan = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.buttonExport = new System.Windows.Forms.Button();
             this.panelNhanVien.SuspendLayout();
             this.panelSuaNhanVien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.phongBanBindingSource)).BeginInit();
@@ -323,6 +325,8 @@
             // panelNhanVien
             // 
             this.panelNhanVien.BackColor = System.Drawing.SystemColors.Info;
+            this.panelNhanVien.Controls.Add(this.label6);
+            this.panelNhanVien.Controls.Add(this.buttonExport);
             this.panelNhanVien.Controls.Add(this.panelSuaNhanVien);
             this.panelNhanVien.Controls.Add(this.panelTimNhanVien);
             this.panelNhanVien.Controls.Add(this.panelThemNhanVien);
@@ -2690,6 +2694,27 @@
             this.buttonPhongBan.Text = "Phòng Ban";
             this.buttonPhongBan.UseVisualStyleBackColor = false;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(968, 145);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(49, 15);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Export";
+            // 
+            // buttonExport
+            // 
+            this.buttonExport.BackgroundImage = global::QuanLyNhanSu.Properties.Resources.export_flat;
+            this.buttonExport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonExport.Location = new System.Drawing.Point(1020, 139);
+            this.buttonExport.Name = "buttonExport";
+            this.buttonExport.Size = new System.Drawing.Size(40, 26);
+            this.buttonExport.TabIndex = 9;
+            this.buttonExport.UseVisualStyleBackColor = true;
+            this.buttonExport.Click += new System.EventHandler(this.buttonExport_Click);
+            // 
             // DanhMuc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2709,6 +2734,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DanhMuc_FormClosing);
             this.Load += new System.EventHandler(this.DanhMuc_Load);
             this.panelNhanVien.ResumeLayout(false);
+            this.panelNhanVien.PerformLayout();
             this.panelSuaNhanVien.ResumeLayout(false);
             this.panelSuaNhanVien.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.phongBanBindingSource)).EndInit();
@@ -3023,5 +3049,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Button buttonSuaPhongBan;
         private System.Windows.Forms.Button buttonPhongBan;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button buttonExport;
     }
 }
