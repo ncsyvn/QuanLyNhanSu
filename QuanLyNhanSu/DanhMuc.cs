@@ -80,7 +80,7 @@ namespace QuanLyNhanSu
             con.Open();
 
             HienThiNhanVien();
-            textBoxThemMaNhanVien1.Text = (Convert.ToInt32(dataGridViewNhanVien.Rows[dataGridViewNhanVien.RowCount-2].Cells[1].Value) + 1).ToString();
+            textBoxThemMaNhanVien1.Text = (Convert.ToInt32(dataGridViewNhanVien.Rows[dataGridViewNhanVien.RowCount - 2].Cells[1].Value) + 1).ToString();
             textBoxThemMaNhanVien1.ReadOnly = true;
 
             HienThiNoiHoc();
@@ -130,7 +130,7 @@ namespace QuanLyNhanSu
         public void ThemNhanVien()
         {
             int count = 0;
-            if (textBoxThemHoVaTen1.Text=="")
+            if (textBoxThemHoVaTen1.Text == "")
             {
                 textBoxThemHoVaTen1.BackColor = Color.Pink;
                 textBoxThemHoVaTen1.Text = "Thiếu thông tin";
@@ -172,11 +172,11 @@ namespace QuanLyNhanSu
                 comboBoxThemGioiTinh1.Text = "Thiếu thông tin";
                 count++;
             }
-            
 
 
 
-            if (count!=0)
+
+            if (count != 0)
             {
                 MessageBox.Show("Mời bạn điền đủ thông tin", "Thiếu Thông Tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -209,7 +209,7 @@ namespace QuanLyNhanSu
                 textBoxThemSoDienThoai1.Text = "";
                 textBoxThemChucVu1.Text = "";
             }
-            
+
         }
 
         // Phương thức sửa nhân viên
@@ -343,7 +343,7 @@ namespace QuanLyNhanSu
 
                 buttonXoaNhanVien.Click += buttonXoaNhanVien_Click;
             }
-                
+
         }
 
         // Xử lý sự kiện click nút sửa, cho phép sửa dữ liệu     - Sự kiện tự tạo thêm bằng tay
@@ -401,6 +401,11 @@ namespace QuanLyNhanSu
             DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn xóa nhân viên", "Xóa Nhân Viên", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dlr == DialogResult.Yes)
             {
+                NghiepVu nghiepVu = new NghiepVu();
+                nghiepVu.Show();
+                nghiepVu.SetMaNhanVien(MaNhanVien);
+                nghiepVu.XoaDuLieuNhanVien_Conflig(nghiepVu.GetMaNhanVien());
+                nghiepVu.Hide();
                 XoaNhanVien();
                 HienThiNhanVien();
             }
@@ -555,6 +560,11 @@ namespace QuanLyNhanSu
             DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn xóa nơi học", "Xóa Nơi Học", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dlr == DialogResult.Yes)
             {
+                NghiepVu nghiepVu = new NghiepVu();
+                nghiepVu.Show();
+                nghiepVu.SetMaNoiHoc(MaNoiHoc);
+                nghiepVu.XoaNhanVien_NoiHoc_Conflig(nghiepVu.GetMaNoiHoc());
+                nghiepVu.Hide();
                 XoaNoiHoc();
                 HienThiNoiHoc();
             }
@@ -570,28 +580,28 @@ namespace QuanLyNhanSu
             int i;
             int count = 0;
             for (i = 0; i < dataGridViewNoiHoc.RowCount - 1; i++)
-                if (textBoxThemMaNoiHoc2.Text==dataGridViewNoiHoc.Rows[i].Cells[1].Value.ToString())
+                if (textBoxThemMaNoiHoc2.Text == dataGridViewNoiHoc.Rows[i].Cells[1].Value.ToString())
                 {
                     count++;
                 }
-            if (count>=1)
+            if (count >= 1)
             {
                 MessageBox.Show("Mã nơi học đã tồn tại", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
+            {
+                DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn thêm nơi học?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlr == DialogResult.Yes)
                 {
-                    DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn thêm nơi học?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (dlr == DialogResult.Yes)
-                    {
-                        ThemNoiHoc();
-                        HienThiNoiHoc();
-                    }
-                    else
-                    {
-                        Dispose();
-                    }
+                    ThemNoiHoc();
+                    HienThiNoiHoc();
                 }
-            
+                else
+                {
+                    Dispose();
+                }
+            }
+
         }
 
         // Xử lý sự kiện click vào mỗi dòng, dữ liệu tự động update vào form sửa
@@ -613,7 +623,7 @@ namespace QuanLyNhanSu
                 textBoxSuaMaNoiHoc2.ReadOnly = true;
 
                 buttonXoaNoiHoc.Click += buttonXoaNoiHoc_Click;
-            }               
+            }
         }
 
         // Xử lý sự kiện click vào nút Lưu lại (buttonSuaNoiHoc2)
@@ -739,6 +749,11 @@ namespace QuanLyNhanSu
             DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn xóa ngôn ngữ", "Xóa Ngôn Ngữ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dlr == DialogResult.Yes)
             {
+                NghiepVu nghiepVu = new NghiepVu();
+                nghiepVu.Show();
+                nghiepVu.SetMaNgonNgu(MaNgonNgu);
+                nghiepVu.XoaNhanVien_NgonNgu_Conflig(nghiepVu.GetMaNgonNgu());
+                nghiepVu.Hide();
                 XoaNgonNgu();
                 HienThiNgonNgu();
             }
@@ -774,7 +789,7 @@ namespace QuanLyNhanSu
                 {
                     Dispose();
                 }
-            }               
+            }
         }
 
         // Xử lý sự kiện click vào mỗi dòng, dữ liệu tự động update vào form sửa
@@ -797,7 +812,7 @@ namespace QuanLyNhanSu
 
                 buttonXoaNgonNgu.Click += buttonXoaNgonNgu_Click;
             }
-                
+
         }
 
         // Xử lý sự kiện click vào nút Lưu lại (buttonSuaNgonNgu3)
@@ -923,6 +938,11 @@ namespace QuanLyNhanSu
             DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn xóa khả năng vi tính", "Xóa Khả Năng Vi Tính", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dlr == DialogResult.Yes)
             {
+                NghiepVu nghiepVu = new NghiepVu();
+                nghiepVu.Show();
+                nghiepVu.SetMaKhaNangViTinh(MaKhaNangViTinh);
+                nghiepVu.XoaNhanVien_KhaNangViTinh_Conflig(nghiepVu.GetMaKhaNangViTinh());
+                nghiepVu.Hide();
                 XoaKhaNangViTinh();
                 HienThiKhaNangViTinh();
             }
@@ -959,7 +979,7 @@ namespace QuanLyNhanSu
                     Dispose();
                 }
             }
-                
+
         }
 
         // Xử lý sự kiện click vào mỗi dòng, dữ liệu tự động update vào form sửa
@@ -982,7 +1002,7 @@ namespace QuanLyNhanSu
 
                 buttonXoaKNVT.Click += buttonXoaKhaNangViTinh_Click;
             }
-                
+
         }
 
         // Xử lý sự kiện click vào nút Lưu lại (buttonSuaKNVT4)
@@ -1108,6 +1128,11 @@ namespace QuanLyNhanSu
             DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn xóa khóa huấn luyện", "Xóa Khóa Huấn Luyện", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dlr == DialogResult.Yes)
             {
+                NghiepVu nghiepVu = new NghiepVu();
+                nghiepVu.Show();
+                nghiepVu.SetMaKhoaHuanLuyen(MaKhoaHuanLuyen);
+                nghiepVu.XoaNhanVien_KhoaHuanLuyen_Conflig(nghiepVu.GetMaKhoaHuanLuyen());
+                nghiepVu.Hide();
                 XoaKhoaHuanLuyen();
                 HienThiKhoaHuanLuyen();
             }
@@ -1144,7 +1169,7 @@ namespace QuanLyNhanSu
                     Dispose();
                 }
             }
-                
+
         }
 
         // Xử lý sự kiện click vào mỗi dòng, dữ liệu tự động update vào form sửa
@@ -1167,7 +1192,7 @@ namespace QuanLyNhanSu
 
                 buttonXoaKHL.Click += buttonXoaKhoaHuanLuyen_Click;
             }
-                
+
         }
 
         // Xử lý sự kiện click vào nút Lưu lại (buttonSuaKHL5)
@@ -1292,6 +1317,11 @@ namespace QuanLyNhanSu
             DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn xóa công ty", "Xóa Công Ty", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dlr == DialogResult.Yes)
             {
+                NghiepVu nghiepVu = new NghiepVu();
+                nghiepVu.Show();
+                nghiepVu.SetMaCongTy(MaCongTy);
+                nghiepVu.XoaNhanVien_CongTy_Conflig(nghiepVu.GetMaCongTy());
+                nghiepVu.Hide();
                 XoaCongTy();
                 HienThiCongTy();
             }
@@ -1328,7 +1358,7 @@ namespace QuanLyNhanSu
                     Dispose();
                 }
             }
-                
+
         }
 
         // Xử lý sự kiện click vào mỗi dòng, dữ liệu tự động update vào form sửa
@@ -1350,7 +1380,7 @@ namespace QuanLyNhanSu
                 textBoxSuaTenCongTy6.ReadOnly = true;
 
                 buttonXoaCongTy.Click += buttonXoaCongTy_Click;
-            }               
+            }
         }
 
         // Xử lý sự kiện click vào nút Lưu lại (buttonSuaKHL5)
@@ -1473,7 +1503,10 @@ namespace QuanLyNhanSu
             DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn xóa phòng ban", "Xóa Phòng Ban", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dlr == DialogResult.Yes)
             {
+                SetMaPhongBan(MaPhongBan);
+                XoaDuLieuNhanVien_Conflig_PhongBan(MaPhongBan);
                 XoaPhongBan();
+                HienThiNhanVien();
                 HienThiPhongBan();
             }
             else
@@ -1568,6 +1601,28 @@ namespace QuanLyNhanSu
 
         #endregion
 
+
+        #region Xử lý xóa Nhân Viên của phòng ban khi xóa phòng ban đó
+        public void SetMaPhongBan(string MaPhongBan)
+        {
+            this.MaPhongBan = MaPhongBan;
+        }
+        public string GetMaPhongBan()
+        {
+            return MaPhongBan;
+        }
+        public void XoaDuLieuNhanVien_Conflig_PhongBan(string MaPhongBan)
+        {
+            string sqlDelete = "Delete From NhanVien Where MaPhongBan=@MaPhongBan";
+            SqlCommand cmd = new SqlCommand(sqlDelete, con);
+            cmd.Parameters.AddWithValue("MaPhongBan", MaPhongBan);
+            cmd.ExecuteNonQuery();
+            this.MaNhanVien = 0;
+        }
+        #endregion
+
+
+
         private void buttonExport_Click(object sender, EventArgs e)
         {
             if (MaNhanVien != 0)
@@ -1579,13 +1634,11 @@ namespace QuanLyNhanSu
             {
                 MessageBox.Show("Chưa chọn nhân viên");
             }
-            
+
         }
 
-        
     }
 }
 
 
-    
 
