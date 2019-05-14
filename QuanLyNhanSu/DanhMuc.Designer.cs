@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panelNhanVien = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.buttonExport = new System.Windows.Forms.Button();
             this.panelSuaNhanVien = new System.Windows.Forms.Panel();
             this.buttonSuaNhanVien1 = new System.Windows.Forms.Button();
             this.buttonSua1 = new System.Windows.Forms.Button();
@@ -279,8 +281,6 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonSuaPhongBan = new System.Windows.Forms.Button();
             this.buttonPhongBan = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.buttonExport = new System.Windows.Forms.Button();
             this.panelNhanVien.SuspendLayout();
             this.panelSuaNhanVien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.phongBanBindingSource)).BeginInit();
@@ -338,6 +338,27 @@
             this.panelNhanVien.Name = "panelNhanVien";
             this.panelNhanVien.Size = new System.Drawing.Size(1076, 370);
             this.panelNhanVien.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(968, 145);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(49, 15);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Export";
+            // 
+            // buttonExport
+            // 
+            this.buttonExport.BackgroundImage = global::QuanLyNhanSu.Properties.Resources.export_flat;
+            this.buttonExport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonExport.Location = new System.Drawing.Point(1020, 139);
+            this.buttonExport.Name = "buttonExport";
+            this.buttonExport.Size = new System.Drawing.Size(40, 26);
+            this.buttonExport.TabIndex = 9;
+            this.buttonExport.UseVisualStyleBackColor = true;
+            this.buttonExport.Click += new System.EventHandler(this.buttonExport_Click);
             // 
             // panelSuaNhanVien
             // 
@@ -848,9 +869,11 @@
             this.textBoxThemNoiSinh1.Name = "textBoxThemNoiSinh1";
             this.textBoxThemNoiSinh1.Size = new System.Drawing.Size(90, 20);
             this.textBoxThemNoiSinh1.TabIndex = 20;
+            this.textBoxThemNoiSinh1.DoubleClick += new System.EventHandler(this.textBoxThemNoiSinh1_DoubleClick);
             // 
             // comboBoxThemGioiTinh1
             // 
+            this.comboBoxThemGioiTinh1.DisplayMember = "0";
             this.comboBoxThemGioiTinh1.FormattingEnabled = true;
             this.comboBoxThemGioiTinh1.Items.AddRange(new object[] {
             "0",
@@ -879,6 +902,7 @@
             this.textBoxThemNoiCapCMTND1.Name = "textBoxThemNoiCapCMTND1";
             this.textBoxThemNoiCapCMTND1.Size = new System.Drawing.Size(90, 20);
             this.textBoxThemNoiCapCMTND1.TabIndex = 17;
+            this.textBoxThemNoiCapCMTND1.DoubleClick += new System.EventHandler(this.textBoxThemNoiCapCMTND1_DoubleClick);
             // 
             // textBoxThemChucVu1
             // 
@@ -886,6 +910,7 @@
             this.textBoxThemChucVu1.Name = "textBoxThemChucVu1";
             this.textBoxThemChucVu1.Size = new System.Drawing.Size(100, 20);
             this.textBoxThemChucVu1.TabIndex = 16;
+            this.textBoxThemChucVu1.DoubleClick += new System.EventHandler(this.textBoxThemChucVu1_DoubleClick);
             // 
             // textBoxThemSoCMTND1
             // 
@@ -893,6 +918,7 @@
             this.textBoxThemSoCMTND1.Name = "textBoxThemSoCMTND1";
             this.textBoxThemSoCMTND1.Size = new System.Drawing.Size(100, 20);
             this.textBoxThemSoCMTND1.TabIndex = 15;
+            this.textBoxThemSoCMTND1.DoubleClick += new System.EventHandler(this.textBoxThemSoCMTND1_DoubleClick);
             // 
             // textBoxThemSoDienThoai1
             // 
@@ -900,6 +926,7 @@
             this.textBoxThemSoDienThoai1.Name = "textBoxThemSoDienThoai1";
             this.textBoxThemSoDienThoai1.Size = new System.Drawing.Size(100, 20);
             this.textBoxThemSoDienThoai1.TabIndex = 14;
+            this.textBoxThemSoDienThoai1.DoubleClick += new System.EventHandler(this.textBoxThemSoDienThoai1_DoubleClick);
             // 
             // dateTimePickerThemNgaySinh1
             // 
@@ -914,6 +941,7 @@
             this.textBoxThemHoVaTen1.Name = "textBoxThemHoVaTen1";
             this.textBoxThemHoVaTen1.Size = new System.Drawing.Size(100, 20);
             this.textBoxThemHoVaTen1.TabIndex = 12;
+            this.textBoxThemHoVaTen1.DoubleClick += new System.EventHandler(this.textBoxThemHoVaTen1_DoubleClick);
             // 
             // textBoxThemMaNhanVien1
             // 
@@ -2693,27 +2721,6 @@
             this.buttonPhongBan.TabIndex = 7;
             this.buttonPhongBan.Text = "Phòng Ban";
             this.buttonPhongBan.UseVisualStyleBackColor = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(968, 145);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 15);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Export";
-            // 
-            // buttonExport
-            // 
-            this.buttonExport.BackgroundImage = global::QuanLyNhanSu.Properties.Resources.export_flat;
-            this.buttonExport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonExport.Location = new System.Drawing.Point(1020, 139);
-            this.buttonExport.Name = "buttonExport";
-            this.buttonExport.Size = new System.Drawing.Size(40, 26);
-            this.buttonExport.TabIndex = 9;
-            this.buttonExport.UseVisualStyleBackColor = true;
-            this.buttonExport.Click += new System.EventHandler(this.buttonExport_Click);
             // 
             // DanhMuc
             // 
