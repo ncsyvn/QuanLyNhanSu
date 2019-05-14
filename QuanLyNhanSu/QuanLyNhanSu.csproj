@@ -179,6 +179,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>N05_Ql_NhanSu_T5DataSet_NhanVien_NoiHoc.xsd</DependentUpon>
     </Compile>
+    <Compile Include="N05_Ql_NhanSu_T5DataSet_PhongBan.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet_PhongBan.xsd</DependentUpon>
+    </Compile>
     <Compile Include="NghiepVu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -434,6 +439,17 @@
     </None>
     <None Include="N05_Ql_NhanSu_T5DataSet_NhanVien_NoiHoc.xss">
       <DependentUpon>N05_Ql_NhanSu_T5DataSet_NhanVien_NoiHoc.xsd</DependentUpon>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet_PhongBan.xsc">
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet_PhongBan.xsd</DependentUpon>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet_PhongBan.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>N05_Ql_NhanSu_T5DataSet_PhongBan.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="N05_Ql_NhanSu_T5DataSet_PhongBan.xss">
+      <DependentUpon>N05_Ql_NhanSu_T5DataSet_PhongBan.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

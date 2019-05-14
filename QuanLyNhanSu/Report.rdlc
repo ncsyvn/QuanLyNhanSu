@@ -342,7 +342,7 @@
       <Line Name="Line2">
         <Top>0.62375in</Top>
         <Left>0.49875in</Left>
-        <Height>11.51042in</Height>
+        <Height>10.67709in</Height>
         <Width>0in</Width>
         <ZIndex>3</ZIndex>
         <Style>
@@ -354,7 +354,7 @@
       <Line Name="Line3">
         <Top>0.62375in</Top>
         <Left>7.48833in</Left>
-        <Height>11.51042in</Height>
+        <Height>10.67709in</Height>
         <Width>0in</Width>
         <ZIndex>4</ZIndex>
         <Style>
@@ -382,18 +382,20 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value />
+                <Value>=First(Fields!TenPhongBan.Value, "DataSet_Report_PhongBan")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
         <Top>1.05778in</Top>
-        <Left>2.76958in</Left>
+        <Left>1.99528in</Left>
         <Height>0.25in</Height>
-        <Width>1in</Width>
+        <Width>1.7743in</Width>
         <ZIndex>6</ZIndex>
         <Style>
           <Border>
@@ -412,11 +414,13 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value />
+                <Value>=First(Fields!ChucVu.Value, "DataSet_Report_NhanVien")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox18</rd:DefaultName>
@@ -444,7 +448,7 @@
               <TextRun>
                 <Value>/</Value>
                 <Style>
-                  <FontSize>15pt</FontSize>
+                  <FontSize>20pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -453,8 +457,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox19</rd:DefaultName>
-        <Top>1.07861in</Top>
-        <Left>3.89805in</Left>
+        <Top>1.03694in</Top>
+        <Left>3.88416in</Left>
         <Height>0.25in</Height>
         <Width>0.14931in</Width>
         <ZIndex>8</ZIndex>
@@ -712,11 +716,13 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>fd</Value>
+                <Value>=First(Fields!HoVaTen.Value, "DataSet_Report_NhanVien")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox30</rd:DefaultName>
@@ -742,11 +748,13 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>fd</Value>
+                <Value>=First(Fields!NgaySinh.Value, "DataSet_Report_NhanVien")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox31</rd:DefaultName>
@@ -772,16 +780,18 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>fd</Value>
+                <Value>=First(Fields!NoiSinh.Value, "DataSet_Report_NhanVien")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox32</rd:DefaultName>
         <Top>2.77875in</Top>
-        <Left>1.96403in</Left>
+        <Left>1.97445in</Left>
         <Height>0.25in</Height>
         <Width>2.53472in</Width>
         <ZIndex>19</ZIndex>
@@ -802,16 +812,18 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>fd</Value>
+                <Value>=First(Fields!SoCMTND.Value, "DataSet_Report_NhanVien")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox33</rd:DefaultName>
         <Top>3.155in</Top>
-        <Left>1.98486in</Left>
+        <Left>1.99528in</Left>
         <Height>0.25in</Height>
         <Width>2.53472in</Width>
         <ZIndex>20</ZIndex>
@@ -832,16 +844,18 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>fd</Value>
+                <Value>=First(Fields!SoDienThoai.Value, "DataSet_Report_NhanVien")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox34</rd:DefaultName>
         <Top>3.50834in</Top>
-        <Left>1.98486in</Left>
+        <Left>1.99528in</Left>
         <Height>0.25in</Height>
         <Width>2.53472in</Width>
         <ZIndex>21</ZIndex>
@@ -862,16 +876,18 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>fd</Value>
+                <Value>=First(Fields!SoDienThoai.Value, "DataSet_Report_NhanVien")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox35</rd:DefaultName>
         <Top>3.89041in</Top>
-        <Left>1.97445in</Left>
+        <Left>1.98487in</Left>
         <Height>0.25in</Height>
         <Width>2.53472in</Width>
         <ZIndex>22</ZIndex>
@@ -2044,16 +2060,18 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>fd</Value>
+                <Value>=First(Fields!GioiTinh.Value, "DataSet_Report_NhanVien")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox31</rd:DefaultName>
         <Top>2.41146in</Top>
-        <Left>1.96055in</Left>
+        <Left>1.97097in</Left>
         <Height>0.25in</Height>
         <Width>2.53472in</Width>
         <ZIndex>33</ZIndex>
@@ -2382,7 +2400,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.72569in</Height>
+              <Height>0.44444in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -2474,7 +2492,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>1.01042in</Height>
+              <Height>0.45834in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -2555,7 +2573,7 @@
         <DataSetName>DataSet_Report_NhanVien_CongTy</DataSetName>
         <Top>9.59597in</Top>
         <Left>0.50917in</Left>
-        <Height>2.5382in</Height>
+        <Height>1.70487in</Height>
         <Width>6.99308in</Width>
         <ZIndex>34</ZIndex>
         <Style>
@@ -2565,10 +2583,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>12.5625in</Height>
+    <Height>12.94667in</Height>
     <Style />
   </Body>
-  <Width>8.19667in</Width>
+  <Width>7.905in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
@@ -2619,6 +2637,13 @@
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
       <rd:DataSourceID>266caa50-f834-4a0c-9031-b588d608d9d9</rd:DataSourceID>
+    </DataSource>
+    <DataSource Name="N05_Ql_NhanSu_T5DataSet_PhongBan">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>9f2291bc-bb36-453c-b92c-5ce60909d2ad</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -2848,6 +2873,26 @@
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
         <rd:TableAdapterName>GetNhanVienTableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="DataSet_Report_PhongBan">
+      <Query>
+        <DataSourceName>N05_Ql_NhanSu_T5DataSet_PhongBan</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="TenPhongBan">
+          <DataField>TenPhongBan</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>N05_Ql_NhanSu_T5DataSet_PhongBan</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\SyVN\Desktop\QuanLyNhanSu\QuanLyNhanSu\N05_Ql_NhanSu_T5DataSet_PhongBan.xsd</rd:SchemaPath>
+        <rd:TableName>GetPhongBan</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>GetPhongBanTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

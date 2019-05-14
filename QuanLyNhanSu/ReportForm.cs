@@ -19,6 +19,9 @@ namespace QuanLyNhanSu
 
         private void ReportForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'n05_Ql_NhanSu_T5DataSet_PhongBan.GetPhongBan' table. You can move, or remove it, as needed.
+            this.GetPhongBanTableAdapter.Fill(this.n05_Ql_NhanSu_T5DataSet_PhongBan.GetPhongBan, "BAOQ");
+
             // TODO: This line of code loads data into the 'n05_Ql_NhanSu_T5DataSet_NhanVien_CongTy.GetNhanVien_CongTy' table. You can move, or remove it, as needed.
             this.getNhanVien_CongTyTableAdapter.Fill(this.n05_Ql_NhanSu_T5DataSet_NhanVien_CongTy.GetNhanVien_CongTy, 16150151);
 
