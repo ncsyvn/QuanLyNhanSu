@@ -199,6 +199,15 @@ namespace QuanLyNhanSu
                 cmd.Parameters.AddWithValue("ChucVu", textBoxThemChucVu1.Text);
                 cmd.Parameters.AddWithValue("MaPhongBan", comboBoxThemMaPhongBan1.Text);
                 cmd.ExecuteNonQuery();
+
+                textBoxThemMaNhanVien1.Text = "";
+                textBoxThemHoVaTen1.Text = "";
+                textBoxThemSoCMTND1.Text = "";
+                textBoxThemNoiSinh1.Text = "";
+                textBoxThemNoiCapCMTND1.Text = "";
+                comboBoxThemGioiTinh1.Text = "";
+                textBoxThemSoDienThoai1.Text = "";
+                textBoxThemChucVu1.Text = "";
             }
             
         }
@@ -484,6 +493,8 @@ namespace QuanLyNhanSu
             cmd.Parameters.AddWithValue("MaNoiHoc", textBoxThemMaNoiHoc2.Text);
             cmd.Parameters.AddWithValue("TenNoiHoc", textBoxThemTenNoiHoc2.Text);
             cmd.ExecuteNonQuery();
+            textBoxThemMaNoiHoc2.Text = "";
+            textBoxThemTenNoiHoc2.Text = "";
         }
 
         // Phương thức sửa nơi học
@@ -563,7 +574,7 @@ namespace QuanLyNhanSu
                 {
                     count++;
                 }
-            if (count==1)
+            if (count>=1)
             {
                 MessageBox.Show("Mã nơi học đã tồn tại", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -665,6 +676,8 @@ namespace QuanLyNhanSu
             cmd.Parameters.AddWithValue("MaNgonNgu", textBoxThemMaNgonNgu3.Text);
             cmd.Parameters.AddWithValue("TenNgonNgu", textBoxThemTenNgonNgu3.Text);
             cmd.ExecuteNonQuery();
+            textBoxThemMaNgonNgu3.Text = "";
+            textBoxThemTenNgonNgu3.Text = "";
         }
 
         // Phương thức sửa ngôn ngữ
@@ -847,6 +860,8 @@ namespace QuanLyNhanSu
             cmd.Parameters.AddWithValue("MaKhaNangViTinh", textBoxThemMaKNVT4.Text);
             cmd.Parameters.AddWithValue("TenKhaNangViTinh", textBoxThemTenKNVT4.Text);
             cmd.ExecuteNonQuery();
+            textBoxThemMaKNVT4.Text = "";
+            textBoxThemTenKNVT4.Text = "";
         }
 
         // Phương thức sửa khả năng vi tính
@@ -1030,6 +1045,8 @@ namespace QuanLyNhanSu
             cmd.Parameters.AddWithValue("MaKhoaHuanLuyen", textBoxThemMaKHL5.Text);
             cmd.Parameters.AddWithValue("TenKhoaHuanLuyen", textBoxThemTenKHL5.Text);
             cmd.ExecuteNonQuery();
+            textBoxThemMaKHL5.Text = "";
+            textBoxThemTenKHL5.Text = "";
         }
 
         // Phương thức sửa khóa huấn luyện
@@ -1212,6 +1229,8 @@ namespace QuanLyNhanSu
             cmd.Parameters.AddWithValue("MaCongTy", textBoxThemMaCongTy6.Text);
             cmd.Parameters.AddWithValue("TenCongTy", textBoxThemTenCongTy6.Text);
             cmd.ExecuteNonQuery();
+            textBoxThemMaCongTy6.Text = "";
+            textBoxThemTenCongTy6.Text = "";
         }
 
         // Phương thức sửa Công Ty
