@@ -33,6 +33,8 @@ namespace QuanLyNhanSu
         private string MaCongTy;
 
         private string MaPhongBan;
+
+        public static DataGridView dataGridView = new DataGridView();
         #endregion
 
         //------------------------------------------------------------------------------------------------
@@ -120,6 +122,7 @@ namespace QuanLyNhanSu
             dt.Load(dr);
             dataGridViewNhanVien.DataSource = dt;
             dataGridViewNhanVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView.DataSource = dt;
             for (i = 0; i < dataGridViewNhanVien.RowCount; i++) dataGridViewNhanVien.Rows[i].Cells[0].Value = i + 1;
         }
 
@@ -240,40 +243,43 @@ namespace QuanLyNhanSu
         // Xử lý sự kiện click vào mỗi dòng, dữ liệu tự động update vào form sửa
         private void dataGridViewNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Set giá trị cho các thành phần 
-            DateTime dateTime = new DateTime();
-            dateTime = Convert.ToDateTime(dataGridViewNhanVien.Rows[e.RowIndex].Cells[3].Value.ToString());
+            if (e.RowIndex < dataGridViewNhanVien.RowCount - 1)
+            {
+                // Set giá trị cho các thành phần 
+                DateTime dateTime = new DateTime();
+                dateTime = Convert.ToDateTime(dataGridViewNhanVien.Rows[e.RowIndex].Cells[3].Value.ToString());
 
-            textBoxSuaMaNhanVien1.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[1].Value.ToString();
-            textBoxSuaHoVaTen1.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[2].Value.ToString();
-            dateTimePickerSuaNgaySinh1.Value = dateTime;
-            comboBoxSuaGioiTinh1.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[4].Value.ToString();
-            textBoxSuaNoiSinh1.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[5].Value.ToString();
-            textBoxSuaSoCMTND1.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[6].Value.ToString();
-            textBoxSuaNoiCapCMTND1.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[7].Value.ToString();
-            textBoxSuaSoDienThoai1.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[8].Value.ToString();
-            textBoxSuaChucVu1.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[9].Value.ToString();
-            comboBoxSuaMaPhongBan1.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[10].Value.ToString();
+                textBoxSuaMaNhanVien1.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[1].Value.ToString();
+                textBoxSuaHoVaTen1.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[2].Value.ToString();
+                dateTimePickerSuaNgaySinh1.Value = dateTime;
+                comboBoxSuaGioiTinh1.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[4].Value.ToString();
+                textBoxSuaNoiSinh1.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[5].Value.ToString();
+                textBoxSuaSoCMTND1.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[6].Value.ToString();
+                textBoxSuaNoiCapCMTND1.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[7].Value.ToString();
+                textBoxSuaSoDienThoai1.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[8].Value.ToString();
+                textBoxSuaChucVu1.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[9].Value.ToString();
+                comboBoxSuaMaPhongBan1.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[10].Value.ToString();
 
-            MaNhanVien = Convert.ToInt32(dataGridViewNhanVien.Rows[e.RowIndex].Cells[1].Value);
+                MaNhanVien = Convert.ToInt32(dataGridViewNhanVien.Rows[e.RowIndex].Cells[1].Value);
+                MaPhongBan = dataGridViewNhanVien.Rows[e.RowIndex].Cells[10].Value.ToString();
 
-            buttonSuaNhanVien.Click += buttonSuaNhanVien_Click;
+                buttonSuaNhanVien.Click += buttonSuaNhanVien_Click;
 
-            // Khóa việc sửa giá trị trước khi click vào nút sửa.
-            textBoxSuaMaNhanVien1.ReadOnly = true;
-            textBoxSuaHoVaTen1.ReadOnly = true;
-            dateTimePickerSuaNgaySinh1.Enabled = false;
-            comboBoxSuaGioiTinh1.Enabled = false;
-            textBoxSuaNoiSinh1.ReadOnly = true;
-            textBoxSuaSoCMTND1.ReadOnly = true;
-            textBoxSuaNoiCapCMTND1.ReadOnly = true;
-            textBoxSuaSoDienThoai1.ReadOnly = true;
-            textBoxSuaChucVu1.ReadOnly = true;
-            comboBoxSuaMaPhongBan1.Enabled = false;
+                // Khóa việc sửa giá trị trước khi click vào nút sửa.
+                textBoxSuaMaNhanVien1.ReadOnly = true;
+                textBoxSuaHoVaTen1.ReadOnly = true;
+                dateTimePickerSuaNgaySinh1.Enabled = false;
+                comboBoxSuaGioiTinh1.Enabled = false;
+                textBoxSuaNoiSinh1.ReadOnly = true;
+                textBoxSuaSoCMTND1.ReadOnly = true;
+                textBoxSuaNoiCapCMTND1.ReadOnly = true;
+                textBoxSuaSoDienThoai1.ReadOnly = true;
+                textBoxSuaChucVu1.ReadOnly = true;
+                comboBoxSuaMaPhongBan1.Enabled = false;
 
-            buttonXoaNhanVien.Click += buttonXoaNhanVien_Click;
-
-
+                buttonXoaNhanVien.Click += buttonXoaNhanVien_Click;
+            }
+                
         }
 
         // Xử lý sự kiện click nút sửa, cho phép sửa dữ liệu     - Sự kiện tự tạo thêm bằng tay
@@ -1445,6 +1451,20 @@ namespace QuanLyNhanSu
         }
 
         #endregion
+
+        private void buttonExport_Click(object sender, EventArgs e)
+        {
+            if (MaNhanVien != 0)
+            {
+                ReportForm reportForm = new ReportForm(MaNhanVien, MaPhongBan);
+                reportForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn nhân viên");
+            }
+            
+        }
     }
 }
 

@@ -478,6 +478,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\hr-touch.png" />
+    <None Include="Resources\images.jpg" />
+    <None Include="Resources\icon-toanmath-de-kscl-giao-vien-mon-toan.png" />
+    <None Include="Resources\BackGround.jpg" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll" />
     <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll" />
