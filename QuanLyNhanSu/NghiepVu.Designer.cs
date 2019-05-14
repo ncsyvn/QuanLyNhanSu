@@ -345,14 +345,14 @@
             this.panelNghiepVu.AutoScroll = true;
             this.panelNghiepVu.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.panelNghiepVu.Controls.Add(this.label5);
-            this.panelNghiepVu.Controls.Add(this.label4);
-            this.panelNghiepVu.Controls.Add(this.label2);
-            this.panelNghiepVu.Controls.Add(this.label1);
             this.panelNghiepVu.Controls.Add(this.panelNhanVien_NgonNgu);
             this.panelNghiepVu.Controls.Add(this.panelNhanVien_CongTy);
+            this.panelNghiepVu.Controls.Add(this.label4);
             this.panelNghiepVu.Controls.Add(this.panelNhanVien_KHL);
             this.panelNghiepVu.Controls.Add(this.panelNhanVien_KNVT);
+            this.panelNghiepVu.Controls.Add(this.label2);
             this.panelNghiepVu.Controls.Add(this.panelNoiHoc);
+            this.panelNghiepVu.Controls.Add(this.label1);
             this.panelNghiepVu.Location = new System.Drawing.Point(7, 8);
             this.panelNghiepVu.Name = "panelNghiepVu";
             this.panelNghiepVu.Size = new System.Drawing.Size(1358, 738);
@@ -363,7 +363,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Crimson;
-            this.label5.Location = new System.Drawing.Point(1285, 257);
+            this.label5.Location = new System.Drawing.Point(643, 154);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 28);
             this.label5.TabIndex = 7;
@@ -374,7 +374,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Crimson;
-            this.label4.Location = new System.Drawing.Point(1276, 229);
+            this.label4.Location = new System.Drawing.Point(634, 126);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 28);
             this.label4.TabIndex = 6;
@@ -385,7 +385,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Crimson;
-            this.label2.Location = new System.Drawing.Point(1288, 197);
+            this.label2.Location = new System.Drawing.Point(646, 94);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 28);
             this.label2.TabIndex = 5;
@@ -396,7 +396,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Crimson;
-            this.label1.Location = new System.Drawing.Point(1276, 166);
+            this.label1.Location = new System.Drawing.Point(634, 63);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 28);
             this.label1.TabIndex = 4;
@@ -1528,7 +1528,7 @@
             this.panelNhanVien_KHL.Controls.Add(this.panelSuaNhanVien_KHL);
             this.panelNhanVien_KHL.Controls.Add(this.buttonSuaNhanVien_KHL);
             this.panelNhanVien_KHL.Controls.Add(this.panelThemNhanVien_KHL);
-            this.panelNhanVien_KHL.Location = new System.Drawing.Point(628, 8);
+            this.panelNhanVien_KHL.Location = new System.Drawing.Point(712, 11);
             this.panelNhanVien_KHL.Name = "panelNhanVien_KHL";
             this.panelNhanVien_KHL.Size = new System.Drawing.Size(632, 354);
             this.panelNhanVien_KHL.TabIndex = 2;
