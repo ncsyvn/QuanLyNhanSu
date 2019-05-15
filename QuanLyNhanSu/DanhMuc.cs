@@ -145,7 +145,7 @@ namespace QuanLyNhanSu
             if (textBoxThemSoCMTND1.Text == "")
             {
                 textBoxThemSoCMTND1.BackColor = Color.Pink;
-                textBoxThemSoCMTND1.Text = "Thiếu thông tin";
+                textBoxThemSoCMTND1.Text = "0";
                 count++;
             }
             if (textBoxThemNoiCapCMTND1.Text == "")
@@ -174,7 +174,15 @@ namespace QuanLyNhanSu
             }
 
 
+            if (CheckInt(textBoxThemSoCMTND1.Text) == 0)
+            {
+                DialogResult dlr= MessageBox.Show("Mời bạn xem lại thông tin số CMTND", "CMTND Sai", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (dlr==DialogResult.OK)
+                {
+                    textBoxThemSoCMTND1.Text = "0";
+                }
 
+            }
 
             if (count != 0)
             {
@@ -186,19 +194,21 @@ namespace QuanLyNhanSu
                                " @NgaySinh, @GioiTinh, @NoiSinh, @SoCMTND, @NoiCapCMTND, " +
                                "@SoDienThoai, @ChucVu, @MaPhongBan)";
                 SqlCommand cmd = new SqlCommand(sqlInsert, con);
-                cmd.Parameters.AddWithValue("MaNhanVien", textBoxThemMaNhanVien1.Text);
+                cmd.Parameters.AddWithValue("MaNhanVien", Convert.ToInt32(textBoxThemMaNhanVien1.Text));
                 cmd.Parameters.AddWithValue("HoVaTen", textBoxThemHoVaTen1.Text);
                 cmd.Parameters.AddWithValue("NgaySinh", dateTimePickerThemNgaySinh1.Value.Date.Year.ToString() + '/' +
                                                          dateTimePickerThemNgaySinh1.Value.Date.Month.ToString() + '/' +
                                                          dateTimePickerThemNgaySinh1.Value.Date.Day.ToString());
                 cmd.Parameters.AddWithValue("GioiTinh", Convert.ToInt32(comboBoxThemGioiTinh1.Text));
                 cmd.Parameters.AddWithValue("NoiSinh", textBoxThemNoiSinh1.Text);
-                cmd.Parameters.AddWithValue("SoCMTND", textBoxThemSoCMTND1.Text);
+                cmd.Parameters.AddWithValue("SoCMTND", Convert.ToInt32(textBoxThemSoCMTND1.Text));
                 cmd.Parameters.AddWithValue("NoiCapCMTND", textBoxThemNoiCapCMTND1.Text);
                 cmd.Parameters.AddWithValue("SoDienThoai", textBoxThemSoDienThoai1.Text);
                 cmd.Parameters.AddWithValue("ChucVu", textBoxThemChucVu1.Text);
                 cmd.Parameters.AddWithValue("MaPhongBan", comboBoxThemMaPhongBan1.Text);
+
                 cmd.ExecuteNonQuery();
+                
 
                 textBoxThemMaNhanVien1.Text = "";
                 textBoxThemHoVaTen1.Text = "";
@@ -250,33 +260,12 @@ namespace QuanLyNhanSu
         {
             string sqlFindId = "Select * from NhanVien Where (CharIndex( Convert(Varchar(100), @MaNhanVien) , Convert(Varchar(100), MaNhanVien), 0 ) >=1) and" +
                 "                                            ((CharIndex(@HoVaTen, HoVaTen, 0))>=1 or (@HoVaTen=''))";
-            // "(HoVaTen = @HoVaTen or HoVaTen='0'))";// and" +
-            //"(NgaySinh=@NgaySinh or NgaySinh=GetDate()) and" +
-            //"(GioiTinh=@GioiTinh or GioiTinh=NULL) and" +
-            //"(NoiSinh=@NoiSinh or NoiSinh=NULL) and" +
-            //"(SoCMTND=@SoCMTND or SoCMTND=NULL) and" +
-            //"(NoiCapCMTND=@NoiCapCMTND or NoiCapCMTND=NULL) and" +
-            //"(SoDienThoai=@SoDienThoai or SoDienThoai=NULL) and" +
-            // "(ChucVu=@ChucVu or ChucVu=NULL))";
-            // "(MaPhongBan=@MaPhongBan or MaPhongBan=NULL))";
 
             SqlCommand cmd = new SqlCommand(sqlFindId, con);
 
             if (textBoxTimMaNhanVien1.Text == "") cmd.Parameters.AddWithValue("MaNhanVien", 0);
             else cmd.Parameters.AddWithValue("MaNhanVien", Convert.ToInt32(textBoxTimMaNhanVien1.Text));
             cmd.Parameters.AddWithValue("HoVaTen", textBoxTimHoVaTen1.Text);
-
-
-            /*cmd.Parameters.AddWithValue("NgaySinh", dateTimePickerTimNgaySinh1.Value.Date.Year.ToString() + '/' +
-                                                     dateTimePickerTimNgaySinh1.Value.Date.Month.ToString() + '/' +
-                                                     dateTimePickerTimNgaySinh1.Value.Date.Day.ToString());
-            //cmd.Parameters.AddWithValue("GioiTinh", Convert.ToInt32(comboBoxTimGioiTinh1.Text));
-            cmd.Parameters.AddWithValue("NoiSinh", textBoxTimNoiSinh1.Text);
-            cmd.Parameters.AddWithValue("SoCMTND", textBoxTimSoCMTND1.Text);
-            cmd.Parameters.AddWithValue("NoiCapCMTND", textBoxTimNoiCapCMTND1.Text);
-            cmd.Parameters.AddWithValue("SoDienThoai", textBoxTimSoDienThoai1.Text);
-            cmd.Parameters.AddWithValue("ChucVu", textBoxTimChucVu1.Text);
-            //cmd.Parameters.AddWithValue("MaPhongBan", comboBoxTimMaPhongBan1.Text);*/
             cmd.ExecuteNonQuery();
 
             SqlDataReader dr = cmd.ExecuteReader();
@@ -341,6 +330,7 @@ namespace QuanLyNhanSu
                 textBoxSuaChucVu1.ReadOnly = true;
                 comboBoxSuaMaPhongBan1.Enabled = false;
 
+                buttonXoaNhanVien.Click -= buttonXoaNhanVien_Click;
                 buttonXoaNhanVien.Click += buttonXoaNhanVien_Click;
             }
 
@@ -401,11 +391,7 @@ namespace QuanLyNhanSu
             DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn xóa nhân viên", "Xóa Nhân Viên", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dlr == DialogResult.Yes)
             {
-                NghiepVu nghiepVu = new NghiepVu();
-                nghiepVu.Show();
-                nghiepVu.SetMaNhanVien(MaNhanVien);
-                nghiepVu.XoaDuLieuNhanVien_Conflig(nghiepVu.GetMaNhanVien());
-                nghiepVu.Hide();
+                XoaDuLieuNhanVien_Conflig(MaNhanVien);
                 XoaNhanVien();
                 HienThiNhanVien();
             }
@@ -560,11 +546,7 @@ namespace QuanLyNhanSu
             DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn xóa nơi học", "Xóa Nơi Học", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dlr == DialogResult.Yes)
             {
-                NghiepVu nghiepVu = new NghiepVu();
-                nghiepVu.Show();
-                nghiepVu.SetMaNoiHoc(MaNoiHoc);
-                nghiepVu.XoaNhanVien_NoiHoc_Conflig(nghiepVu.GetMaNoiHoc());
-                nghiepVu.Hide();
+                XoaNhanVien_NoiHoc_Conflig(MaNoiHoc);
                 XoaNoiHoc();
                 HienThiNoiHoc();
             }
@@ -622,6 +604,7 @@ namespace QuanLyNhanSu
                 textBoxSuaMaNoiHoc2.ReadOnly = true;
                 textBoxSuaMaNoiHoc2.ReadOnly = true;
 
+                buttonXoaNoiHoc.Click -= buttonXoaNoiHoc_Click;
                 buttonXoaNoiHoc.Click += buttonXoaNoiHoc_Click;
             }
         }
@@ -749,11 +732,7 @@ namespace QuanLyNhanSu
             DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn xóa ngôn ngữ", "Xóa Ngôn Ngữ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dlr == DialogResult.Yes)
             {
-                NghiepVu nghiepVu = new NghiepVu();
-                nghiepVu.Show();
-                nghiepVu.SetMaNgonNgu(MaNgonNgu);
-                nghiepVu.XoaNhanVien_NgonNgu_Conflig(nghiepVu.GetMaNgonNgu());
-                nghiepVu.Hide();
+                XoaNhanVien_NgonNgu_Conflig(MaNgonNgu);
                 XoaNgonNgu();
                 HienThiNgonNgu();
             }
@@ -810,6 +789,7 @@ namespace QuanLyNhanSu
                 textBoxSuaMaNgonNgu3.ReadOnly = true;
                 textBoxSuaTenNgonNgu3.ReadOnly = true;
 
+                buttonXoaNgonNgu.Click -= buttonXoaNgonNgu_Click;
                 buttonXoaNgonNgu.Click += buttonXoaNgonNgu_Click;
             }
 
@@ -938,11 +918,7 @@ namespace QuanLyNhanSu
             DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn xóa khả năng vi tính", "Xóa Khả Năng Vi Tính", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dlr == DialogResult.Yes)
             {
-                NghiepVu nghiepVu = new NghiepVu();
-                nghiepVu.Show();
-                nghiepVu.SetMaKhaNangViTinh(MaKhaNangViTinh);
-                nghiepVu.XoaNhanVien_KhaNangViTinh_Conflig(nghiepVu.GetMaKhaNangViTinh());
-                nghiepVu.Hide();
+                XoaNhanVien_KhaNangViTinh_Conflig(MaKhaNangViTinh);
                 XoaKhaNangViTinh();
                 HienThiKhaNangViTinh();
             }
@@ -1000,6 +976,7 @@ namespace QuanLyNhanSu
                 textBoxSuaMaKNVT4.ReadOnly = true;
                 textBoxSuaTenKNVT4.ReadOnly = true;
 
+                buttonXoaKNVT.Click -= buttonXoaKhaNangViTinh_Click;
                 buttonXoaKNVT.Click += buttonXoaKhaNangViTinh_Click;
             }
 
@@ -1128,11 +1105,7 @@ namespace QuanLyNhanSu
             DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn xóa khóa huấn luyện", "Xóa Khóa Huấn Luyện", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dlr == DialogResult.Yes)
             {
-                NghiepVu nghiepVu = new NghiepVu();
-                nghiepVu.Show();
-                nghiepVu.SetMaKhoaHuanLuyen(MaKhoaHuanLuyen);
-                nghiepVu.XoaNhanVien_KhoaHuanLuyen_Conflig(nghiepVu.GetMaKhoaHuanLuyen());
-                nghiepVu.Hide();
+                XoaNhanVien_KhoaHuanLuyen_Conflig(MaKhoaHuanLuyen);
                 XoaKhoaHuanLuyen();
                 HienThiKhoaHuanLuyen();
             }
@@ -1190,6 +1163,7 @@ namespace QuanLyNhanSu
                 textBoxSuaMaKHL5.ReadOnly = true;
                 textBoxSuaTenKHL5.ReadOnly = true;
 
+                buttonXoaKHL.Click -= buttonXoaKhoaHuanLuyen_Click;
                 buttonXoaKHL.Click += buttonXoaKhoaHuanLuyen_Click;
             }
 
@@ -1317,11 +1291,7 @@ namespace QuanLyNhanSu
             DialogResult dlr = MessageBox.Show("Bạn chắc chắn muốn xóa công ty", "Xóa Công Ty", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dlr == DialogResult.Yes)
             {
-                NghiepVu nghiepVu = new NghiepVu();
-                nghiepVu.Show();
-                nghiepVu.SetMaCongTy(MaCongTy);
-                nghiepVu.XoaNhanVien_CongTy_Conflig(nghiepVu.GetMaCongTy());
-                nghiepVu.Hide();
+                XoaNhanVien_CongTy_Conflig(MaCongTy);
                 XoaCongTy();
                 HienThiCongTy();
             }
@@ -1379,6 +1349,8 @@ namespace QuanLyNhanSu
                 textBoxSuaMaCongTy6.ReadOnly = true;
                 textBoxSuaTenCongTy6.ReadOnly = true;
 
+
+                buttonXoaCongTy.Click -= buttonXoaCongTy_Click;
                 buttonXoaCongTy.Click += buttonXoaCongTy_Click;
             }
         }
@@ -1562,6 +1534,7 @@ namespace QuanLyNhanSu
                 textBoxSuaMaPhongBan7.ReadOnly = true;
                 textBoxSuaTenPhongBan7.ReadOnly = true;
 
+                buttonXoaPhongBan.Click -= buttonXoaPhongBan_Click;
                 buttonXoaPhongBan.Click += buttonXoaPhongBan_Click;
             }
         }
@@ -1602,7 +1575,11 @@ namespace QuanLyNhanSu
         #endregion
 
 
-        #region Xử lý xóa Nhân Viên của phòng ban khi xóa phòng ban đó
+
+
+        // xử lý các trường hợp xóa danh mục trùng khóa ngoại
+
+        #region Xử lý thay mã nhân viên thành OTHE Nhân Viên của phòng ban khi xóa phòng ban đó
         public void SetMaPhongBan(string MaPhongBan)
         {
             this.MaPhongBan = MaPhongBan;
@@ -1613,13 +1590,168 @@ namespace QuanLyNhanSu
         }
         public void XoaDuLieuNhanVien_Conflig_PhongBan(string MaPhongBan)
         {
-            string sqlDelete = "Delete From NhanVien Where MaPhongBan=@MaPhongBan";
+            string sqlDelete = "Update NhanVien set MaPhongBan='OTHE' Where MaPhongBan=@MaPhongBa" +
+                "n";
             SqlCommand cmd = new SqlCommand(sqlDelete, con);
             cmd.Parameters.AddWithValue("MaPhongBan", MaPhongBan);
             cmd.ExecuteNonQuery();
             this.MaNhanVien = 0;
         }
         #endregion
+
+        #region Xử lý xóa NhanVien_NoiHoc khi bên DanhMuc xóa nơi học
+        public void SetMaNoiHoc(string MaNoiHoc)
+        {
+            this.MaNoiHoc = MaNoiHoc;
+        }
+        public string GetMaNoiHoc()
+        {
+            return MaNoiHoc;
+        }
+        public void XoaNhanVien_NoiHoc_Conflig(string MaNoiHoc)
+        {
+            string sqlDelete = "Delete From NhanVien_NoiHoc Where MaNoiHoc=@MaNoiHoc";
+            SqlCommand cmd = new SqlCommand(sqlDelete, con);
+            cmd.Parameters.AddWithValue("MaNoiHoc", MaNoiHoc);
+            cmd.ExecuteNonQuery();
+        }
+        #endregion
+
+        #region Xử lý xóa NhanVien_NgonNgu khi bên DanhMuc xóa NgonNgu
+        public void SetMaNgonNgu(string MaNgonNgu)
+        {
+            this.MaNgonNgu = MaNgonNgu;
+        }
+        public string GetMaNgonNgu()
+        {
+            return MaNgonNgu;
+        }
+        public void XoaNhanVien_NgonNgu_Conflig(string MaNoiHoc)
+        {
+            string sqlDelete = "Delete From NhanVien_NgonNgu Where MaNgonNgu=@MaNgonNgu";
+            SqlCommand cmd = new SqlCommand(sqlDelete, con);
+            cmd.Parameters.AddWithValue("MaNgonNgu", MaNgonNgu);
+            cmd.ExecuteNonQuery();
+        }
+        #endregion
+
+        #region Xử lý xóa NhanVien_KhaNangViTinh khi bên DanhMuc xóa Khả năng vi tính
+        public void SetMaKhaNangViTinh(string MaKhaNangViTinh)
+        {
+            this.MaKhaNangViTinh = MaKhaNangViTinh;
+        }
+        public string GetMaKhaNangViTinh()
+        {
+            return MaKhaNangViTinh;
+        }
+        public void XoaNhanVien_KhaNangViTinh_Conflig(string MaNoiHoc)
+        {
+            string sqlDelete = "Delete From NhanVien_KhaNangViTinh Where MaKhaNangViTinh=@MaKhaNangViTinh";
+            SqlCommand cmd = new SqlCommand(sqlDelete, con);
+            cmd.Parameters.AddWithValue("MaKhaNangViTinh", MaKhaNangViTinh);
+            cmd.ExecuteNonQuery();
+        }
+        #endregion
+
+        #region Xử lý xóa NhanVien_KhoaHuanLuyen khi bên DanhMuc xóa KhoaHuanLuyen
+        public void SetMaKhoaHuanLuyen(string MaKhoaHuanLuyen)
+        {
+            this.MaKhoaHuanLuyen = MaKhoaHuanLuyen;
+        }
+        public string GetMaKhoaHuanLuyen()
+        {
+            return MaKhoaHuanLuyen;
+        }
+        public void XoaNhanVien_KhoaHuanLuyen_Conflig(string MaNoiHoc)
+        {
+            string sqlDelete = "Delete From NhanVien_KhoaHuanLuyen Where MaKhoaHuanLuyen=@MaKhoaHuanLuyen";
+            SqlCommand cmd = new SqlCommand(sqlDelete, con);
+            cmd.Parameters.AddWithValue("MaKhoaHuanLuyen", MaKhoaHuanLuyen);
+            cmd.ExecuteNonQuery();
+        }
+        #endregion
+
+        #region Xử lý xóa NhanVien_CongTy khi bên DanhMuc xóa công ty
+        public void SetMaCongTy(string MaCongTy)
+        {
+            this.MaCongTy = MaCongTy;
+        }
+        public string GetMaCongTy()
+        {
+            return MaNoiHoc;
+        }
+        public void XoaNhanVien_CongTy_Conflig(string MaNoiHoc)
+        {
+            string sqlDelete = "Delete From NhanVien_CongTy Where MaCongTy=@MaCongTy";
+            SqlCommand cmd = new SqlCommand(sqlDelete, con);
+            cmd.Parameters.AddWithValue("MaCongTy", MaCongTy);
+            cmd.ExecuteNonQuery();
+        }
+        #endregion
+
+        #region Xử lý xóa toàn bộ dữ liệu của nhân viên khi DanhMuc xóa nhân viên đó.
+        public void SetMaNhanVien(int MaNhanVien)
+        {
+            this.MaNhanVien = MaNhanVien;
+        }
+        public int GetMaNhanVien()
+        {
+            return MaNhanVien;
+        }
+        public void XoaDuLieuNhanVien_Conflig(int MaNhanVien)
+        {
+            string sqlDelete = "Delete From NhanVien_NoiHoc Where MaNhanVien=@MaNhanVien";
+            SqlCommand cmd = new SqlCommand(sqlDelete, con);
+            cmd.Parameters.AddWithValue("MaNhanVien", MaNhanVien);
+            cmd.ExecuteNonQuery();
+
+            sqlDelete = "Delete From NhanVien_CongTy Where MaNhanVien=@MaNhanVien";
+            cmd = new SqlCommand(sqlDelete, con);
+            cmd.Parameters.AddWithValue("MaNhanVien", MaNhanVien);
+            cmd.ExecuteNonQuery();
+
+            sqlDelete = "Delete From NhanVien_NgonNgu Where MaNhanVien=@MaNhanVien";
+            cmd = new SqlCommand(sqlDelete, con);
+            cmd.Parameters.AddWithValue("MaNhanVien", MaNhanVien);
+            cmd.ExecuteNonQuery();
+
+            sqlDelete = "Delete From NhanVien_KhoaHuanLuyen Where MaNhanVien=@MaNhanVien";
+            cmd = new SqlCommand(sqlDelete, con);
+            cmd.Parameters.AddWithValue("MaNhanVien", MaNhanVien);
+            cmd.ExecuteNonQuery();
+
+            sqlDelete = "Delete From NhanVien_KhaNangViTinh Where MaNhanVien=@MaNhanVien";
+            cmd = new SqlCommand(sqlDelete, con);
+            cmd.Parameters.AddWithValue("MaNhanVien", MaNhanVien);
+            cmd.ExecuteNonQuery();
+
+            sqlDelete = "Delete From BaoHiemYTe Where MaNhanVien=@MaNhanVien";
+            cmd = new SqlCommand(sqlDelete, con);
+            cmd.Parameters.AddWithValue("MaNhanVien", MaNhanVien);
+            cmd.ExecuteNonQuery();
+
+            sqlDelete = "Delete From BaoHiemXaHoi Where MaNhanVien=@MaNhanVien";
+            cmd = new SqlCommand(sqlDelete, con);
+            cmd.Parameters.AddWithValue("MaNhanVien", MaNhanVien);
+            cmd.ExecuteNonQuery();
+
+            sqlDelete = "Delete From NhanVien_Thue Where MaNhanVien=@MaNhanVien";
+            cmd = new SqlCommand(sqlDelete, con);
+            cmd.Parameters.AddWithValue("MaNhanVien", MaNhanVien);
+            cmd.ExecuteNonQuery();
+
+            sqlDelete = "Delete From NhanVien_NhatKy Where MaNhanVien=@MaNhanVien";
+            cmd = new SqlCommand(sqlDelete, con);
+            cmd.Parameters.AddWithValue("MaNhanVien", MaNhanVien);
+            cmd.ExecuteNonQuery();
+
+            sqlDelete = "Delete From NhanVien_ChamCong Where MaNhanVien=@MaNhanVien";
+            cmd = new SqlCommand(sqlDelete, con);
+            cmd.Parameters.AddWithValue("MaNhanVien", MaNhanVien);
+            cmd.ExecuteNonQuery();
+        }
+        #endregion
+
 
 
 
@@ -1637,6 +1769,14 @@ namespace QuanLyNhanSu
 
         }
 
+        public int CheckInt(string s)
+        {
+            int i;
+            for (i = 0; i < s.Length; i++)
+                if (((int)s[i]) < 48 || ((int)s[i]) > 57) return 0;
+            return 1;
+        }
+        
     }
 }
 

@@ -850,7 +850,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!SoDienThoai.Value, "DataSet_Report_NhanVien")</Value>
+                <Value>=First(Fields!NoiCapCMTND.Value, "DataSet_Report_NhanVien")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -976,7 +976,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>(Yeu, TB, Kha, Gioi, SX)</Value>
+                <Value>(Yếu, Trung Bình, Khá, Giỏi, Xuất Sắc)</Value>
                 <Style>
                   <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -990,9 +990,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
         <Top>5.74479in</Top>
-        <Left>2.81124in</Left>
+        <Left>2.14457in</Left>
         <Height>0.58333in</Height>
-        <Width>1.96877in</Width>
+        <Width>3.38544in</Width>
         <ZIndex>25</ZIndex>
         <Style>
           <Border>
