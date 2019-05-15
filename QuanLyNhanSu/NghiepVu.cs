@@ -255,6 +255,7 @@ namespace QuanLyNhanSu
 
                 buttonSuaNhanVien_NoiHoc.Click += buttonSuaNhanVien_NoiHoc_Click;
 
+                buttonXoaNhanVien_NoiHoc.Click -= buttonXoaNhanVien_NoiHoc_Click;
                 buttonXoaNhanVien_NoiHoc.Click += buttonXoaNhanVien_NoiHoc_Click;
             }
         }
@@ -448,6 +449,7 @@ namespace QuanLyNhanSu
 
                 buttonSuaNhanVien_KNVT.Click += buttonSuaNhanVien_KNVT_Click;
 
+                buttonXoaNhanVien_KNVT.Click -= buttonXoaNhanVien_KNVT_Click;
                 buttonXoaNhanVien_KNVT.Click += buttonXoaNhanVien_KNVT_Click;
             }
         }
@@ -656,6 +658,7 @@ namespace QuanLyNhanSu
 
                 buttonSuaNhanVien_NgonNgu.Click += buttonSuaNhanVien_NgonNgu_Click;
 
+                buttonXoaNhanVien_NgonNgu.Click -= buttonXoaNhanVien_NgonNgu_Click;
                 buttonXoaNhanVien_NgonNgu.Click += buttonXoaNhanVien_NgonNgu_Click;
             }
         }
@@ -893,6 +896,8 @@ namespace QuanLyNhanSu
 
                 buttonSuaNhanVien_CongTy.Click += buttonSuaNhanVien_CongTy_Click;
 
+
+                buttonXoaNhanVien_CongTy.Click -= buttonXoaNhanVien_CongTy_Click;
                 buttonXoaNhanVien_CongTy.Click += buttonXoaNhanVien_CongTy_Click;
             }
             else
@@ -944,7 +949,6 @@ namespace QuanLyNhanSu
         #endregion
 
         //------------------------------------------------------------------------------------------------
-
 
         #region Xử Lý Nhập Nhân Viên_khóa huấn luyên
         // Phương thức hiển thị danh sách nhân viên_khóa huấn luyện lên dataGridView
@@ -1123,6 +1127,7 @@ namespace QuanLyNhanSu
 
                 buttonSuaNhanVien_KHL.Click += buttonSuaNhanVien_KhoaHuanLuyen_Click;
 
+                buttonXoaNhanVien_KHL.Click -= buttonXoaNhanVien_KhoaHuanLuyen_Click;
                 buttonXoaNhanVien_KHL.Click += buttonXoaNhanVien_KhoaHuanLuyen_Click;
             }
             else
@@ -1167,145 +1172,6 @@ namespace QuanLyNhanSu
         }
         #endregion
 
-
-
-        // xử lý các trường hợp xóa danh mục trùng khóa ngoại
-        #region Xử lý xóa NhanVien_NoiHoc khi bên DanhMuc xóa nơi học
-        public void SetMaNoiHoc(string MaNoiHoc)
-        {
-            this.MaNoiHoc = MaNoiHoc;
-        }
-        public string GetMaNoiHoc()
-        {
-            return MaNoiHoc;
-        }
-        public void XoaNhanVien_NoiHoc_Conflig(string MaNoiHoc)
-        {
-            string sqlDelete = "Delete From NhanVien_NoiHoc Where MaNoiHoc=@MaNoiHoc";
-            SqlCommand cmd = new SqlCommand(sqlDelete, con);
-            cmd.Parameters.AddWithValue("MaNoiHoc", MaNoiHoc);
-            cmd.ExecuteNonQuery();
-            this.MaNoiHoc = "";
-        }
-        #endregion
-
-        #region Xử lý xóa NhanVien_CongTy khi bên DanhMuc xóa công ty
-        public void SetMaCongTy(string MaCongTy)
-        {
-            this.MaCongTy = MaCongTy;
-        }
-        public string GetMaCongTy()
-        {
-            return MaNoiHoc;
-        }
-        public void XoaNhanVien_CongTy_Conflig(string MaNoiHoc)
-        {
-            string sqlDelete = "Delete From NhanVien_CongTy Where MaCongTy=@MaCongTy";
-            SqlCommand cmd = new SqlCommand(sqlDelete, con);
-            cmd.Parameters.AddWithValue("MaCongTy", MaCongTy);
-            cmd.ExecuteNonQuery();
-            this.MaCongTy = "";
-        }
-        #endregion
-
-        #region Xử lý xóa NhanVien_NgonNgu khi bên DanhMuc xóa NgonNgu
-        public void SetMaNgonNgu(string MaNgonNgu)
-        {
-            this.MaNgonNgu = MaNgonNgu;
-        }
-        public string GetMaNgonNgu()
-        {
-            return MaNgonNgu;
-        }
-        public void XoaNhanVien_NgonNgu_Conflig(string MaNoiHoc)
-        {
-            string sqlDelete = "Delete From NhanVien_NgonNgu Where MaNgonNgu=@MaNgonNgu";
-            SqlCommand cmd = new SqlCommand(sqlDelete, con);
-            cmd.Parameters.AddWithValue("MaNgonNgu", MaNgonNgu);
-            cmd.ExecuteNonQuery();
-            this.MaNgonNgu = "";
-        }
-        #endregion
-
-        #region Xử lý xóa NhanVien_KhoaHuanLuyen khi bên DanhMuc xóa KhoaHuanLuyen
-        public void SetMaKhoaHuanLuyen(string MaKhoaHuanLuyen)
-        {
-            this.MaKHL = MaKhoaHuanLuyen;
-        }
-        public string GetMaKhoaHuanLuyen()
-        {
-            return MaKHL;
-        }
-        public void XoaNhanVien_KhoaHuanLuyen_Conflig(string MaNoiHoc)
-        {
-            string sqlDelete = "Delete From NhanVien_KhoaHuanLuyen Where MaKhoaHuanLuyen=@MaKhoaHuanLuyen";
-            SqlCommand cmd = new SqlCommand(sqlDelete, con);
-            cmd.Parameters.AddWithValue("MaKhoaHuanLuyen", MaKHL);
-            cmd.ExecuteNonQuery();
-            this.MaKHL = "";
-        }
-        #endregion
-
-        #region Xử lý xóa NhanVien_KhaNangViTinh khi bên DanhMuc xóa Khả năng vi tính
-        public void SetMaKhaNangViTinh(string MaKhaNangViTinh)
-        {
-            this.MaKNVT = MaKhaNangViTinh;
-        }
-        public string GetMaKhaNangViTinh()
-        {
-            return MaKNVT;
-        }
-        public void XoaNhanVien_KhaNangViTinh_Conflig(string MaNoiHoc)
-        {
-            string sqlDelete = "Delete From NhanVien_KhaNangViTinh Where MaKhaNangViTinh=@MaKhaNangViTinh";
-            SqlCommand cmd = new SqlCommand(sqlDelete, con);
-            cmd.Parameters.AddWithValue("MaKhaNangViTinh", MaKNVT);
-            cmd.ExecuteNonQuery();
-            this.MaKNVT = "";
-        }
-        #endregion
-
-        #region Xử lý xóa toàn bộ dữ liệu của nhân viên khi DanhMuc xóa nhân viên đó.
-        public void SetMaNhanVien(int MaNhanVien)
-        {
-            this.MaNhanVien = MaNhanVien;
-        }
-        public int GetMaNhanVien()
-        {
-            return MaNhanVien;
-        }
-        public void XoaDuLieuNhanVien_Conflig(int MaNhanVien)
-        {
-            string sqlDelete = "Delete From NhanVien_NoiHoc Where MaNhanVien=@MaNhanVien";
-            SqlCommand cmd = new SqlCommand(sqlDelete, con);
-            cmd.Parameters.AddWithValue("MaNhanVien", MaNhanVien);
-            cmd.ExecuteNonQuery();
-            this.MaNhanVien = 0;
-
-            sqlDelete = "Delete From NhanVien_CongTy Where MaNhanVien=@MaNhanVien";
-            cmd = new SqlCommand(sqlDelete, con);
-            cmd.Parameters.AddWithValue("MaNhanVien", MaNhanVien);
-            cmd.ExecuteNonQuery();
-            this.MaNhanVien = 0;
-
-            sqlDelete = "Delete From NhanVien_NgonNgu Where MaNhanVien=@MaNhanVien";
-            cmd = new SqlCommand(sqlDelete, con);
-            cmd.Parameters.AddWithValue("MaNhanVien", MaNhanVien);
-            cmd.ExecuteNonQuery();
-            this.MaNhanVien = 0;
-
-            sqlDelete = "Delete From NhanVien_KhoaHuanLuyen Where MaNhanVien=@MaNhanVien";
-            cmd = new SqlCommand(sqlDelete, con);
-            cmd.Parameters.AddWithValue("MaNhanVien", MaNhanVien);
-            cmd.ExecuteNonQuery();
-            this.MaNhanVien = 0;
-
-            sqlDelete = "Delete From NhanVien_KhaNangViTinh Where MaNhanVien=@MaNhanVien";
-            cmd = new SqlCommand(sqlDelete, con);
-            cmd.Parameters.AddWithValue("MaNhanVien", MaNhanVien);
-            cmd.ExecuteNonQuery();
-            this.MaNhanVien = 0;
-        }
-        #endregion
+        
     }
 }
